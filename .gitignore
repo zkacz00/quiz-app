@@ -1,0 +1,25 @@
+# Gatsby/Node
+node_modules/
+.cache/
+public/
+
+# Build
+build/
+dist/
+
+# Logs
+*.log
+
+# Environment variables
+.env*
+
+# IDE
+.vscode/
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environments variables
+.env

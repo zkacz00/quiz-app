@@ -1,0 +1,17 @@
+.navigation {
+    width: 50px;
+
+    @include display-flex();
+    @include justify-content(space-between);
+    &__icon {
+        width: auto;
+        height: 17px;
+
+        cursor: pointer;
+        transition: all .2s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+}

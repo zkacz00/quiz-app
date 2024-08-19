@@ -1,0 +1,80 @@
+.buttonNext {
+    text-align: left;
+    text-transform: uppercase;
+
+    @include align-items(center);
+    @include justify-content(space-around);
+    @extend %fontSize--m;
+    &--small {
+        width: 200px;
+        height: 60px;
+        margin: $s-xx-small;
+        span {
+            margin-left: $s-x-small;
+        }
+        img {
+            width: 55px;
+            margin-top: $s-xx-small;
+        }
+    }
+    &--big {
+        width: 310px;
+        height: 85px;
+        span {
+            margin-left: $s-small;
+        }
+        img {
+            height: 90%;
+            margin-top: $s-x-small;
+        }
+    }
+}
+
+@media (max-width: $break-xl) {
+    .buttonNext {
+        text-align: center;
+
+        border-radius: 11px;
+        &--big {
+            width: 215px;
+            height: 60px;
+            span {
+                margin-left: 0;
+            }
+            img {
+                margin-top: $s-xx-small;
+            }
+        }
+        &--small {
+            width: 125px;
+            height: 45px;
+            margin: 2.5px 0 2.5px 5px;
+            &  img {
+                width: auto;
+                height: 100%;
+                margin-top: 3px;
+            }
+        }
+    }
+}
+
+@media (max-width: $break-s) {
+    .buttonNext--small {
+        margin: 20px 0 0;
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .buttonNext {
+        border-radius: 9px;
+        &--small {
+            width: 100px;
+            height: 35px;
+            margin: 10px 0 0;
+        }
+        &--big {
+            width: 150px;
+            height: 40px;
+        }
+    }
+}

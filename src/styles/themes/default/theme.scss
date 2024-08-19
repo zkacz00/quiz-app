@@ -1,0 +1,22 @@
+@import '../variables';
+@import '../normalize';
+@import '../fonts';
+@import '../mixins';
+@import '../global';
+
+@import './components/_answer-check';
+@import './components/_background-image';
+@import './components/_button-next';
+@import './components/_category-buttons';
+@import './components/_counter';
+@import './components/_header';
+@import './components/_heading';
+@import './components/_navigation';
+@import './components/_quiz-drag-and-drop';
+@import './components/_quiz-put-in-order';
+@import './components/_quiz-select';
+
+@import './pages/_category-start-page';
+@import './pages/_menu-page';
+@import './pages/_quiz-page';
+@import './pages/_score-page';

@@ -1,0 +1,87 @@
+%quizPageStyle--draggableAnswer {
+    width: 650px;
+    height: 60px;
+    margin: $s-xx-small;
+    padding: 0 $s-standard;
+    text-align: left;
+
+    @extend %fontSize--m;
+    @include align-items(center);
+}
+%quizPageStyle__content {
+    max-width: 1200px;
+
+    @include display-flex();
+    @include flex-direction(column);
+    @include align-items(center);
+}
+%quizPageStyle__answersSection {
+    @include display-flex();
+    @include flex-wrap(wrap);
+}
+%quizPageStyle__questionSection {
+    width: 100%;
+    text-align: center;
+
+    @extend %fontSize--xl;
+}
+.quizPage {
+    width: 95%;
+
+    @include display-flex();
+    @include flex-direction(column);
+    @include align-items(center);
+    &__heading {
+        position: relative;
+
+        width: 900px;
+
+        text-align: center;
+
+        @include display-flex();
+        @include align-items(center);
+        @include justify-content(center);
+    }
+}
+
+@media (max-width: $break-xl) {
+    .quizPage__heading {
+        position: relative;
+
+        width: 500px;
+    }
+    %quizPageStyle--draggableAnswer {
+        width: 415px;
+        height: 45px;
+        margin: 2.5px;
+        padding: 0 10px;
+
+        border-radius: 11px;
+
+        @extend %fontSize--m;
+    }
+}
+
+@media (max-width: $break-s) {
+    .quizPage__heading {
+        width: 90%;
+    }
+    %quizPageStyle__answersSection {
+        width: 100%;
+    }
+}
+
+@media (max-width: $break-xs) {
+    %quizPageStyle--draggableAnswer {
+        width: calc(100% - 5px);
+    }
+}
+
+@media (max-width: $break-xxs) {
+    %quizPageStyle--draggableAnswer {
+        height: 35px;
+        margin: 2.5px;
+
+        border-radius: 9px;
+    }
+}

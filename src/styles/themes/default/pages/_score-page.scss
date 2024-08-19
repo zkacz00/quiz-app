@@ -1,0 +1,72 @@
+.scorePage {
+    @extend %sectionContainerStyle;
+    &__mainContent {
+        @include justify-content(space-around);
+        @extend %sectionCenterStyle;
+        height: 580px;
+    }
+    &__score {
+        position: relative;
+        @include display-flex();
+        @include justify-content(center);
+        @include align-items(baseline);
+    }
+    &__list {
+        @extend %sectionRightStyle;
+        p {
+            text-align: right;
+            text-transform: uppercase;
+    
+            @extend %fontSize--m;
+        }
+    }
+}
+
+@media (max-width: $break-xl) {
+    .scorePage__mainContent {      
+        height: 400px;
+    }
+}
+
+@media (max-width: $break-s) {
+    .scorePage {
+        flex-direction: column;
+        &__mainContent {
+            width: 100%;
+            height: 320px;
+        }
+        &__list {
+            width: 100%;
+            padding: 0;
+    
+            align-items: center;
+            & p {
+                margin: $s-medium 0 $s-standard;
+        
+                text-align: center;
+            }
+            & div {
+                display: flex;
+                flex-direction: row;
+        
+                width: 100%;
+        
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .scorePage__mainContent {
+        height: 210px;
+    }
+    .counter.location--scorePage {
+        width: 60px;
+        height: 60px;
+    }
+    .scorePage__list p {
+        margin: 15px 0 10px;
+    }
+}

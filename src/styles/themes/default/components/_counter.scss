@@ -1,0 +1,61 @@
+.counter {
+    @include circle-style();
+    span:last-of-type {
+        color: $c-brilliant-rose;
+    }
+    &--quizPage {
+        position: absolute;
+        top: 36px;
+        right: 0;
+
+        width: 85px;
+        height: 85px;
+
+        @extend %fontSize--xl;
+    }
+    &--scorePage {
+        z-index: 2;
+
+        width: 140px;
+        height: 140px;
+
+        @extend %fontSize--xxl;
+    }
+}
+
+@media (max-width: $break-xl) { 
+    .counter {
+        &--quizPage {
+            top: 28px;
+            right: 0;
+    
+            width: 55px;
+            height: 55px;
+        }
+        &--scorePage {
+           width: 100px;
+            height: 100px;
+        }
+    }
+}
+
+@media (max-width: $break-xs) {
+    .counter--quizPage {
+        top: 25%;
+
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .counter {
+        &--quizPage {
+            top: 12%;
+        }
+        &--scorePage {
+            width: 70px;
+            height: 70px;
+        }
+    }
+}

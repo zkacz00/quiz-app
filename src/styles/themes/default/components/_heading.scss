@@ -1,0 +1,83 @@
+.shadowBackground {
+    width: 680px;
+    height: 55px;
+
+    text-transform: uppercase;
+
+    @extend %fontSize--l;
+    @include display-flex();
+    @include justify-content(center);
+    @include align-items(center);
+    &--menuPage {
+        margin: $s-x-large 0 $s-x-xlarge;
+    }
+    &--startPage {
+        margin: $s-x-large 0 0;
+    }
+    &--quizPage {
+        margin: $s-x-large 0;
+    }
+    &--scorePage {
+        position: absolute;
+        top: 33%;
+        right: -70px;
+    }
+}
+
+@media (max-width: $break-xl) {
+    .shadowBackground {
+        width: 400px;
+        height: 50px;
+        &--menuPage {
+            margin: $s-medium 0 $s-large;
+        }
+        &--startPage {
+            margin: $s-medium 0 0;
+        }
+        &--quizPage {
+            width: 90%;
+            margin: $s-medium 0 $s-standard;
+            & span {
+                max-width: 70%;
+            }
+        }
+        &--scorePage {
+            right: 0;
+        
+            width: 400px;
+            height: 40px;
+        }
+    }
+}
+
+@media (max-width: $break-s) {
+    .shadowBackground {
+         width: 300px;
+    }
+}
+
+@media (max-width: $break-xs) {
+    .shadowBackground--quizPage {
+        margin: $s-standard 0;
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .shadowBackground {
+        height: 30px;
+        width: 240px;
+        &--menuPage,
+        &--quizPage {
+            margin: $s-small 0;
+        }
+        &--startPage {
+            margin: $s-small 0 0;
+        }
+        &--scorePage {
+            right: -40px;
+            top: 31%;
+            width: 295px;
+            height: 30px;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+/* -app variables
+******************************************************************* */
+
+$quiz-categories: ('historia', 'kultura', 'motoryzacja', 'programowanie', 'technologia');
+$page-backgrounds-types: ('start', 'score', 'select', 'tf', 'dnd', 'pio');
+
+/* -prefixes
+******************************************************************* */
+
+$display-flex-prefixes: (-webkit-box, -ms-flexbox, -webkit-flex, flex);
+$prefixes: ('-webkit-', '-moz-', '-ms-', '-o-', '');
+
+/* -fonts
+******************************************************************* */
+
+$f-base-font-family: 'Montserrat', sans-serif;
+
+/* -breaks
+****************************************************************** */
+$break-xxs: 370px; 
+$break-xs: 470px; 
+$break-s: 640px; 
+$break-m: 700px; 
+$break-l: 992px; 
+$break-xl: 1200px; 
+
+/* -grid
+****************************************************************** */
+
+$wrapper: 1302px;
+$wrapper-high: 1200px;
+$wrapper-laptop: 990px;
+$wrapper-mid: 800px;
+$wrapper-mobile: 480px;
+$columns: 12;
+$padding: 15px;
+$grid-md: 768px;
+$grid-lg: 992px;
+$grid-xl: 1199px;
+
+/* -paddings, margins
+****************************************************************** */
+
+$s-xsmall: 2.5px;
+$s-xx-small: 5px;
+$s-x-small: 10px;
+$s-small: 15px;
+$s-standard: 20px;
+$s-medium: 30px;
+$s-large: 40px;
+$s-x-large: 50px;
+$s-xx-large: 60px;
+$s-xlarge: 70px;
+$s-x-xlarge: 80px;
+
+/* -grid sizes
+****************************************************************** */
+
+$sizes:8.33333333%,16.66666667%,25%,33.33333333%,41.66666667%,50%,58.33333333%,66.66666667%,75.66666667%,83.33333333%,91.66666667%,100%;
+
+/* -colors
+******************************************************************* */
+
+$c-dune: #322b27;
+$c-soya-bean: #64574d;
+$c-cement: #8c7863;
+$c-rodeo-dust-transparent: rgba(198, 178, 153, 0.5);
+$c-mongoose: #b8a48e;
+$c-dove-gray: #6e6e6e;
+$c-silver: #c7c7c7;
+$cc-gray: #939393;
+$c-gray-transparent: rgba(147, 147, 147, 0.5);
+$c-white: #ffffff;
+$c-bunting: #13124c;
+$c-persian-blue: #143fc9;
+$c-blue-ribbon:#1057ff;
+$c-denim-transparent: rgba(18, 77, 232, 0.5);
+$c-white: #ffffff;
+$c-valhalla: #2b1845;
+$c-minsk: #522e7a;
+$c-medium-red-violet: #b2368c;
+$c-vivid-violet-transparent:rgba(126, 48, 146, 0.5);
+$c-deluge: #755aa3;
+$c-port-gore: #281943;
+$c-plum: #882587;
+$c-jaguar: #1d0224;
+$c-plum-transparent: rgba(136, 37, 135, 0.5);
+$c-vivid-violet: #6f3990;
+$c-brilliant-rose: #ea46ac;
+
+/* -colors for category "historia"
+******************************************************************* */
+
+$cc-dark-historia: $c-dune;
+$cc-light-historia: $c-soya-bean;
+$cc-hover-historia: $c-cement;
+$cc-sb-historia: $c-rodeo-dust-transparent;
+$cc-border-historia: $c-mongoose;
+
+//colors for category "kultura"
+$cc-dark-kultura: $c-dove-gray;
+$cc-light-kultura: $c-silver;
+$cc-hover-kultura: $cc-gray;
+$cc-sb-kultura: $c-gray-transparent;
+$cc-border-kultura: $c-white;
+
+/* -colors for category "motoryzacja"
+******************************************************************* */
+
+$cc-dark-motoryzacja: $c-bunting;
+$cc-light-motoryzacja: $c-persian-blue;
+$cc-hover-motoryzacja: $c-blue-ribbon;
+$cc-sb-motoryzacja: $c-denim-transparent;
+$cc-border-motoryzacja: $c-white;
+
+/* -colors for category "programowanie"
+******************************************************************* */
+
+$cc-dark-programowanie: $c-valhalla;
+$cc-light-programowanie: $c-minsk;
+$cc-hover-programowanie: $c-medium-red-violet;
+$cc-sb-programowanie: $c-vivid-violet-transparent;
+$cc-border-programowanie: $c-deluge;
+
+/* -colors for category "technologia"
+******************************************************************* */
+
+$cc-dark-technologia: $c-port-gore;
+$cc-light-technologia: $c-plum;
+$cc-hover-technologia: $c-jaguar;
+$cc-sb-technologia: $c-plum-transparent;
+$cc-border-technologia: $c-vivid-violet;

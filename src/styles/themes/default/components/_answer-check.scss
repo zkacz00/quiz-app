@@ -1,0 +1,45 @@
+%answerCheckWrapperStyle {
+    position: relative; 
+}
+.answerCheck {
+    position: absolute;
+    z-index: 100;
+    top: -20px;
+    right: -20px;
+
+    width: 65px;
+    height: 65px;
+
+    transition: opacity .2s ease;
+    &__img {
+        &--true {
+            width: 60%;
+        }
+        &--false {
+            width: 35%;
+        }
+    }
+    &--trueVisible {
+        opacity: 1;
+    }
+    &--falseVisible {
+        opacity: 0;
+    }
+}
+
+@media (max-width: $break-xl) {
+    .answerCheck {
+        top: -15px;
+        right: -5px;
+
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: $break-xs) {
+    .answerCheck {
+        width: 35px;
+        height: 35px;    
+    }
+}

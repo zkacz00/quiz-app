@@ -1,0 +1,70 @@
+.header {
+    @extend %sectionContainerStyle;
+    &__logo {
+        padding-top: $s-x-xlarge;
+        @extend %sectionCenterStyle;
+        & img {
+            height: 60px;
+        }
+    }
+    &__navigation {
+        padding-top: $s-x-xlarge;
+        @extend %sectionRightStyle;
+    }
+    &__icon {
+        @extend %sectionLeftStyle;
+        & img {
+            height: 65px;
+        }
+    }
+}
+
+@media (max-width: $break-xl) {
+    .header {
+        height: 80px;
+        @include align-items(center);
+        &__logo {
+            padding-top: 0;
+            & img {
+                height: 50px;
+            }
+        }
+        &__navigation {
+           padding-top: 0;
+        }
+        &__icon img {
+            height: 50px;
+        }
+    }
+}
+
+@media (max-width: $break-s) {
+    .header {
+        height: 60px;
+        @include align-items(center);
+        &__logo {
+            padding-top: 0;
+            & img {
+                height: 30px;
+            }
+        }
+        &__navigation {
+           padding-top: 0;
+        }
+        &__icon img {
+            height: 30px;
+        }
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .header {
+        height: 45px;
+        &__icon img {
+            width: 30px;
+        }
+        &__logo img {
+            height: 30px;
+        }
+    }
+}

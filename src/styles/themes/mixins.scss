@@ -1,0 +1,354 @@
+@mixin box-shadow($arg) {
+    -webkit-box-shadow: $arg;
+            box-shadow: $arg;
+}
+
+@mixin display-flex() {
+    @each $prefix in $display-flex-prefixes {
+        display: $prefix;
+    }
+}
+
+@mixin flex-direction($value: row)  {
+    -webkit-flex-direction: $value;
+       -moz-flex-direction: $value;
+        -ms-flex-direction: $value;
+            flex-direction: $value;
+    @if $value == row-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: horizontal;
+    } @else if $value == column {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+    } @else if $value == column-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: vertical;
+    } @else {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+    }
+}
+
+@mixin flex-wrap($value: nowrap) {
+    -webkit-flex-wrap: $value;
+       -moz-flex-wrap: $value;
+            flex-wrap: $value;
+    @if $value == nowrap {
+        -ms-flex-wrap: none;
+    }
+    @else if $value == inherit {
+        -ms-flex-wrap: $value;
+    }
+    @else {
+        -ms-flex-wrap: $value;
+    }
+}
+
+@mixin flex-flow($values: (row nowrap)) {
+    -webkit-flex-flow: $values;
+       -moz-flex-flow: $values;
+        -ms-flex-flow: $values;
+            flex-flow: $values;
+}
+
+@mixin order($int: 0) {
+    -webkit-box-ordinal-group: $int + 1;
+    -webkit-order: $int;
+       -moz-order: $int;
+    -ms-flex-order: $int;
+            order: $int;
+}
+
+@mixin flex-grow($int: 0) {
+    -webkit-box-flex: $int;
+    -webkit-flex-grow: $int;
+       -moz-flex-grow: $int;
+    -ms-flex-positive: $int;
+            flex-grow: $int;
+}
+
+@mixin flex-shrink($int: 1) {
+    -webkit-flex-shrink: $int;
+       -moz-flex-shrink: $int;
+    -ms-flex-negative: $int;
+            flex-shrink: $int;
+}
+
+@mixin flex-basis($value: auto) {
+    -webkit-flex-basis: $value;
+       -moz-flex-basis: $value;
+    -ms-flex-preferred-size: $value;
+            flex-basis: $value;
+}
+
+@mixin justify-content($value: flex-start) {
+    -webkit-justify-content: $value;
+       -moz-justify-content: $value;
+            justify-content: $value;
+    @if $value == flex-start {
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+    } @else if $value == flex-end {
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+    } @else if $value == space-between {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+    } @else if $value == space-around {
+        -ms-flex-pack: distribute;
+    } @else {
+        -webkit-box-pack: $value;
+        -ms-flex-pack: $value;
+    }
+}
+
+@mixin align-items($value: stretch) {
+    -webkit-align-items: $value;
+       -moz-align-items: $value;
+            align-items: $value;
+    @if $value == flex-start {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+    } @else if $value == flex-end {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+    } @else {
+        -webkit-box-align: $value;
+        -ms-flex-align: $value;
+    }
+}
+
+@mixin align-content($value: stretch) {
+    -webkit-align-content: $value;
+       -moz-align-content: $value;
+            align-content: $value;
+    @if $value == flex-start {
+        -ms-flex-line-pack: start;
+    } @else if $value == flex-end {
+        -ms-flex-line-pack: end;
+    } @else {
+        -ms-flex-line-pack: $value;
+    }
+}
+
+@mixin categories-styles_colors($category, $type) {
+    @if ($category == 'historia') { 
+        @if($type=='background--shadow') {
+            background: radial-gradient(circle, $cc-sb-historia 0, rgba(255, 255, 255, 0) 100%);
+        }
+        @else if ($type=='background--button') {
+            background: linear-gradient(45deg, $cc-dark-historia 30%, $cc-light-historia 100%);
+        }
+        @else if ($type=='background--circle') {
+            background: linear-gradient(90deg, $cc-dark-historia 30%, $cc-light-historia 100%);
+        }
+        @else if ($type=='border') {
+            border: 2px solid $cc-border-historia;
+        }
+        @else if ($type=='box-shadow') {
+            @include box-shadow(3px 3px 8px -2px $cc-border-historia);
+        }
+        @else if ($type=='background--hover') {
+            background: linear-gradient(45deg, $cc-hover-historia 30%, $cc-light-historia 100%);
+        }
+    }
+    @else if ($category == 'kultura') { 
+        @if($type=='background--shadow') {
+            background: radial-gradient(circle, $cc-sb-kultura 0, rgba(255, 255, 255, 0) 100%);
+        }
+        @else if ($type=='background--button') {
+            background: linear-gradient(45deg, $cc-dark-kultura 30%, $cc-light-kultura 100%);
+        }
+        @else if ($type=='background--circle') {
+            background: linear-gradient(90deg, $cc-dark-kultura 30%, $cc-light-kultura 100%);
+        }
+        @else if ($type=='border') {
+            border: 2px solid $cc-border-kultura;
+        }
+        @else if ($type=='box-shadow') {
+            @include box-shadow(3px 3px 8px -2px $cc-border-kultura);
+        }
+        @else if ($type=='background--hover') {
+            background: linear-gradient(45deg, $cc-hover-kultura 30%, $cc-light-kultura 100%);
+        }
+    }
+    @else if ($category == 'motoryzacja') { 
+        @if($type=='background--shadow') {
+            background: radial-gradient(circle, $cc-sb-motoryzacja 0, rgba(255, 255, 255, 0) 100%);
+        }
+        @else if ($type=='background--button') {
+            background: linear-gradient(45deg, $cc-dark-motoryzacja 30%, $cc-light-motoryzacja 100%);
+        }
+        @else if ($type=='background--circle') {
+            background: linear-gradient(90deg, $cc-dark-motoryzacja 30%, $cc-light-motoryzacja 100%);
+        }
+        @else if ($type=='border') {
+            border: 2px solid $cc-border-motoryzacja;
+        }
+        @else if ($type=='box-shadow') {
+            @include box-shadow(3px 3px 8px -2px $cc-border-motoryzacja);
+        }
+        @else if ($type=='background--hover') {
+            background: linear-gradient(45deg, $cc-hover-motoryzacja 30%, $cc-light-motoryzacja 100%);
+        }
+    }
+    @else if ($category == 'programowanie') { 
+        @if($type=='background--shadow') {
+            background: radial-gradient(circle, $cc-sb-programowanie 0, rgba(255, 255, 255, 0) 100%);
+        }
+        @else if ($type=='background--button') {
+            background: linear-gradient(45deg, $cc-dark-programowanie 30%, $cc-light-programowanie 100%);
+        }
+        @else if ($type=='background--circle') {
+            background: linear-gradient(90deg, $cc-dark-programowanie 30%, $cc-light-programowanie 100%);
+        }
+        @else if ($type=='border') {
+            border: 2px solid $cc-border-programowanie;
+        }
+        @else if ($type=='box-shadow') {
+            @include box-shadow(3px 3px 8px -2px $cc-border-programowanie);
+        }
+        @else if ($type=='background--hover') {
+            background: linear-gradient(45deg, $cc-hover-programowanie 30%, $cc-light-programowanie 100%);
+        }
+    }
+    @else if ($category == 'technologia') { 
+        @if($type=='background--shadow') {
+            background: radial-gradient(circle, $cc-sb-technologia 0, rgba(255, 255, 255, 0) 100%);
+        }
+        @else if ($type=='background--button') {
+            background: linear-gradient(45deg, $cc-dark-technologia 30%, $cc-light-technologia 100%);
+        }
+        @else if ($type=='background--circle') {
+            background: linear-gradient(90deg, $cc-dark-technologia 30%, $cc-light-technologia 100%);
+        }
+        @else if ($type=='border') {
+            border: 2px solid $cc-border-technologia;
+        }
+        @else if ($type=='box-shadow') {
+            @include box-shadow(3px 3px 8px -2px $cc-border-technologia);
+        }
+        @else if ($type=='background--hover') {
+            background: linear-gradient(45deg, $cc-hover-technologia 30%, $cc-light-technologia 100%);
+        }
+    }
+}
+
+@mixin button-style() {
+    // transition: transform 0.5s ease;
+    @include display-flex();
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+@mixin circle-style() {
+    @include display-flex();
+    border: 2px white solid;
+    border-radius: 50%;
+    @include justify-content(center);
+    @include align-items(center);
+}
+
+@mixin gradient-animation($category){
+    background-size: 100%;
+    position: relative;
+    z-index: 50;
+    &:before {
+        @include categories-styles_colors($category, 'background--hover');
+        content: '';    
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -100;
+    }
+    @media(hover: hover) {
+        &:before {
+            transition: opacity 0.5s ease;
+        }
+        &:hover, &:active {
+            &:before {
+                opacity: 1; 
+            }
+        }
+    }
+    @media(hover: none) {
+        &:before {
+            transition: opacity 0.3s ease-in;
+        }
+        &:focus, &:active {
+            &:before {
+                opacity: 1; 
+            }
+        }
+    }
+}
+
+@each $category in $quiz-categories {
+    .shadowBackground--#{$category} {
+        @include categories-styles_colors($category, 'background--shadow');
+    }
+    .counter, .answerCheck {
+        &--#{$category} {
+            @include categories-styles_colors($category, 'background--circle');
+            @include categories-styles_colors($category, 'border');
+            @include categories-styles_colors($category, 'box-shadow');
+        }
+    }
+    .answerCheck--#{$category} {
+        @include circle-style();
+    }
+    .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
+        &--#{$category} {
+            @include categories-styles_colors($category, 'background--button');
+            @include categories-styles_colors($category, 'border');
+            @include categories-styles_colors($category, 'box-shadow');
+            @include button-style();
+            @include gradient-animation($category);
+            -webkit-tap-highlight-color: transparent;
+        }
+    }
+    .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
+        &--#{$category}:before {
+            border-radius: 12px;
+        }
+    }
+    .quizPageDnd__questionDropPlaceWrapper--#{$category} {
+        @include categories-styles_colors($category, 'border');
+    }
+}
+
+@media (max-width: $break-xl) {
+    @each $category in $quiz-categories {
+        .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
+            &--#{$category}:before {
+                border-radius: 9px;
+            }
+        }
+    }
+}
+@media (max-width: $break-s) {
+    @each $category in $quiz-categories {
+        .scorePage__list div .categoryButton {
+            &--#{$category}:before {
+                border-radius: 4px;
+            }
+        }
+    }
+}
+@media (max-width: $break-xxs) {
+    @each $category in $quiz-categories {
+        .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
+            &--#{$category}:before {
+                border-radius: 6px;
+            }
+        }
+        .scorePage__list div .categoryButton {
+            &--#{$category}:before {
+                border-radius: 4px;
+            }
+        }
+    }
+}

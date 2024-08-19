@@ -1,0 +1,139 @@
+%fontSize--xxl {
+    font-size: 3.2rem;
+}
+%fontSize--xl {
+    font-size: 2.2rem;
+}
+%fontSize--l {
+    font-size: 2.1rem;
+}
+%fontSize--m {
+    font-size: 1.8rem;
+}
+%fontSize--sm {
+    font-size: 1.7rem;
+}
+%fontSize--s {
+    font-size: 1.4rem;
+}
+%fontSize--xxs {
+    font-size: .9rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+html {
+    font-family: $f-base-font-family;
+    font-size: 10px;
+
+    height: 100%;
+}
+
+.pageContainer {
+    position: absolute;
+
+    width: 100%;
+    min-width: 250px;
+
+    @include display-flex();
+    @include flex-direction(column);
+    @include align-items(center);
+}
+
+%section {
+    &ContainerStyle {
+        width: 100%;
+
+        @include display-flex();
+        @include flex-direction(row);
+        @include justify-content(flex-end);
+    }
+    &LeftStyle {
+        width: 20%;
+        padding: $s-standard 0 0 $s-standard;
+    }
+    &CenterStyle {
+        width: 60%;
+
+        @include display-flex();
+        @include flex-direction(column);
+        @include align-items(center);
+    }
+    &RightStyle {
+        width: 20%;
+        padding-right: 10%;
+
+        @include display-flex();
+        @include flex-direction(column);
+        @include align-items(flex-end);
+    }
+}
+
+@media (max-width: $break-xl) {
+    %fontSize--xxl {
+        font-size: 2rem;
+    }
+    %fontSize--xl {
+        font-size: 1.4rem;
+    }
+    %fontSize--l {
+        font-size: 1.4rem;
+    }
+    %fontSize--m {
+        font-size: 1.2rem;
+    }
+    %fontSize--sm {
+        font-size: 1.2rem;
+    }
+    %fontSize--s {
+        font-size: .9rem;
+    }
+    %fontSize--xxs {
+        font-size: .8rem;
+    }
+    %section {
+        &LeftStyle {
+            padding: 0 0 0 $s-standard;
+        }
+        &RightStyle {
+            padding: 0 $s-standard 0 0;
+        }
+    }
+}
+
+@media (max-width: $break-s) {
+    %fontSize--l {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: $break-xxs) {
+    %fontSize--xxl {
+        font-size: 2rem;
+    }
+    %fontSize--xl {
+        font-size: 1rem;
+    }
+    %fontSize--l {
+        font-size: 1rem;
+    }
+    %fontSize--m {
+        font-size: .9rem;
+    }
+    %fontSize--sm {
+        font-size: .8rem;
+    }
+    %fontSize--s {
+        font-size: .8rem;
+    }
+    %fontSize--xxs {
+        font-size: .8rem;
+    }
+}

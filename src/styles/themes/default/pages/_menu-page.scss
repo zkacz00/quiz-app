@@ -1,0 +1,25 @@
+.menuPage__categoriesLinksWrapper {
+    width: 950px;
+
+    @include display-flex();
+    @include flex-wrap(wrap);
+    @include justify-content(flex-start);
+}
+
+@media (max-width: $break-xl) {
+    .menuPage__categoriesLinksWrapper {
+        width: 390px;
+    }
+}
+
+@media (max-width: $break-s) {
+    .menuPage__categoriesLinksWrapper {
+        width: 260px;
+    }
+}
+
+@media (max-width: $break-xxs) {
+    .menuPage__categoriesLinksWrapper {
+        width: 224px;
+    }
+}
