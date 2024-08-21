@@ -13,13 +13,13 @@ function MenuPage() {
    return (
       <>
          <BackgroundImage category='programowanie' location='menu' />
-         <div className="pageContainer">
+         <main className="pageContainer">
             <Header />
-            <Heading category="programowanie" location="menuPage" text="10 pytań&nbsp;&nbsp;&#8260;&nbsp;&nbsp;5 kategorii" />
+            <Heading type="h1" category="programowanie" location="menuPage" text="10 pytań&nbsp;&nbsp;&#8260;&nbsp;&nbsp;5 kategorii" />
             <div className="menuPage__categoriesLinksWrapper">
                <CategoryButtonsList category='programowanie' direction="row" location="startPage"/>
             </div>
-         </div>
+         </main>
       </>
   );
 }

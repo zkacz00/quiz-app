@@ -1,3 +1,5 @@
+import { answerCheck } from '../../context/quizUtils';
+
 interface Props {
     category: string;
     isVisible: boolean;
@@ -11,7 +13,7 @@ const AnswerCheck = (props: Props) : JSX.Element => {
         <div className={`answerCheck answerCheck--${props.category} 
         answerCheck--${props.index === props.selectedAnswerId ? `${props.isVisible}Visible` : `falseVisible`} `}
         >
-			<img className={`answerCheck__img--${props.isCorrect}`} src={require(`../../assets/general/${props.isCorrect}-answer-icon.png`).default} alt="img"/>
+			<img className={`answerCheck__img--${props.isCorrect}`} src={require(`../../assets/general/${props.isCorrect}-answer-icon.png`)} alt={`${props.isCorrect ? answerCheck.correct : answerCheck.incorrect}`}/>
 		</div>
     )
 }

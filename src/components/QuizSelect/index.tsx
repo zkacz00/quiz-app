@@ -64,7 +64,7 @@ const QuizSelect = (props: Props) => {
    return (
       <div className={`quizPageSelect quizPageSelect--${props.questionType}`}>
          <div className={`quizPageSelect__questionSection quizPageSelect__questionSection--${props.questionType}`}>
-            <p>{props.currentQuestion+1}. {props.questionText1}</p>
+            <h2>{props.currentQuestion+1}. {props.questionText1}</h2>
             <p>{props.questionText2}</p>
             <p>{props.questionText3}</p>
          </div>

@@ -5,7 +5,7 @@ interface Props {
 
 const BackgroundImage = ({location, category}: Props) : JSX.Element => {
    return ( 
-      <img className="backgroundImage" src={require(`../../assets/${category}/page-background--${location}--${category}.png`).default} alt="img"/>
+      <img className="backgroundImage" src={require(`../../assets/${category}/page-background--${location}--${category}.png`)} alt=""/>
    );
 }
 

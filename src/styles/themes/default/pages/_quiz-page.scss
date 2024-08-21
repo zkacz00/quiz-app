@@ -24,6 +24,10 @@
     text-align: center;
 
     @extend %fontSize--xl;
+    & h2 {
+        @extend %fontSize--xl;
+        margin-bottom: 10px;
+    }
 }
 .quizPage {
     width: 95%;

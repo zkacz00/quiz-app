@@ -21,15 +21,15 @@ const CategoryStartPage = ({category}: Props) => {
          <BackgroundImage category={category} location="start" />
          <div className="pageContainer">
             <Header />
-            <div className="categoryStartPage">
-               <Heading category={category} location="startPage" text="wybrana kategoria:" />
+            <main className="categoryStartPage">
+               <Heading type="h1" category={category} location="startPage" text="wybrana kategoria:" />
                <div className="categoryStartPage__categoryButton">
                   <CategoryButton category={category} location="single"/>
                </div>
                <Link to={`/quiz/${category}/start`}>
                   <NextButton category={category} text='rozpocznij' size='big' />
                </Link>
-            </div>
+            </main>
          </div>
       </>
    );

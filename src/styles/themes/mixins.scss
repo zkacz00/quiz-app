@@ -307,6 +307,8 @@
             @include categories-styles_colors($category, 'box-shadow');
             @include button-style();
             @include gradient-animation($category);
+        }
+        & {
             -webkit-tap-highlight-color: transparent;
         }
     }

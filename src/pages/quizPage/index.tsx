@@ -77,13 +77,13 @@ const QuizPage = ({category}: Props) => {
                {showScore ?
                   <ScorePage score={score} numberOfQuestions={numberOfQuestions} category={category}/> 
                :
-                  <div className="quizPage">
+                  <main className="quizPage">
                      <div className="quizPage__heading">
-                        <Heading category={category} location="quizPage" text={headingText} /> 
+                        <Heading type="h1" category={category} location="quizPage" text={headingText} /> 
                         <Counter location="quizPage" category={category} currentQuestion={currentQuestion} numberOfQuestions={numberOfQuestions}/>
                      </div>                  
                         {returnQuestionComponent()}
-                  </div>
+                  </main>
                }
          </div>
       </>

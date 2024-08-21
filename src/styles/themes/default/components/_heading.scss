@@ -8,6 +8,11 @@
     @include display-flex();
     @include justify-content(center);
     @include align-items(center);
+
+    & h1, h2, h3, h4, h5, h6 {
+        @extend %fontSize--l;
+    }
+
     &--menuPage {
         margin: $s-x-large 0 $s-x-xlarge;
     }

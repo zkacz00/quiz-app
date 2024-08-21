@@ -1,4 +1,5 @@
 import {useHistory, Link} from "react-router-dom";
+import { buttonTextAlternatives } from '../../context/quizUtils';
 
 const Navigation = () : JSX.Element => {
 
@@ -6,8 +7,8 @@ const Navigation = () : JSX.Element => {
    
    return (
       <div className="navigation">
-         <img className="navigation__icon" src={require('../../assets/general/back-icon.png').default} onClick={history.goBack} alt="img"/>
-         <Link to="/"><img className="navigation__icon" src={require('../../assets/general/close-icon.png').default} alt="img"/></Link>
+         <img className="navigation__icon" src={require('../../assets/general/back-icon.png')} onClick={history.goBack} alt={buttonTextAlternatives.goBack}/>
+         <Link to="/"><img className="navigation__icon" src={require('../../assets/general/close-icon.png')} alt={buttonTextAlternatives.close}/></Link>
       </div>
    );
 }

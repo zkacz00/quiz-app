@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import {DragDropContext, Droppable, Draggable} from '@hello-pangea/dnd';
 import AnswerCheck from '../AnswerCheck';
 import NextButton from '../NextButton';
 
@@ -100,7 +100,7 @@ const questionList = (answerOptions: Array<{answerText : string, isCorrect? : bo
       <div className="quizPagePio">
 
          <div className="quizPagePio__questionSection">   
-            <p>{props.currentQuestion+1}. {props.questionText1}</p>
+            <h2>{props.currentQuestion+1}. {props.questionText1}</h2>
             <p>{props.questionText2}</p>
             <p>{props.questionText3}</p>
          </div>

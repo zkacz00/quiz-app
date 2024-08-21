@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext } from "@hello-pangea/dnd";
 import DndElement from './dndElement'
 import AnswerCheck from '../AnswerCheck';
 import NextButton from '../NextButton';
@@ -22,7 +22,6 @@ interface Props {
    answerOptions: Array<{answerText : string, isCorrect? : boolean}>;
    goToNextQuestion: (isCorrect: boolean) => void;
 }
-
 
 const onDragEnd = ({result, columns, setColumns}: OnDragEndProps) => {
    if (!result.destination) return;
@@ -186,7 +185,6 @@ const QuizDragAndDrop = (props: Props) : JSX.Element  => {
       })()
    }, [columns.place2.items]);
 
-
    return (
       <div className="quizPageDnd">
 
@@ -194,7 +192,7 @@ const QuizDragAndDrop = (props: Props) : JSX.Element  => {
 
             <div className="quizPageDnd__questionSection">
                
-               <p>{props.currentQuestion+1}. {props.questionText1}</p>
+               <h2>{props.currentQuestion+1}. {props.questionText1}</h2>
                
                <div className="quizPageDnd__questionSectionPart">
                   <p>{props.questionText2}</p>
