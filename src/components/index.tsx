@@ -11,6 +11,9 @@ import QuizDragAndDrop from './QuizDragAndDrop';
 import DndElement from './QuizDragAndDrop/dndElement';
 import QuizPutInOrder from './QuizPutInOrder';
 import QuizSelect from './QuizSelect';
+import Logo from './Logo';
+import PageTransition from './PageTransition';
+import ErrorBoundary from './ErrorBoundary';
 
 const components = {
 	AnswerCheck,
@@ -20,12 +23,14 @@ const components = {
 	Counter,
 	Header,
 	Heading,
+	Logo,
 	Navigation,
 	NextButton,
 	QuizDragAndDrop,
 	DndElement,
 	QuizPutInOrder,
 	QuizSelect,
+	PageTransition
 }
 
 export default components;

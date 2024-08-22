@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import AnswerCheck from '../AnswerCheck';
+import {type Category} from '../../context/quizUtils'
 
 interface Props {
-   category: string;
+   category: Category;
    questionType: string; 
    questionText1: string;
    questionText2?: string;
@@ -65,8 +66,8 @@ const QuizSelect = (props: Props) => {
       <div className={`quizPageSelect quizPageSelect--${props.questionType}`}>
          <div className={`quizPageSelect__questionSection quizPageSelect__questionSection--${props.questionType}`}>
             <h2>{props.currentQuestion+1}. {props.questionText1}</h2>
-            <p>{props.questionText2}</p>
-            <p>{props.questionText3}</p>
+            {props.questionText2 && <p>{props.questionText2}</p>}
+            {props.questionText3 && <p>{props.questionText3}</p>}
          </div>
          <div className={`quizPageSelect__answersSection quizPageSelect__answersSection--${props.questionType}`}>
             {quizQuestions}

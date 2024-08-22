@@ -1,6 +1,9 @@
+import React from "react";
+import {type Category} from '../../context/quizUtils'
+
 interface Props {
    location: string;
-   category: string;
+   category: Category;
    numberOfQuestions: number;
    currentQuestion?: number;
    score?: number;

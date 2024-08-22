@@ -1,9 +1,11 @@
+import React from "react";
 import { buttonTextAlternatives } from '../../context/quizUtils';
+import {type Category} from '../../context/quizUtils'
 
 interface Props {
     size: string;
     text: string;
-    category: string;
+    category: Category;
 }
 
 const NextButton = ({size, text, category}: Props) : JSX.Element => {

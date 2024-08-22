@@ -1,7 +1,9 @@
+import React from "react";
 import { answerCheck } from '../../context/quizUtils';
+import {type Category} from '../../context/quizUtils'
 
 interface Props {
-    category: string;
+    category: Category;
     isVisible: boolean;
     isCorrect?: boolean;
     index?: number;

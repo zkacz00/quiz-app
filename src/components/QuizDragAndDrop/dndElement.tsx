@@ -1,9 +1,10 @@
+import React from "react";
 import { Draggable, Droppable } from "@hello-pangea/dnd";
-import React from 'react';
+import {type Category} from '../../context/quizUtils'
 
 interface Props {
    section: string;
-   category: string;
+   category: Category;
    isDragDisabled: boolean;
    column: {id: string, items: Array<{answerText: string}>};
 }

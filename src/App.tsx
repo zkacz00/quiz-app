@@ -1,37 +1,38 @@
 import './styles/themes/default/theme.scss';
-import {BrowserRouter as Router, Switch, Route} from 'react-router';
+import React from 'react';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 import MenuPage from './pages/menuPage';
 import CategoryStartPage from './pages/categoryStartPage';
 import QuizPage from './pages/quizPage';
+import ErrorBoundary from './components/ErrorBoundary';
 
 import quizCategoriesList from './context/quizCategoriesList';
+import {type Category} from './context/quizUtils'
 
 function App() {
 
-   const quizPagesRoutes = quizCategoriesList.map((category: string, key: number) => 
+   const quizPagesRoutes = quizCategoriesList.map((category: Category, key: number) => 
       (
-         <Route exact path={`/quiz/${category}`} key={`r-${key}`}>
-           <CategoryStartPage category={category} key={`c-${key}`} />
-         </Route>
+         <Route path={`/quiz/${category}`} key={`r-${key}`} element={<CategoryStartPage category={category} />} />
       ));
 
-   const questionComponentsRoutes = quizCategoriesList.map((category: string, key: number) => 
+   const questionComponentsRoutes = quizCategoriesList.map((category: Category, key: number) => 
       (
-         <Route exact path={`/quiz/${category}/start`} key={`r-${key}`}>
-            <QuizPage category={category} key={`c-${key}`} />
-         </Route>
+         <Route path={`/quiz/${category}/start`} key={`r-${key}`} element={<QuizPage category={category} />} />
       ));
 
    return (
       <>
-         <Router>
-            <Switch>
-               <Route exact path='/' component={MenuPage} />
-               {quizPagesRoutes}
-               {questionComponentsRoutes}
-            </Switch>
-         </Router>    
+         <ErrorBoundary>
+            <Router>
+               <Routes>
+                  <Route path='/' element={<MenuPage />} />
+                  {quizPagesRoutes}
+                  {questionComponentsRoutes}
+               </Routes>
+            </Router>
+         </ErrorBoundary>
       </>
    );
 

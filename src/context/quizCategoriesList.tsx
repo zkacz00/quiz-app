@@ -1,4 +1,6 @@
-const quizCategoriesList : Array<string> = [
+import { Category } from "./quizUtils";
+
+const quizCategoriesList : Array<Category> = [
    'historia',
    'kultura',
    'motoryzacja',

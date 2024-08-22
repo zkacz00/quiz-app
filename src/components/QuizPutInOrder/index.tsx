@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {DragDropContext, Droppable, Draggable} from '@hello-pangea/dnd';
 import AnswerCheck from '../AnswerCheck';
 import NextButton from '../NextButton';
+import {type Category} from '../../context/quizUtils'
 
 interface ReorderProps {
    startIndex: number;
@@ -10,7 +11,7 @@ interface ReorderProps {
 }
 
 interface Props {
-   category: string;
+   category: Category;
    questionText1: string;
    questionText2?: string;
    questionText3?: string;
@@ -101,8 +102,8 @@ const questionList = (answerOptions: Array<{answerText : string, isCorrect? : bo
 
          <div className="quizPagePio__questionSection">   
             <h2>{props.currentQuestion+1}. {props.questionText1}</h2>
-            <p>{props.questionText2}</p>
-            <p>{props.questionText3}</p>
+            {props.questionText2 && <p>{props.questionText2}</p>}
+            {props.questionText3 && <p>{props.questionText3}</p>}
          </div>
 
          <div className="quizPagePio__answersSection">
