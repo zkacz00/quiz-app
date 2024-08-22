@@ -1,6 +1,6 @@
 .shadowBackground {
-    width: 680px;
-    height: 55px;
+    width: 70%;
+    height: 56px;
 
     text-transform: uppercase;
 
@@ -13,16 +13,8 @@
         @extend %fontSize--l;
     }
 
-    &--menuPage {
-        margin: $s-x-large 0 $s-x-xlarge;
-    }
-    &--startPage {
-        margin: $s-x-large 0 0;
-    }
-    &--quizPage {
-        margin: $s-x-large 0;
-    }
     &--scorePage {
+        width: 680px;
         position: absolute;
         top: 33%;
         right: -70px;

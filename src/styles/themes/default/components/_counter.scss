@@ -5,7 +5,7 @@
     }
     &--quizPage {
         position: absolute;
-        top: 36px;
+        top: calc((85 - 56) / 2)px;
         right: 0;
 
         width: 85px;

@@ -8,7 +8,7 @@
     &--small {
         width: 200px;
         height: 60px;
-        margin: $s-xx-small;
+        margin-top: $s-xx-small;
         span {
             margin-left: $s-x-small;
         }
@@ -55,12 +55,6 @@
                 margin-top: 3px;
             }
         }
-    }
-}
-
-@media (max-width: $break-s) {
-    .buttonNext--small {
-        margin: 20px 0 0;
     }
 }
 

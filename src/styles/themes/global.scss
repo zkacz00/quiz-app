@@ -27,12 +27,16 @@
     text-decoration: none;
 
     color: white;
+    user-select: none; /* For modern browsers */
+    -webkit-user-select: none; /* For Safari */
+    -moz-user-select: none; /* For Firefox */
+    -ms-user-select: none; 
 }
 
 html {
     font-family: $f-base-font-family;
     font-size: 10px;
-
+    background-color: #26153D;
     height: 100%;
 }
 
@@ -40,39 +44,25 @@ html {
     position: absolute;
 
     width: 100%;
-    min-width: 250px;
+    min-width: 320px;
 
     @include display-flex();
     @include flex-direction(column);
     @include align-items(center);
 }
 
-%section {
-    &ContainerStyle {
-        width: 100%;
-
-        @include display-flex();
-        @include flex-direction(row);
-        @include justify-content(flex-end);
-    }
-    &LeftStyle {
-        width: 20%;
-        padding: $s-standard 0 0 $s-standard;
-    }
-    &CenterStyle {
-        width: 60%;
-
-        @include display-flex();
-        @include flex-direction(column);
-        @include align-items(center);
-    }
-    &RightStyle {
-        width: 20%;
-        padding-right: 10%;
-
-        @include display-flex();
-        @include flex-direction(column);
-        @include align-items(flex-end);
+.contentContainer {
+    width: 100%;
+    padding: 40px 0;
+    margin: 0 64px;
+    gap: 40px;
+    max-width: 970px;
+    @include display-flex();
+    @include flex-direction(column);
+    @include align-items(center);
+    &--quiz {
+        padding: 32px 0;
+        gap: 32px;  
     }
 }
 

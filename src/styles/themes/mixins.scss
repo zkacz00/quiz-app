@@ -133,6 +133,9 @@
 
 @mixin categories-styles_colors($category, $type) {
     @if ($category == 'historia') { 
+        @if($type=='background--header') {
+            background: rgba(50, 43, 39, 40%);
+        }
         @if($type=='background--shadow') {
             background: radial-gradient(circle, $cc-sb-historia 0, rgba(255, 255, 255, 0) 100%);
         }
@@ -153,6 +156,9 @@
         }
     }
     @else if ($category == 'kultura') { 
+        @if($type=='background--header') {
+            background: rgba(110, 110, 110, 40%);
+        }
         @if($type=='background--shadow') {
             background: radial-gradient(circle, $cc-sb-kultura 0, rgba(255, 255, 255, 0) 100%);
         }
@@ -173,6 +179,9 @@
         }
     }
     @else if ($category == 'motoryzacja') { 
+        @if($type=='background--header') {
+            background: rgba(19, 18, 76, 40%);
+        }
         @if($type=='background--shadow') {
             background: radial-gradient(circle, $cc-sb-motoryzacja 0, rgba(255, 255, 255, 0) 100%);
         }
@@ -193,6 +202,9 @@
         }
     }
     @else if ($category == 'programowanie') { 
+        @if($type=='background--header') {
+            background: rgba(27, 15, 46, 40%);
+        }
         @if($type=='background--shadow') {
             background: radial-gradient(circle, $cc-sb-programowanie 0, rgba(255, 255, 255, 0) 100%);
         }
@@ -213,6 +225,9 @@
         }
     }
     @else if ($category == 'technologia') { 
+        @if($type=='background--header') {
+            background: rgba(34, 2, 42, 40%);
+        }
         @if($type=='background--shadow') {
             background: radial-gradient(circle, $cc-sb-technologia 0, rgba(255, 255, 255, 0) 100%);
         }
@@ -276,7 +291,7 @@
     }
     @media(hover: none) {
         &:before {
-            transition: opacity 0.3s ease-in;
+            transition: opacity 0.3s ease;
         }
         &:focus, &:active {
             &:before {
@@ -299,6 +314,19 @@
     }
     .answerCheck--#{$category} {
         @include circle-style();
+    }
+    .header {
+        &--#{$category} {
+            @include categories-styles_colors($category, 'box-shadow');
+            @include categories-styles_colors($category, 'background--header');
+            @include categories-styles_colors($category, 'border');
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+        & {
+            -webkit-tap-highlight-color: transparent;
+        }
     }
     .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
         &--#{$category} {

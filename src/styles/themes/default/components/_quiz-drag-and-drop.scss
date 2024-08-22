@@ -1,10 +1,13 @@
 .quizPageDnd {
     @extend %quizPageStyle__content;
+    gap: 24px;
+
     &__questionSection {
-        margin-bottom: $s-standard;
-    
+        min-height: 256px;
+        gap: 24px;
+        @include display-flex();
         @include flex-direction(column);
-        @include justify-content(space-between);
+        @include justify-content(center);
         @extend %quizPageStyle__questionSection;
         > p {
            margin-bottom: $s-x-small;
@@ -13,10 +16,10 @@
         }
     }
     &__questionSectionPart {
-        min-height: 90px;
+        gap: 16px;
 
         @include display-flex();
-        @include flex-wrap(wrap);
+        @include flex-wrap(no-wrap);
         @include align-items(center);
         @include justify-content(center);
         p {
@@ -36,7 +39,7 @@
         box-sizing: content-box;
         width: 660px;
         height: 70px;
-        margin-left: 20px;
+        // margin-left: 20px;
 
         border-radius: 18px;
 
@@ -51,6 +54,7 @@
         height: 50%;
     }
     &__answersSection {
+        gap: 16px;
         @extend %quizPageStyle__answersSection;
         @include flex-direction(row);
         @include justify-content(center);

@@ -1,0 +1,21 @@
+.logo {
+  height: 64px;
+}
+
+@media (max-width: $break-xl) {
+  .logo {
+    height: 56px;
+  }
+}
+
+@media (max-width: $break-s) {
+  .logo {
+    height: 32px;
+  }
+}
+
+@media (max-width: $break-xxs) {
+  .logo {
+    height: 32px;
+  }
+}

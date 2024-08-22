@@ -1,34 +1,29 @@
 .header {
-    @extend %sectionContainerStyle;
-    &__logo {
-        padding-top: $s-x-xlarge;
-        @extend %sectionCenterStyle;
-        & img {
-            height: 60px;
-        }
-    }
-    &__navigation {
-        padding-top: $s-x-xlarge;
-        @extend %sectionRightStyle;
-    }
+    @include display-flex();
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    width: 100%;
+    position: relative;
+    transition: transform 0.5s ease;
+    transform: translateY(-100%); // Start off-screen
+
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 64px;
+    height: 80px;
     &__icon {
-        @extend %sectionLeftStyle;
         & img {
-            height: 65px;
+            height: 48px;
         }
     }
 }
 
+.header.slide-in {
+    transform: translateY(0); // Slide into view
+}
+
 @media (max-width: $break-xl) {
     .header {
-        height: 80px;
-        @include align-items(center);
-        &__logo {
-            padding-top: 0;
-            & img {
-                height: 50px;
-            }
-        }
         &__navigation {
            padding-top: 0;
         }
@@ -40,14 +35,8 @@
 
 @media (max-width: $break-s) {
     .header {
-        height: 60px;
-        @include align-items(center);
-        &__logo {
-            padding-top: 0;
-            & img {
-                height: 30px;
-            }
-        }
+        padding: 0 32px;
+        height: 64px;
         &__navigation {
            padding-top: 0;
         }
@@ -59,12 +48,10 @@
 
 @media (max-width: $break-xxs) {
     .header {
-        height: 45px;
+        padding: 0 16px;
+        height: 48px;
         &__icon img {
             width: 30px;
-        }
-        &__logo img {
-            height: 30px;
         }
     }
 }

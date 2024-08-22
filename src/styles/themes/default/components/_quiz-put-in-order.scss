@@ -3,14 +3,13 @@
     @include justify-content(center);
     @include flex-wrap(wrap);
     @extend %quizPageStyle__content;
-    &__questionSection {
-        width: 80%;
+    gap: 24px;
 
+    &__questionSection {
+        min-height: 80px;
         @extend %quizPageStyle__questionSection;
     }
     &__answersSection {
-        margin-top: $s-x-large;
-
         @include justify-content(center);
         @extend %quizPageStyle__answersSection;
     }

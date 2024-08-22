@@ -1,5 +1,5 @@
 .navigation {
-    width: 50px;
+    gap: 32px;
 
     @include display-flex();
     @include justify-content(space-between);
