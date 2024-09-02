@@ -1,3 +1,6 @@
+## ATTENTION - HOWR IN PROGRESS
+I am in the middle of updating this project, please be patient ;)
+
 ## How to Start the Quiz App
 
 1. Make sure you have Node.js and yarn installed on your machine.
