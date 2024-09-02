@@ -1,8 +1,7 @@
 import React from "react";
-import quizCategoriesList from "../../context/quizCategoriesList";
+import { categoriesList, Category } from "../../context/categories";
 import CategoryButton from "./categoryButton";
 import { Link } from "react-router-dom";
-import { type Category } from "../../context/quizUtils";
 
 interface Props {
   category: Category;
@@ -17,19 +16,17 @@ const CategoryButtonsList = ({
   direction,
   visible,
 }: Props): JSX.Element => {
-  let list: Category[];
-  location === "score-page"
-    ? (list = quizCategoriesList.filter(
-        (otherCategories) => otherCategories !== category
-      ) as Category[])
-    : (list = quizCategoriesList as Category[]);
+  const list: Category[] = location === "score-page"
+    ? categoriesList
+        .map(cat => cat.pl)
+        .filter((cat: Category) => cat !== category as Category)
+    : categoriesList.map(cat => cat.pl as Category);
 
   const quizCategoriesLinks = list.map((cat: Category, key: number) => (
     <Link to={`/quiz/${cat}`} key={`l-${key}`} className="linkButtonWrapper">
       <CategoryButton
-        className={`categoryButton categoryButton--${key} categoryButton--list categoryButton--${direction} categoryButton--${category} ${
-          visible ? "visible" : ""
-        }`}
+        className={`categoryButton categoryButton--${key} categoryButton--list categoryButton--${direction} categoryButton--${category}`}
+        visible={visible}
         category={cat}
         location={location}
       />

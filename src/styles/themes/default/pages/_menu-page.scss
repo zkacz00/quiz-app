@@ -7,3 +7,17 @@
     @include flex-wrap(wrap);
     @include justify-content(center);
 }
+
+@media (max-width: $break-m) {
+    .menuPage__categoriesLinksWrapper {
+        gap: 16px;
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: $break-s) {
+    .menuPage__categoriesLinksWrapper {
+        gap: 8px;
+        margin-top: 8px;
+    }
+}

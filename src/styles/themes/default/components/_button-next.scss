@@ -1,6 +1,7 @@
 .buttonNext {
     text-align: left;
     text-transform: uppercase;
+    transition: opacity 0.8s ease;
 
     @include align-items(center);
     @include justify-content(space-around);
@@ -18,8 +19,8 @@
         }
     }
     &--big {
-        width: 310px;
-        height: 85px;
+        width: 280px;
+        height: 80px;
         span {
             margin-left: $s-small;
         }
@@ -28,9 +29,17 @@
             margin-top: $s-x-small;
         }
     }
+
+    &.not-visible {
+        opacity: 0;
+    }
+
+    &.visible {
+        opacity: 1;
+    }
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
     .buttonNext {
         text-align: center;
 
@@ -58,17 +67,17 @@
     }
 }
 
-@media (max-width: $break-xxs) {
-    .buttonNext {
-        border-radius: 9px;
-        &--small {
-            width: 100px;
-            height: 35px;
-            margin: 10px 0 0;
-        }
-        &--big {
-            width: 150px;
-            height: 40px;
-        }
-    }
-}
+// @media (max-width: $break-xxs) {
+//     .buttonNext {
+//         border-radius: 9px;
+//         &--small {
+//             width: 100px;
+//             height: 35px;
+//             margin: 10px 0 0;
+//         }
+//         &--big {
+//             width: 150px;
+//             height: 40px;
+//         }
+//     }
+// }

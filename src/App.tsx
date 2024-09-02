@@ -7,17 +7,17 @@ import CategoryStartPage from './pages/categoryStartPage';
 import QuizPage from './pages/quizPage';
 import ErrorBoundary from './components/ErrorBoundary';
 
-import quizCategoriesList from './context/quizCategoriesList';
-import {type Category} from './context/quizUtils'
+import { categoriesPolishList } from './context/categories';
+import {type Category} from './context/categories'
 
 function App() {
 
-   const quizPagesRoutes = quizCategoriesList.map((category: Category, key: number) => 
+   const quizPagesRoutes = categoriesPolishList.map((category: Category, key: number) => 
       (
          <Route path={`/quiz/${category}`} key={`r-${key}`} element={<CategoryStartPage category={category} />} />
       ));
 
-   const questionComponentsRoutes = quizCategoriesList.map((category: Category, key: number) => 
+   const questionComponentsRoutes = categoriesPolishList.map((category: Category, key: number) => 
       (
          <Route path={`/quiz/${category}/start`} key={`r-${key}`} element={<QuizPage category={category} />} />
       ));

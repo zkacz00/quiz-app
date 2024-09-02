@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { type Category } from '../../context/quizUtils';
-
+import { type Category } from '../../context/categories';
+import PageTransition from "../PageTransition";
 interface Props {
     location: string;
     category: Category;
@@ -23,6 +23,7 @@ const BackgroundImage = ({ location, category }: Props): JSX.Element => {
     }, [location, category]);
 
     return (
+        <PageTransition>
         <div
             className={`backgroundImage`}
             style={{
@@ -36,6 +37,7 @@ const BackgroundImage = ({ location, category }: Props): JSX.Element => {
                 height: '100%',
             }}
         />
+        </PageTransition>
     );
 };
 

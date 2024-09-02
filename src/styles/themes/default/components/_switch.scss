@@ -1,0 +1,30 @@
+.switch {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    font-size: 20px;
+    &__option {
+        // color: $c-gray;
+        color: $c-white;
+        cursor: pointer;
+        transition: all .2s ease;
+        border-bottom: 1.5px solid transparent;
+        &--selected {
+            color: $c-brilliant-rose;
+            border-bottom: 1.5px solid $c-brilliant-rose;
+        }
+        &:hover {
+            transform: scale(1.1);
+        }
+        &--disabled {
+            cursor: default;
+            transition: none;
+            &:hover {
+                transform: none;
+            }
+        }
+    }
+    &__middle {
+        color: $c-white;
+    }
+}

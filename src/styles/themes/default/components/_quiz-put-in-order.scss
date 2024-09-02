@@ -8,6 +8,17 @@
     &__questionSection {
         min-height: 80px;
         @extend %quizPageStyle__questionSection;
+
+        &.visible {
+          transition: opacity 0.8s ease, transform 0.8s ease;
+          opacity: 1;
+          transform: translateY(0);
+        }
+        &.not-visible {
+          transition: opacity 0s ease, transform 0s ease;
+          opacity: 0;
+          transform: translateY(20px);
+        }
     }
     &__answersSection {
         @include justify-content(center);
@@ -36,7 +47,7 @@
     }
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
     .quizPagePio {
         &__answersSection {
             margin-top: $s-large;
@@ -59,7 +70,7 @@
     }
 }
 
-@media (max-width: $break-xs) {
+@media (max-width: $break-s) {
     .quizPagePio {
         width: 90%;
         &__answers {
@@ -71,20 +82,4 @@
     }
 }
 
-@media (max-width: $break-xxs) {
-    .quizPagePio {
-        &__answersSection {
-            margin-top: $s-x-small;
-        }
-        &__answers {
-            width: 100%;
-        }
-        &__answersNr p {
-            height: 34px;
-            margin: 3.5px;
-        }
-        &__drop-place {
-            width: 100%;
-        }
-    }
-}
+// @me1

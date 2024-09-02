@@ -14,6 +14,17 @@
 
            text-align: center;
         }
+
+        &.visible {
+          transition: opacity 0.8s ease, transform 0.8s ease;
+          opacity: 1;
+          transform: translateY(0);
+        }
+        &.not-visible {
+          transition: opacity 0s ease, transform 0s ease;
+          opacity: 0;
+          transform: translateY(20px);
+        }
     }
     &__questionSectionPart {
         gap: 16px;
@@ -67,10 +78,44 @@
     }
     &__buttonAnswer {
         @extend %quizPageStyle--draggableAnswer;
+        &.visible {
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            opacity: 1;
+            transform: translateY(0);
+          }
+          &.not-visible {
+            transition: opacity 0s ease, transform 0s ease;
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          &--0.visible {
+              transition-delay: 0.2s;
+            }
+            &--1.visible {
+              transition-delay: 0.4s;
+            }
+            &--2.visible {
+              transition-delay: 0.6s;
+            }
+            &--3.visible {
+              transition-delay: 0.8s;
+            }
+            &--4.visible {
+              transition-delay: 1s;
+            }
+            &--5.visible {
+              transition-delay: 1.2s;
+            }
+            &--6.visible {
+              transition-delay: 1.4s;
+            }
+            &.blocked {
+              cursor: default;
+            }
     }
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
     .quizPageDnd {
         &__questionDropPlaceWrapper {
             width: 420px;
@@ -104,7 +149,7 @@
     }
 }
 
-@media (max-width: $break-xs) {
+@media (max-width: $break-s) {
     .quizPageDnd {
         width: 95%;
         &__answerCheckWrapper {
@@ -119,15 +164,15 @@
     }
 }
 
-@media (max-width: $break-xxs) {
-    .quizPageDnd {
-        &__questionDropPlaceWrapper {
-            height: 40px;
+// @media (max-width: $break-xxs) {
+//     .quizPageDnd {
+//         &__questionDropPlaceWrapper {
+//             height: 40px;
     
-            border-radius: 12px;
-        }
-        &__questionSection {
-            margin-bottom: 5px;
-        }
-    }
-}
+//             border-radius: 12px;
+//         }
+//         &__questionSection {
+//             margin-bottom: 5px;
+//         }
+//     }
+// }

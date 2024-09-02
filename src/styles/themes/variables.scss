@@ -17,12 +17,12 @@ $f-base-font-family: 'Montserrat', sans-serif;
 
 /* -breaks
 ****************************************************************** */
-$break-xxs: 370px; 
-$break-xs: 470px; 
-$break-s: 640px; 
-$break-m: 700px; 
-$break-l: 992px; 
-$break-xl: 1200px; 
+// $break-xxs: 370px; 
+// $break-xs: 470px; 
+$break-s: 480px; 
+$break-m: 800px; 
+$break-l: 1024px; 
+// $break-xl: 1200px; 
 
 /* -grid
 ****************************************************************** */
@@ -68,7 +68,7 @@ $c-rodeo-dust-transparent: rgba(198, 178, 153, 0.5);
 $c-mongoose: #b8a48e;
 $c-dove-gray: #6e6e6e;
 $c-silver: #c7c7c7;
-$cc-gray: #939393;
+$c-gray: #939393;
 $c-gray-transparent: rgba(147, 147, 147, 0.5);
 $c-white: #ffffff;
 $c-bunting: #13124c;
@@ -100,7 +100,7 @@ $cc-border-historia: $c-mongoose;
 //colors for category "kultura"
 $cc-dark-kultura: $c-dove-gray;
 $cc-light-kultura: $c-silver;
-$cc-hover-kultura: $cc-gray;
+$cc-hover-kultura: $c-gray;
 $cc-sb-kultura: $c-gray-transparent;
 $cc-border-kultura: $c-white;
 

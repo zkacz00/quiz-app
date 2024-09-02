@@ -12,6 +12,7 @@
     &--tf {
       @include justify-content(center);
     }
+    transition: opacity 0.5s ease 0.6s; // Delay for answers
   }
   &__questionSection {
     min-height: 102px;
@@ -22,19 +23,76 @@
     flex-direction: column;
 
     @extend %quizPageStyle__questionSection;
+
+    &.visible {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &.not-visible {
+      transition: all 0s ease, transform 0s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
   }
   &__buttonAnswer {
     width: 310px;
     height: 90px;
     padding: 0 $s-standard;
 
+    opacity: 0;
+    transform: translateY(20px);
     @extend %fontSize--m;
     @extend %answerCheckWrapperStyle;
     @include align-items(center);
+
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    &.not-visible {
+      opacity: 0;
+      transition-delay: 0s;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    &--0.visible {
+      transition-delay: 0.2s;
+    }
+    &--1.visible {
+      transition-delay: 0.4s;
+    }
+    &--2.visible {
+      transition-delay: 0.6s;
+    }
+    &--3.visible {
+      transition-delay: 0.8s;
+    }
+    &--4.visible {
+      transition-delay: 1s;
+    }
+    &--5.visible {
+      transition-delay: 1.2s;
+    }
+    &--6.visible {
+      transition-delay: 1.4s;
+    }
+    &.blocked {
+      cursor: default;
+    }
+  }
+  &__heading {
+    transition: opacity 0.5s ease 0.2s; // Delay for heading
+  }
+  &__questionText {
+    transition: opacity 0.5s ease 0.4s; // Delay for question text
   }
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
   .quizPageSelect {
     &__buttonAnswer {
       width: 210px;
@@ -57,7 +115,7 @@
   }
 }
 
-@media (max-width: $break-xs) {
+@media (max-width: $break-s) {
   .quizPageSelect {
     width: 80%;
     &__buttonAnswer {
@@ -75,9 +133,9 @@
   }
 }
 
-@media (max-width: $break-xxs) {
-  .quizPageSelect__buttonAnswer {
-    height: 40px;
-    border-radius: 9px;
-  }
-}
+// @media (max-width: $break-xxs) {
+//   .quizPageSelect__buttonAnswer {
+//     height: 40px;
+//     border-radius: 9px;
+//   }
+// }

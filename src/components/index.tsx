@@ -14,8 +14,11 @@ import QuizSelect from './QuizSelect';
 import Logo from './Logo';
 import PageTransition from './PageTransition';
 import ErrorBoundary from './ErrorBoundary';
+import Switch from './Switch';
 
 const components = {
+	Switch,
+	ErrorBoundary,
 	AnswerCheck,
 	BackgroundImage,
 	CategoryButtonsList,

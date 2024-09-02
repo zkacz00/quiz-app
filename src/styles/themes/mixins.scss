@@ -36,7 +36,7 @@
     @if $value == nowrap {
         -ms-flex-wrap: none;
     }
-    @else if $value == inherit {
+    @else if ($value == inherit) {
         -ms-flex-wrap: $value;
     }
     @else {
@@ -264,7 +264,7 @@
     @include align-items(center);
 }
 
-@mixin gradient-animation($category){
+@mixin gradient-animation($category) {
     background-size: 100%;
     position: relative;
     z-index: 50;
@@ -279,7 +279,7 @@
         width: 100%;
         z-index: -100;
     }
-    @media(hover: hover) {
+    @media (hover: hover) {
         &:before {
             transition: opacity 0.5s ease;
         }
@@ -288,8 +288,13 @@
                 opacity: 1; 
             }
         }
+        &.blocked {
+            &:before {
+                opacity: 0 !important;
+            }
+        }
     }
-    @media(hover: none) {
+    @media (hover: none) {
         &:before {
             transition: opacity 0.3s ease;
         }
@@ -298,11 +303,16 @@
                 opacity: 1; 
             }
         }
+        &.blocked {
+            &:before {
+                opacity: 0 !important;
+            }
+        }
     }
 }
 
 @each $category in $quiz-categories {
-    .shadowBackground--#{$category} {
+    .heading--#{$category} {
         @include categories-styles_colors($category, 'background--shadow');
     }
     .counter, .answerCheck {
@@ -350,7 +360,7 @@
     }
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
     @each $category in $quiz-categories {
         .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
             &--#{$category}:before {
@@ -368,17 +378,17 @@
         }
     }
 }
-@media (max-width: $break-xxs) {
-    @each $category in $quiz-categories {
-        .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
-            &--#{$category}:before {
-                border-radius: 6px;
-            }
-        }
-        .scorePage__list div .categoryButton {
-            &--#{$category}:before {
-                border-radius: 4px;
-            }
-        }
-    }
-}
+// @media (max-width: $break-xxs) {
+//     @each $category in $quiz-categories {
+//         .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
+//             &--#{$category}:before {
+//                 border-radius: 6px;
+//             }
+//         }
+//         .scorePage__list div .categoryButton {
+//             &--#{$category}:before {
+//                 border-radius: 4px;
+//             }
+//         }
+//     }
+// }

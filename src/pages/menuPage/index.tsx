@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import components from "../../components";
+import { useLanguage } from "../../context/LanguageContext";
+import { textContent } from "../../context/textContent";
 
 function MenuPage() {
   const {
@@ -12,6 +14,7 @@ function MenuPage() {
   } = components;
 
   const [buttonsVisible, setButtonsVisible] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -25,14 +28,14 @@ function MenuPage() {
       <BackgroundImage category="programowanie" location="menu" />
       <PageTransition>
         <div className="pageContainer">
-          <Header category="programowanie" />
+          <Header category="programowanie" transition={true} />
           <main className="menuPage contentContainer">
             <Logo />
             <Heading
               type="h1"
               category="programowanie"
               location="menuPage"
-              text="10 pytań&nbsp;&nbsp;&#8260;&nbsp;&nbsp;5 kategorii"
+              text={textContent.headings.menu?.[language]}
             />
             <div className="menuPage__categoriesLinksWrapper">
               <CategoryButtonsList

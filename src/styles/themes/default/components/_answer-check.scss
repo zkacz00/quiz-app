@@ -5,29 +5,42 @@
     position: absolute;
     z-index: 100;
     top: -20px;
-    right: -20px;
+    right: -14px;
 
     width: 65px;
     height: 65px;
 
-    transition: opacity .2s ease;
+    transition: opacity .9s ease;
     &__img {
-        &--true {
+        &--correct {
             width: 60%;
         }
-        &--false {
+        &--incorrect {
             width: 35%;
         }
     }
-    &--trueVisible {
+    &--visible {
         opacity: 1;
     }
-    &--falseVisible {
+    &--invisible {
         opacity: 0;
     }
+    &--incorrect {
+        display: none;
+    }
+    &--notSelected {
+        display: none;
+    }
+    &--correct {
+        display: flex;
+    }
+    &--selected {
+        display: flex;
+    }
+
 }
 
-@media (max-width: $break-xl) {
+@media (max-width: $break-l) {
     .answerCheck {
         top: -15px;
         right: -5px;
@@ -37,7 +50,7 @@
     }
 }
 
-@media (max-width: $break-xs) {
+@media (max-width: $break-s) {
     .answerCheck {
         width: 35px;
         height: 35px;    

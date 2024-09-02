@@ -4,7 +4,6 @@
     @include justify-content(space-between);
     width: 100%;
     position: relative;
-    transition: transform 0.5s ease;
     transform: translateY(-100%); // Start off-screen
 
     justify-content: space-between;
@@ -18,11 +17,16 @@
     }
 }
 
-.header.slide-in {
+.header.with-transition {
+    transition: transform 0.5s ease;
     transform: translateY(0); // Slide into view
 }
 
-@media (max-width: $break-xl) {
+.header.without-transition {
+    transform: translateY(0); // Slide into view
+}
+
+@media (max-width: $break-l) {
     .header {
         &__navigation {
            padding-top: 0;
@@ -46,12 +50,12 @@
     }
 }
 
-@media (max-width: $break-xxs) {
-    .header {
-        padding: 0 16px;
-        height: 48px;
-        &__icon img {
-            width: 30px;
-        }
-    }
-}
+// @media (max-width: $break-xxs) {
+//     .header {
+//         padding: 0 16px;
+//         height: 48px;
+//         &__icon img {
+//             width: 30px;
+//         }
+//     }
+// }
