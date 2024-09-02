@@ -1,4 +1,4 @@
-## ATTENTION - HOWR IN PROGRESS
+## ATTENTION - WORK IN PROGRESS
 I am in the middle of updating this project, please be patient ;)
 
 ## How to Start the Quiz App
