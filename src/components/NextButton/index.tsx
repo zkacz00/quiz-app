@@ -10,14 +10,15 @@ interface Props {
     text: ButtonTextKeys;
     category: Category;
     visible?: boolean;
+    blocked?: boolean;
 }
 
-const NextButton: React.FC<Props> = ({ size, text, category, visible = true }) => {
+const NextButton: React.FC<Props> = ({ size, text, category, visible = true, blocked }) => {
     const { language } = useLanguage();
     const buttonText = textContent.buttonText[text][language];
 
     return (
-        <div className={`buttonNext buttonNext--${size} buttonNext--${category} ${visible ? 'visible' : 'not-visible'}`}>
+        <div className={`buttonNext buttonNext--${size} buttonNext--${category} ${visible ? 'visible' : 'not-visible'} ${blocked ? "blocked" : ""}`}>
             <span>{buttonText}</span>
             <img src={require(`../../assets/${category}/start-button--${category}.png`)} alt={buttonText} />
         </div>

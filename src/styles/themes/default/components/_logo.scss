@@ -1,5 +1,14 @@
 .logo {
   height: 64px;
+
+  &.visible {
+    transition: opacity 1.5s ease;
+    opacity: 1;
+  }
+  &.not-visible {
+    transition: opacity 0s ease;
+    opacity: 0;
+  }
 }
 
 @media (max-width: $break-l) {

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { type Category } from '../../context/categories';
 
 interface Props {
-   location: string;
+   location: "menuPage" | "startPage" | "scorePage" | "quizPage" | "quizPage--select" | "quizPage--tf" | "quizPage--dnd" | "quizPage--pio"; 
    category: Category;
    numberOfQuestions: number;
    currentQuestion?: number;
@@ -15,15 +15,26 @@ interface Props {
 const Counter = (props: Props): JSX.Element => {
    const [isVisible, setIsVisible] = useState(false);
    let firstValue: number | undefined;
+   const prevLocationRef = useRef(props.location);
 
+   
    useEffect(() => {
+      const prevLocation = prevLocationRef.current;
+      prevLocationRef.current = props.location;
+
+      if (
+          !(
+              (prevLocation === "quizPage--select" && props.location === "quizPage--tf")
+          )
+      ) {
       setIsVisible(false); 
       const timer = setTimeout(() => {
          setIsVisible(true);
       }, props.counterVisibleTimeout);
 
       return () => clearTimeout(timer);
-   }, [props.location, props.questionType !== "tf" ? props.questionType : undefined]);
+      }
+  }, [props.location]);
 
    switch (props.location) {
       case "quizPage":

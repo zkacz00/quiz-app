@@ -16,11 +16,9 @@ interface Props {
   questionText2?: string;
   questionText3?: string;
   category: Category;
-  baseTimeout: number;
-  questionVisibleTimeout: number; // Added questionVisibleTimeout prop
-  buttonVisibleTimeout: number; // Added buttonVisibleTimeout prop
-  headingVisibleTimeout: number; // Added headingVisibleTimeout prop
-  answersVisibleTimeout:number;
+  questionVisibleTimeout: number;
+  buttonVisibleTimeout: number;
+  answersVisibleTimeout: number;
   answerCheckVisibleTimeout: number;
   currentQuestion: number;
   answerCorrect?: Array<{ answerText: string }>;
@@ -99,10 +97,10 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
           "replaced, source: all-answers-column, destination: selected-answer-columns"
         );
       }
-    } else if (!replaced) {
+    } else {
       settingColumns();
     }
-  } else if (sourceColumn === destinationColumn) {
+  } else {
     sourceItems.splice(destination.index, 0, removed);
     settingColumns("source & destination: the same column");
   }
@@ -112,48 +110,15 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
   const [answerOptions, setAnswerOptions] = useState<
     Array<{ answerText: string; isCorrect?: boolean }>
   >([]);
-  const [isDragDisabled, setIsDragDisabled] = useState<boolean>(false);
+
+  const [isDragDisabled, setIsDragDisabled] = useState<boolean>(true);
   const [isNextButtonVisible, setNextButtonVisible] = useState(false);
-  const [areAnswersVisible, setAnswersVisible] = useState<boolean>(false); // Set to false initially
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false); // New state for AnswerCheck visibility
-
-  useEffect(() => {
-    setAnswerOptions(props.answerOptions);
-    // setAnswersVisible(true); // Ensure visibility is true when options are set
-  }, [props]);
-
-  useEffect(() => {
-    setAnswersVisible(true);
-    // setWasClicked(false); // Reset 'wasClicked' on question change
-  }, [props.currentQuestion]);
-
-  answerOptions.forEach((item: any, i: number) => {
-    item.id = i + 1;
-    item.id = item.id.toString();
-  });
-
-  const dragDropPlaces = useMemo(() => {
-    return {
-      place1: {
-        id: "place1",
-        items: [],
-      },
-      place2: {
-        id: "place2",
-        items: [],
-      },
-      answers: {
-        id: "answers",
-        items: answerOptions,
-      },
-    };
-  }, [answerOptions]);
-
-  const [columns, setColumns] = useState(dragDropPlaces);
-
-  useEffect(() => {
-    setColumns(dragDropPlaces);
-  }, [answerOptions, dragDropPlaces]);
+  const [isQuestionVisible, setQuestionVisible] = useState<boolean>(false);
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =
+    useState<boolean>(false);
+  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(
+    false
+  );
 
   const [selectedAnswer1, setSelectedAnswer1] = useState<string>("");
   const [selectedAnswer2, setSelectedAnswer2] = useState<string>("");
@@ -161,84 +126,111 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
   const [isFirstOpCorrect, setIsFirstOpCorrect] = useState<boolean>(false);
   const [isSecOpCorrect, setIsSecOpCorrect] = useState<boolean>(false);
 
+  const dragDropPlaces = useMemo(
+    () => ({
+      place1: { id: "place1", items: [] },
+      place2: { id: "place2", items: [] },
+      answers: { id: "answers", items: answerOptions },
+    }),
+    [answerOptions]
+  );
+
+  const [columns, setColumns] = useState(dragDropPlaces);
+
+  useEffect(() => {
+    setAnswersVisible(false);
+    const timer1 = setTimeout(() => {
+      setQuestionVisible(true);
+    }, props.questionVisibleTimeout);
+    const timer2 = setTimeout(() => {
+      setIsDragDisabled(false);
+    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
+
+    const timer3 = setTimeout(() => {
+      setNextButtonVisible(true);
+    }, props.buttonVisibleTimeout);
+
+    const timer4 = setTimeout(() => {
+      setAnswersVisible(true);
+    }, props.answersVisibleTimeout);
+    const timer5 = setTimeout(() => {
+      setAnswersVisible(undefined);
+    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
+    const timer6 = setTimeout(() => {
+      setQuestionVisible(true);
+    }, props.questionVisibleTimeout);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+      clearTimeout(timer6);
+    };
+  }, [props.currentQuestion]);
+
   const handleAnswerCheck = () => {
-    if (typeof props.answerCorrect !== "undefined") {
-      let isCorrect: boolean;
-      selectedAnswer1 === props.answerCorrect[0].answerText
-        ? setIsFirstOpCorrect(true)
-        : setIsFirstOpCorrect(false);
-      selectedAnswer2 === props.answerCorrect[1].answerText
-        ? setIsSecOpCorrect(true)
-        : setIsSecOpCorrect(false);
+    if (isDragDisabled) return;
+    if (!props.answerCorrect) return;
+
+    setAnswersVisible(true);
+    setIsDragDisabled(true);
+    setIsAnswerCheckVisible(true);
+    setQuestionVisible(true);
+
+    const isCorrect =
       selectedAnswer1 === props.answerCorrect[0].answerText &&
-      selectedAnswer2 === props.answerCorrect[1].answerText
-        ? (isCorrect = true)
-        : (isCorrect = false);
+      selectedAnswer2 === props.answerCorrect[1].answerText;
 
-        setIsAnswerCheckVisible(true)
-        setAnswersVisible(true); // Show DndElement
-        setTimeout(() => {
-          setAnswersVisible(false);
-        }, props.answersVisibleTimeout);
-        setTimeout(() => {
-          props.goToNextQuestion(isCorrect);
-          setIsAnswerCheckVisible(false);
-        }, props.answerCheckVisibleTimeout);
+    setIsFirstOpCorrect(selectedAnswer1 === props.answerCorrect[0].answerText);
+    setIsSecOpCorrect(selectedAnswer2 === props.answerCorrect[1].answerText);
 
+    setTimeout(() => {
+      setQuestionVisible(false);
+      setIsAnswerCheckVisible(false);
+      setNextButtonVisible(false);
+      setAnswersVisible(false);
       setIsDragDisabled(true);
-      setTimeout(function () {
-        setIsDragDisabled(false);
-      }, props.baseTimeout);
-
       props.goToNextQuestion(isCorrect);
-
-      // Start fade out
-      setNextButtonVisible(false); // Hide button immediately
-      setTimeout(() => {
-        setNextButtonVisible(true); // Show button after fade out
-      }, props.headingVisibleTimeout); // Match this duration with the CSS transition duration
-    }
+    }, props.answerCheckVisibleTimeout);
   };
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setNextButtonVisible(true);
-    }, props.buttonVisibleTimeout); // Delay before showing the button
-    return () => clearTimeout(timer);
-  }, [/* dependencies if needed */]);
+    setAnswerOptions(props.answerOptions);
+  }, [props.answerOptions]);
 
   useEffect(() => {
-    ((selectedAnswers, selectedAnswer1) => {
-      columns.place1.items.length === 0
-        ? setSelectedAnswer1("")
-        : setSelectedAnswer1(columns.place1.items[0]["answerText"]);
-    })();
+    setColumns(dragDropPlaces);
+  }, [dragDropPlaces]);
+
+  useEffect(() => {
+    if (columns.place1.items.length === 0) {
+      setSelectedAnswer1("");
+    } else {
+      setSelectedAnswer1(columns.place1.items[0]["answerText"]);
+    }
   }, [columns.place1.items]);
 
   useEffect(() => {
-    ((selectedAnswers, selectedAnswer2) => {
-      columns.place2.items.length === 0
-        ? setSelectedAnswer2("")
-        : setSelectedAnswer2(columns.place2.items[0]["answerText"]);
-    })();
+    if (columns.place2.items.length === 0) {
+      setSelectedAnswer2("");
+    } else {
+      setSelectedAnswer2(columns.place2.items[0]["answerText"]);
+    }
   }, [columns.place2.items]);
-
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setAnswersVisible(true); // Fade in after a delay
-  //   }, props.); // Adjust the delay as needed
-  //   return () => clearTimeout(timer);
-  // }, [props]);
 
   return (
     <div className="quizPageDnd">
       <DragDropContext
         onDragEnd={(result) => onDragEnd({ result, columns, setColumns })}
       >
-        <div className={`quizPageDnd__questionSection ${areAnswersVisible ? 'visible' : 'not-visible'}`}>
-          <h2>
-            {props.currentQuestion + 1}. {props.questionText1}
-          </h2>
+        <div
+          className={`quizPageDnd__questionSection ${
+            isQuestionVisible ? "visible" : "not-visible"
+          }`}
+        >
+          <h2>{`${props.currentQuestion + 1}. ${props.questionText1}`}</h2>
 
           <div className="quizPageDnd__questionSectionPart">
             <p>{props.questionText2}</p>
@@ -251,12 +243,12 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
                   section="question"
                   category={props.category}
                   isDragDisabled={isDragDisabled}
-                  isVisible={areAnswersVisible} // Pass visibility state to DndElement
+                  isVisible={isQuestionVisible}
                 />
               </div>
               <AnswerCheck
                 category={props.category}
-                isVisible={isAnswerCheckVisible} // Control visibility based on answer check
+                isVisible={isAnswerCheckVisible}
                 isCorrect={isFirstOpCorrect}
               />
             </div>
@@ -273,31 +265,33 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
                   section="question"
                   category={props.category}
                   isDragDisabled={isDragDisabled}
-                  isVisible={areAnswersVisible} // Pass visibility state to DndElement
+                  isVisible={isQuestionVisible}
                 />
               </div>
               <AnswerCheck
                 category={props.category}
-                isVisible={isAnswerCheckVisible} // Control visibility based on answer check
+                isVisible={isAnswerCheckVisible}
                 isCorrect={isSecOpCorrect}
               />
             </div>
           </div>
         </div>
+
         <div className="quizPageDnd__answersSection">
           <DndElement
             column={columns.answers}
             section="answers"
             category={props.category}
             isDragDisabled={isDragDisabled}
-            isVisible={areAnswersVisible} // Pass visibility state to DndElement
+            isVisible={areAnswersVisible}
           />
-          <div onClick={() => handleAnswerCheck()}>
+          <div onClick={handleAnswerCheck}>
             <NextButton
               category={props.category}
               text="next"
               size="small"
-              visible={isNextButtonVisible} // Pass the visibility state
+              visible={isNextButtonVisible}
+              blocked={isDragDisabled}
             />
           </div>
         </div>

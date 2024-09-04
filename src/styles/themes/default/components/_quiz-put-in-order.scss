@@ -27,6 +27,39 @@
     &__answers {
         @include display-flex();
         @extend %answerCheckWrapperStyle;
+        opacity: 1;
+        &.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+          }
+          &.not-visible {
+            opacity: 0;
+            transition-delay: 0s;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+          }
+          &--0.visible {
+              transition-delay: 0.2s;
+            }
+            &--1.visible {
+              transition-delay: 0.4s;
+            }
+            &--2.visible {
+              transition-delay: 0.6s;
+            }
+            &--3.visible {
+              transition-delay: 0.8s;
+            }
+            &--4.visible {
+              transition-delay: 1s;
+            }
+            &--5.visible {
+              transition-delay: 1.2s;
+            }
+            &--6.visible {
+              transition-delay: 1.4s;
+            }
     }
     &__answersNr {
         width: 30px;
@@ -40,6 +73,9 @@
     }
     &__buttonAnswer {
         @extend %quizPageStyle--draggableAnswer;
+        &.blocked {
+          cursor: default;
+        }
     }
     &__buttonNext {
         height: fit-content;

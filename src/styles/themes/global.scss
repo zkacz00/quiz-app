@@ -40,11 +40,17 @@ html {
     height: 100%;
 }
 
+html, body {
+    transition: height 0.3s ease;
+}
+
 .pageContainer {
     position: absolute;
-
     width: 100%;
+    
     min-width: 320px;
+
+    scrollbar-gutter: stable;
 
     @include display-flex();
     @include flex-direction(column);
@@ -57,14 +63,48 @@ html {
     margin: 0 64px;
     gap: 40px;
     max-width: 970px;
+
+    scrollbar-gutter: stable;
+
     @include display-flex();
     @include flex-direction(column);
     @include align-items(center);
-    // &--quiz {
-    //     padding: 32px 0;
-    //     gap: 32px;  
-    // }
 }
+
+/* SCROLLBAR */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: $c-brilliant-rose $c-gray-transparent;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+    border-radius: 16px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: $c-gray-transparent;
+    border-radius: 16px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 16px;
+    background-color: var(--color-primary);
+    background-clip: content-box;
+    transition: background-color 2s ease;
+  }
+  
+  *::-webkit-scrollbar-thumb:active {
+    background-color: var(--color-primary-dark);
+  }
+  
+  *::-webkit-scrollbar-corner {
+    background-color: $c-gray-transparent;
+    border-bottom: 2px solid $c-brilliant-rose;
+    border-right: 2px solid $c-brilliant-rose;
+  }
+  
 
 @media (max-width: $break-l) {
     %fontSize--xxl {

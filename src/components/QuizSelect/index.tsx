@@ -8,12 +8,9 @@ interface Props {
   questionText1: string;
   questionText2?: string;
   questionText3?: string;
-  baseTimeout: number;
   questionVisibleTimeout: number;
-  buttonVisibleTimeout: number;
   answerCheckVisibleTimeout: number;
   answersVisibleTimeout: number;
-  headingVisibleTimeout: number;
   currentQuestion: number;
   goToNextQuestion: (isCorrect: boolean) => void;
   answerOptions: Array<{ answerText: string; isCorrect?: boolean }>;
@@ -21,31 +18,31 @@ interface Props {
 
 const QuizSelect = (props: Props) => {
   const [isQuestionVisible, setIsQuestionVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =
-    useState<boolean>(false);
-  const [selectedAnswerId, setSelectedAnswerId] = useState<
-    number | undefined
-  >();
-  const [correctAnswerId, setCorrectAnswerId] = useState<number | undefined>();
-  const [wasClicked, setWasClicked] = useState<boolean>(false);
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false);
+  const [selectedAnswerId, setSelectedAnswerId] = useState<number | undefined>();
+  const [wasClicked, setWasClicked] = useState<boolean>(true);
 
   useEffect(() => {
-    setIsQuestionVisible(true);
-    setWasClicked(false); // Reset 'wasClicked' on question change
+    const timer1 = setTimeout(() => {
+      setIsQuestionVisible(true);
+    }, props.questionVisibleTimeout);
+    const timer2 = setTimeout(() => {
+      setWasClicked(false);
+    }, props.answersVisibleTimeout);
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
   }, [props.currentQuestion]);
 
   const handleAnswerSelect = (isCorrect: boolean | undefined, index: number) => {
     if (typeof isCorrect === "boolean" && !wasClicked) {
       setWasClicked(true);
       setSelectedAnswerId(index);
-      setCorrectAnswerId(
-        props.answerOptions.findIndex((answer) => answer.isCorrect)
-      );
       setIsAnswerCheckVisible(true);
+
       setTimeout(() => {
         setIsQuestionVisible(false);
-      }, props.answersVisibleTimeout);
-      setTimeout(() => {
         props.goToNextQuestion(isCorrect);
         setIsAnswerCheckVisible(false);
       }, props.answerCheckVisibleTimeout);

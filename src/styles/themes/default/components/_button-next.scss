@@ -1,70 +1,79 @@
 .buttonNext {
-    text-align: left;
-    text-transform: uppercase;
-    transition: opacity 0.8s ease;
+  text-align: left;
+  text-transform: uppercase;
+  transition: opacity 0.8s ease;
 
-    @include align-items(center);
-    @include justify-content(space-around);
-    @extend %fontSize--m;
-    &--small {
-        width: 200px;
-        height: 60px;
-        margin-top: $s-xx-small;
-        span {
-            margin-left: $s-x-small;
-        }
-        img {
-            width: 55px;
-            margin-top: $s-xx-small;
-        }
+  @include align-items(center);
+  @include justify-content(space-between);
+  @extend %fontSize--m;
+  &--small {
+    width: 200px;
+    height: 60px;
+    margin-top: $s-xx-small;
+    padding: 16px;
+    span {
+      margin-left: $s-x-small;
     }
-    &--big {
-        width: 280px;
-        height: 80px;
-        span {
-            margin-left: $s-small;
-        }
-        img {
-            height: 90%;
-            margin-top: $s-x-small;
-        }
+    img {
+      width: 56px;
+      margin-top: $s-xx-small;
     }
+  }
+  &--big {
+    width: 280px;
+    height: 80px;
+    padding: 0 12px;
+    span {
+      margin-left: $s-small;
+    }
+    img {
+      height: 90%;
+      margin-top: $s-x-small;
+    }
+  }
 
-    &.not-visible {
-        opacity: 0;
-    }
-
-    &.visible {
-        opacity: 1;
-    }
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  &.not-visible {
+    opacity: 0;
+    transition-delay: 0s;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  &.blocked {
+    cursor: default;
+  }
 }
 
 @media (max-width: $break-l) {
-    .buttonNext {
-        text-align: center;
+  .buttonNext {
+    text-align: center;
 
-        border-radius: 11px;
-        &--big {
-            width: 215px;
-            height: 60px;
-            span {
-                margin-left: 0;
-            }
-            img {
-                margin-top: $s-xx-small;
-            }
-        }
-        &--small {
-            width: 125px;
-            height: 45px;
-            margin: 2.5px 0 2.5px 5px;
-            &  img {
-                width: auto;
-                height: 100%;
-                margin-top: 3px;
-            }
-        }
+    border-radius: 11px;
+    &--big {
+      width: 215px;
+      height: 60px;
+      span {
+        margin-left: 0;
+      }
+      img {
+        margin-top: $s-xx-small;
+      }
     }
+    &--small {
+      width: 125px;
+      height: 45px;
+      margin: 2.5px 0 2.5px 5px;
+      & img {
+        width: auto;
+        height: 100%;
+        margin-top: 3px;
+      }
+    }
+  }
 }
 
 // @media (max-width: $break-xxs) {

@@ -10,7 +10,6 @@ function MenuPage() {
     Heading,
     CategoryButtonsList,
     Logo,
-    PageTransition,
   } = components;
 
   const [buttonsVisible, setButtonsVisible] = useState(false);
@@ -19,18 +18,17 @@ function MenuPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setButtonsVisible(true);
-    }, 500); // Delay before buttons appear
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       <BackgroundImage category="programowanie" location="menu" />
-      <PageTransition>
         <div className="pageContainer">
-          <Header category="programowanie" transition={true} />
+          <Header category="programowanie" location="menuPage"/>
           <main className="menuPage contentContainer">
-            <Logo />
+            <Logo location="menuPage" />
             <Heading
               type="h1"
               category="programowanie"
@@ -47,7 +45,6 @@ function MenuPage() {
             </div>
           </main>
         </div>
-      </PageTransition>
     </>
   );
 }

@@ -17,7 +17,6 @@ const ScorePage = (props: Props) => {
     NextButton,
     Heading,
     Counter,
-    PageTransition,
   } = components;
 
   const { language } = useLanguage();
@@ -29,15 +28,15 @@ const ScorePage = (props: Props) => {
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setCategoryButtonVisible(true);
-    }, 500); // Delay before showing the CategoryButton
+    }, 500);
 
     const timer2 = setTimeout(() => {
       setNextButtonVisible(true);
-    }, 1000); // Delay before showing the NextButton
+    }, 1000);
 
     const timer3 = setTimeout(() => {
-      setCounterVisible(true); // Show Counter after a delay
-    }, 1500); // Adjust timing as needed
+      setCounterVisible(true);
+    }, 1500);
 
     return () => {
       clearTimeout(timer1);
@@ -48,7 +47,6 @@ const ScorePage = (props: Props) => {
 
   return (
     <>
-    <PageTransition>
       <main className="scorePage">
         <div className="scorePage__mainContent">
           <div className="scorePage__categoryButton">
@@ -93,7 +91,6 @@ const ScorePage = (props: Props) => {
           />
         </div>
       </main>
-    </PageTransition>
     </>
   );
 };

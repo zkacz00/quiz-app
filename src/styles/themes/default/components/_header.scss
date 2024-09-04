@@ -4,7 +4,6 @@
     @include justify-content(space-between);
     width: 100%;
     position: relative;
-    transform: translateY(-100%); // Start off-screen
 
     justify-content: space-between;
     align-items: center;
@@ -15,15 +14,16 @@
             height: 48px;
         }
     }
-}
-
-.header.with-transition {
-    transition: transform 0.5s ease;
-    transform: translateY(0); // Slide into view
-}
-
-.header.without-transition {
-    transform: translateY(0); // Slide into view
+    &.visible {
+        transition: transform 0.5s ease;
+        transform: translateY(0);       
+    }
+    &.not-visible {
+        transform: translateY(-100%);
+    }
+    &.without-transition {
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: $break-l) {

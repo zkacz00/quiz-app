@@ -1,14 +1,15 @@
 %answerCheckWrapperStyle {
     position: relative; 
 }
+
 .answerCheck {
     position: absolute;
     z-index: 100;
     top: -20px;
     right: -14px;
 
-    width: 65px;
-    height: 65px;
+    width: 56px;
+    height: 56px;
 
     transition: opacity .9s ease;
     &__img {

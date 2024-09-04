@@ -20,13 +20,12 @@ const QuizPage = ({ category }: Props) => {
     Heading,
     Counter,
     Logo,
-    PageTransition,
   } = components;
 
   const { language } = useLanguage();
 
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const numberOfQuestions: number = quizQuestionsList[category].length;
+  const numberOfQuestions = quizQuestionsList.programowanie.length;
   const questionType: "select" | "tf" | "dnd" | "pio" =
     quizQuestionsList[category][currentQuestion]?.[language].questionType;
 
@@ -35,19 +34,27 @@ const QuizPage = ({ category }: Props) => {
   const [backgroundLocation, setBackgroundLocation] =
     useState<string>(questionType);
   const [isCounterVisible, setCounterVisible] = useState(false);
+  // const [isLastQuestion, setLastQuestion] = useState<boolean>(false);
 
-  const baseTimeout: number = 1200;
-  const headingVisibleTimeout: number = 500; // Timeout for showing headings
-  const counterVisibleTimeout: number = headingVisibleTimeout + 200; // Timeout for showing headings
-  const questionVisibleTimeout: number = headingVisibleTimeout + 200; // Timeout for showing questions
-  const buttonVisibleTimeout: number = 900; // Timeout for showing buttons
-  const answerCheckVisibleTimeout: number = baseTimeout - 100; // Timeout for showing buttons
-  const answersVisibleTimeout: number = answerCheckVisibleTimeout - 100; // Timeout for showing questions
+  const answerCheckVisibleTimeout: number = 1000;
+
+  const headingVisibleTimeout: number = 500;
+  const counterVisibleTimeout: number = headingVisibleTimeout + 200;
+  const questionVisibleTimeout: number = headingVisibleTimeout + 200;
+  const answersVisibleTimeout: number = answerCheckVisibleTimeout - 100;
+  const buttonVisibleTimeout: number = answersVisibleTimeout;
+
+  useEffect(() => {
+    setCounterVisible(false);
+    const timer = setTimeout(() => {
+      setCounterVisible(true);
+    }, counterVisibleTimeout);
+    return () => clearTimeout(timer);
+  }, [currentQuestion]);
 
   const goToNextQuestion = (isCorrect: boolean) => {
-    if (isCorrect) {
-      setScore(score + 1);
-    }
+    if (isCorrect) setScore(score + 1);
+    
     const nextQuestion = currentQuestion + 1;
 
     setTimeout(() => {
@@ -56,20 +63,13 @@ const QuizPage = ({ category }: Props) => {
         setBackgroundLocation(
           quizQuestionsList[category][nextQuestion]?.[language].questionType
         );
-        setCounterVisible(true); // Show counter when moving to the next question
-      } else {
+        setCounterVisible(true);
+      } 
+      else {
         setShowScore(true);
       }
-    }, questionVisibleTimeout); // Match this duration with the CSS transition duration
+    }, 300);
   };
-
-  useEffect(() => {
-    setCounterVisible(false); // Hide counter when question changes
-    const timer = setTimeout(() => {
-      setCounterVisible(true); // Show counter after question is visible
-    }, counterVisibleTimeout); // Adjust the delay as needed
-    return () => clearTimeout(timer);
-  }, [currentQuestion]);
 
   let headingText;
   switch (questionType) {
@@ -92,10 +92,8 @@ const QuizPage = ({ category }: Props) => {
       ...quizQuestionsList[category][currentQuestion],
       ...quizQuestionsList[category][currentQuestion]?.[language],
       category,
-      baseTimeout,
-      questionVisibleTimeout, // Pass questionVisibleTimeout
-      buttonVisibleTimeout, // Pass buttonVisibleTimeout
-      headingVisibleTimeout, // Pass headingVisibleTimeout
+      questionVisibleTimeout,
+      buttonVisibleTimeout,
       answerCheckVisibleTimeout,
       answersVisibleTimeout,
       currentQuestion,
@@ -117,11 +115,9 @@ const QuizPage = ({ category }: Props) => {
 
   return (
     <>
-      <PageTransition>
-        <BackgroundImage category={category} location={backgroundLocation} />
-      </PageTransition>
+      <BackgroundImage category={category} location={backgroundLocation} />
       <div className="pageContainer">
-        <Header category={category} transition={showScore ? true : false} />
+        <Header category={category} />
         {showScore ? (
           <ScorePage
             score={score}
@@ -137,7 +133,9 @@ const QuizPage = ({ category }: Props) => {
                   type="h1"
                   category={category}
                   location={`quizPage--${questionType}`}
+                  // isLastQuestion={isLastQuestion}
                   text={headingText}
+                  timeout={headingVisibleTimeout}
                 />
                 <Counter
                   location="quizPage"

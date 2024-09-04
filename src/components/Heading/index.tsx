@@ -1,30 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { type Category } from '../../context/categories';
 
 interface Props {
     type: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+    timeout?: number;
     location: "menuPage" | "startPage" | "scorePage" | "quizPage" | "quizPage--select" | "quizPage--tf" | "quizPage--dnd" | "quizPage--pio"; 
     text: any;
     category: Category;
+    isLastQuestion?: boolean;
 }
 
-const Heading = ({ type, location, text, category }: Props): JSX.Element => {
-    // const [isVisible, setIsVisible] = useState(false);
+const Heading = ({ type, location, text, category, isLastQuestion, timeout }: Props): JSX.Element => {
     const [isExiting, setIsExiting] = useState(false);
     const Tag = type as keyof JSX.IntrinsicElements;
+    const prevLocationRef = useRef(location);
 
     useEffect(() => {
-        // setIsVisible(true);
-        return () => {
+        const prevLocation = prevLocationRef.current;
+        prevLocationRef.current = location;
+
+        if (
+            !(
+                (prevLocation === "quizPage--select" && location === "quizPage--tf") ||
+                (prevLocation === "quizPage--tf" && location === "quizPage--select")
+            )
+        ) {
             setIsExiting(true);
-            setTimeout(() => {
-                setIsExiting(false);
-            }, 500); // Match this duration with the CSS animation duration
-        };
+            const timeoutId = setTimeout(() => { 
+                setIsExiting(false)}, timeout ?? 500);
+            return () => clearTimeout(timeoutId);
+        }
     }, [location]);
 
       return (
-        <div className={`heading heading--${category} ${location === 'scorePage' ? 'heading--scorePage' : ''} ${isExiting ? 'slide-out' : 'slide-in'}`}>
+        <div className={`heading heading--${category} ${location === 'scorePage' ? 'heading--scorePage' : ''} ${isExiting ? 'slide-out' : 'slide-in'} ${isLastQuestion === true && isExiting === true ? 'last' : ''}`}>
             <Tag>{text}</Tag>
         </div>
     );

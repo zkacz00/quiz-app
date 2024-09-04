@@ -10,15 +10,8 @@ interface Props {
 }
 
 const CategoryStartPage = ({ category }: Props) => {
-  const {
-    BackgroundImage,
-    Header,
-    Heading,
-    NextButton,
-    CategoryButton,
-    Logo,
-    PageTransition,
-  } = components;
+  const { BackgroundImage, Header, Heading, NextButton, CategoryButton, Logo } =
+    components;
 
   const { language } = useLanguage();
   const [isCategoryButtonVisible, setCategoryButtonVisible] = useState(false);
@@ -27,11 +20,11 @@ const CategoryStartPage = ({ category }: Props) => {
   useEffect(() => {
     const timer1 = setTimeout(() => {
       setCategoryButtonVisible(true);
-    }, 500); // Delay before showing the CategoryButton
+    }, 500);
 
     const timer2 = setTimeout(() => {
       setNextButtonVisible(true);
-    }, 1000); // Delay before showing the NextButton
+    }, 1000);
 
     return () => {
       clearTimeout(timer1);
@@ -41,14 +34,9 @@ const CategoryStartPage = ({ category }: Props) => {
 
   return (
     <>
-      <PageTransition>
-        <BackgroundImage category={category} location="start" />
-      </PageTransition>
+      <BackgroundImage category={category} location="start" />
       <div className="pageContainer">
-        <Header
-          category={category}
-          transition={category === "programowanie" ? false : true}
-        />
+        <Header category={category} />
         <main className="categoryStartPage contentContainer">
           <Logo />
           <Heading
@@ -67,7 +55,7 @@ const CategoryStartPage = ({ category }: Props) => {
               category={category}
               text="start"
               size="big"
-              visible={isNextButtonVisible} // Pass the visibility state
+              visible={isNextButtonVisible}
             />
           </Link>
         </main>

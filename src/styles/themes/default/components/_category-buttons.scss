@@ -6,7 +6,7 @@
 .categoryButton {
     text-transform: uppercase;
     opacity: 1;
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transition: opacity 1s ease, transform 1s ease;
 
     @include flex-direction(column);
     @include align-items(flex-start);
@@ -29,7 +29,7 @@
         @include display-flex();
         @include align-items(center);
         @include justify-content(space-around);
-        transition: opacity 0.8s ease, transform 0.8s ease;
+        transition: opacity 1s ease, transform 1s ease;
 
         & .categoryButton__pinkLine {
             width: 80%;
@@ -43,6 +43,7 @@
 
         &.visible {
             opacity: 1;
+            transition-delay: 0.1s;
             transform: translateY(0);
         }
     }

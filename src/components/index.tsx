@@ -12,7 +12,6 @@ import DndElement from './QuizDragAndDrop/dndElement';
 import QuizPutInOrder from './QuizPutInOrder';
 import QuizSelect from './QuizSelect';
 import Logo from './Logo';
-import PageTransition from './PageTransition';
 import ErrorBoundary from './ErrorBoundary';
 import Switch from './Switch';
 
@@ -33,7 +32,6 @@ const components = {
 	DndElement,
 	QuizPutInOrder,
 	QuizSelect,
-	PageTransition
 }
 
 export default components;

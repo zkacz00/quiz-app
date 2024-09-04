@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const Logo = (): JSX.Element => {
+const Logo = ({ location }: { location?: string }): JSX.Element => {
+  const [isVisible, setVisible] = useState(true);
+
+  useEffect(() => {
+    if (location === "menuPage") {
+      setVisible(false);
+      setTimeout(() => {
+        setVisible(true);
+      }, 500);
+    }
+    else setVisible(true);
+  }, []);
+
   return (
     <img
-      className="logo"
+      className={`logo ${
+        isVisible
+          ? "visible"
+          : "not-visible"
+      }`}
       src={require("../../assets/general/quiz-text.png")}
       alt=""
     />

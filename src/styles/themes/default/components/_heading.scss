@@ -3,8 +3,7 @@
     height: 56px;
 
     text-transform: uppercase;
-    transition: opacity 0.5s ease-in, transform 0.5s ease-in;
-
+    
     @extend %fontSize--l;
     @include display-flex();
     @include justify-content(center);
@@ -12,9 +11,9 @@
 
     & h1, h2, h3, h4, h5, h6 {
         @extend %fontSize--l;
-        opacity: 0; // Initially hidden
+        opacity: 0;
         transition-delay: 1s;
-        transition: all 0.5s ease-in; // Delay for text appearance
+        transition: all 0.5s ease;
     }
 
     &--scorePage {
@@ -25,28 +24,33 @@
     }
 
     &.slide-in {
-        transform: scaleX(0); // Start from center and scale horizontally
         opacity: 1;
-        animation: growRibbon 0.3s forwards; // Use keyframes for grow effect
+        animation: growRibbon 0.3s forwards;
+        transition: opacity 0.5s ease, transform 0.5s ease;
         & h1, h2, h3, h4, h5, h6 {
             transition-delay: 0.5s;
-            opacity: 1; // Initially hidden
+            opacity: 1;
         }
     }
 
     &.slide-out {
-        transition: none; 
+        transition: opacity 0.5s ease;
         opacity: 0;
-        transform: scaleX(1);
+        transform: scaleX(0);
+    }
+    &.slide-out.last {
+        transition: opacity 0.5s ease, translateY 0.5s ease;
+        opacity: 0;
+        transform: scaleX(0), translateY(20px);
     }
 }
 
 @keyframes growRibbon {
     0% {
-        transform: scaleX(0); // Start from center
+        transform: scaleX(0);
     }
     100% {
-        transform: scaleX(1); // Grow to full width
+        transform: scaleX(1);
     }
 }
 

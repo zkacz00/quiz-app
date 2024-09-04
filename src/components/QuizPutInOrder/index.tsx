@@ -15,10 +15,10 @@ interface Props {
   questionText1: string;
   questionText2?: string;
   questionText3?: string;
-  baseTimeout: number;
   questionVisibleTimeout: number;
+  answersVisibleTimeout: number;
+  answerCheckVisibleTimeout: number;
   buttonVisibleTimeout: number;
-  headingVisibleTimeout: number;
   currentQuestion: number;
   answerCorrect?: Array<{ answerText: string }>;
   answerOptions: Array<{ answerText: string; isCorrect?: boolean }>;
@@ -47,19 +47,49 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
     Array<{ answerText: string; isCorrect?: boolean }>
   >([]);
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
-  const [areAnswersVisible, setAnswersVisible] = useState<boolean>(false);
-  const [isDragDisabled, setIsDragDisabled] = useState<boolean>(false);
+  const [isDragDisabled, setIsDragDisabled] = useState<boolean>(true);
   const [isNextButtonVisible, setNextButtonVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =
-    useState<boolean>(false);
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false);
+  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(false);
+  const [isQuestionVisible, setQuestionVisible] = useState<boolean>(false);
 
   useEffect(() => {
     setAnswerOptions(props.answerOptions);
-    const timer = setTimeout(() => {
-      setAnswersVisible(true); // Fade in after a delay
-    }, props.questionVisibleTimeout);
-    return () => clearTimeout(timer);
   }, [props]);
+
+  useEffect(() => {
+    setAnswersVisible(false);
+    const timer1 = setTimeout(() => {
+      setQuestionVisible(true);
+    }, props.questionVisibleTimeout);
+    const timer2 = setTimeout(() => {
+      setIsDragDisabled(false);
+    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
+
+    const timer3 = setTimeout(() => {
+      setNextButtonVisible(true);
+    }, props.buttonVisibleTimeout);
+
+    const timer4 = setTimeout(() => {
+      setAnswersVisible(true);
+    }, props.answersVisibleTimeout);
+    const timer5 = setTimeout(() => {
+      setAnswersVisible(undefined);
+    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
+    const timer6 = setTimeout(() => {
+      setQuestionVisible(true);
+    }, props.questionVisibleTimeout);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+      clearTimeout(timer4);
+      clearTimeout(timer5);
+      clearTimeout(timer6);
+    };
+  }, [props.currentQuestion]);
+  
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -69,14 +99,19 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
   }, []);
 
   const handleAnswerCheck = () => {
+    if(isDragDisabled) return;
+
     const correctAnswers = props.answerCorrect || [];
 
     if (answerOptions.length !== correctAnswers.length) {
-      console.error(
-        "Answer options and correct answers do not have the same length."
-      );
+      console.error("Answer options and correct answers do not have the same length.");
       return;
     }
+
+    setAnswersVisible(true);
+    setIsDragDisabled(true);
+    setIsAnswerCheckVisible(true);
+    setQuestionVisible(true);
 
     const updatedAnswers = checkAnswerOrder(answerOptions, correctAnswers);
     const isCorrectOrder = updatedAnswers.every((item) => item.isCorrect);
@@ -84,28 +119,18 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
     setAnswerOptions(updatedAnswers);
     setIsCorrect(isCorrectOrder);
 
-    setIsAnswerCheckVisible(true);
-
     setTimeout(() => {
+      setQuestionVisible(false);
       setIsAnswerCheckVisible(false);
+      setNextButtonVisible(false);
       setAnswersVisible(false);
-    }, props.questionVisibleTimeout);
-
-    setIsDragDisabled(true);
-    setTimeout(() => {
-      setIsDragDisabled(false);
-    }, props.baseTimeout);
-
-    setNextButtonVisible(true);
-
-    props.goToNextQuestion(isCorrectOrder);
+      setIsDragDisabled(true);
+      props.goToNextQuestion(isCorrect);
+    }, props.answerCheckVisibleTimeout);
   };
 
   const onDragEnd = (result: any) => {
-    if (
-      !result.destination ||
-      result.destination.index === result.source.index
-    ) {
+    if (!result.destination || result.destination.index === result.source.index) {
       return;
     }
 
@@ -115,15 +140,10 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
       endIndex: result.destination.index,
     });
 
-    setAnswerOptions(updatedAnswersOrder);
-
     const correctAnswers = props.answerCorrect || [];
-    const updatedAnswers = checkAnswerOrder(
-      updatedAnswersOrder,
-      correctAnswers
-    );
-    setAnswerOptions(updatedAnswers);
+    const updatedAnswers = checkAnswerOrder(updatedAnswersOrder, correctAnswers);
 
+    setAnswerOptions(updatedAnswers);
     const isCorrectOrder = updatedAnswers.every((item) => item.isCorrect);
     setIsCorrect(isCorrectOrder);
   };
@@ -161,7 +181,7 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
     <div className="quizPagePio">
       <div
         className={`quizPagePio__questionSection ${
-          areAnswersVisible ? "visible" : "not-visible"
+          isQuestionVisible ? "visible" : "not-visible"
         }`}
       >
         <h2>
@@ -173,16 +193,17 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
 
       <div className="quizPagePio__answersSection">
         <DragDropContext onDragEnd={onDragEnd}>
-          <div className={`quizPagePio__answers`}>
+          <div className={`quizPagePio__answers ${
+            areAnswersVisible === true
+              ? "visible"
+              : areAnswersVisible === false
+              ? "not-visible"
+              : ""
+          }`}>
             <div className={`quizPagePio__answersNr`}>
-              {answerOptions.map(
-                (
-                  answerOption: { answerText: string; isCorrect?: boolean },
-                  index: number
-                ) => {
-                  return <p key={index}>{index + 1}.</p>;
-                }
-              )}
+              {answerOptions.map((_, index) => (
+                <p key={index}>{index + 1}.</p>
+              ))}
             </div>
             <Droppable droppableId="list">
               {(provided) => (
@@ -200,13 +221,14 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
         </DragDropContext>
         <div
           className="quizPagePio__buttonNext"
-          onClick={() => handleAnswerCheck()}
+          onClick={handleAnswerCheck}
         >
           <NextButton
             category={props.category}
             text="next"
             size="small"
             visible={isNextButtonVisible}
+            blocked={isDragDisabled}
           />
         </div>
       </div>
