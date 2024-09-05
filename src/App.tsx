@@ -28,12 +28,12 @@ function App() {
    return (
       <>
          <ErrorBoundary>
-            <Router>
+            <Router basename="/ultimatequiz">
                <Routes>
                   <Route path='/' element={<MenuPage />} />
                   {quizPagesRoutes}
                   {questionComponentsRoutes}
-                  <Route path='*' element={<ErrorPage error={null} />} /> {/* Catch-all route for 404 */}
+                  <Route path='*' element={<ErrorPage error={null} />} />
                </Routes>
             </Router>
          </ErrorBoundary>
