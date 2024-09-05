@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ultimatequiz/static/css/main.a5809cdd.css",
-    "main.js": "/ultimatequiz/static/js/main.b9965baa.js",
+    "main.js": "/ultimatequiz/static/js/main.33ee735b.js",
     "static/media/page-background--score--historia.png": "/ultimatequiz/static/media/page-background--score--historia.8e4ef1acae51b56567e1.png",
     "static/media/page-background--start--historia.png": "/ultimatequiz/static/media/page-background--start--historia.6693bcdb802a37a43276.png",
     "static/media/page-background--select--historia.png": "/ultimatequiz/static/media/page-background--select--historia.3a01760a3b1923b4b703.png",
@@ -38,10 +38,10 @@
     "static/media/start-button--programowanie.png": "/ultimatequiz/static/media/start-button--programowanie.52505b13202e35692d14.png",
     "index.html": "/ultimatequiz/index.html",
     "main.a5809cdd.css.map": "/ultimatequiz/static/css/main.a5809cdd.css.map",
-    "main.b9965baa.js.map": "/ultimatequiz/static/js/main.b9965baa.js.map"
+    "main.33ee735b.js.map": "/ultimatequiz/static/js/main.33ee735b.js.map"
   },
   "entrypoints": [
     "static/css/main.a5809cdd.css",
-    "static/js/main.b9965baa.js"
+    "static/js/main.33ee735b.js"
   ]
 }
