@@ -1,6 +1,6 @@
 .counter {
     @include circle-style();
-    transition: all 0.5s ease;
+    transition: opacity 0.5s ease;
     &--visible {
         opacity: 1;
     }

@@ -27,7 +27,7 @@
       transform: translateY(0);
     }
     &.not-visible {
-      transition: all 0s ease, transform 0s ease;
+      transition: transform 0s ease, opacity 0s ease;
       opacity: 0;
       transform: translateY(20px);
     }

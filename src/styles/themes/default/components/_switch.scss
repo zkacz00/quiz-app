@@ -6,7 +6,7 @@
     &__option {
         color: $c-white;
         cursor: pointer;
-        transition: all .2s ease;
+        transition: transform 0.2s ease;
         border-bottom: 1.5px solid transparent;
         &--selected {
             color: $c-brilliant-rose;

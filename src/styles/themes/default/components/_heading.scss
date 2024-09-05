@@ -10,7 +10,7 @@
         @extend %fontSize--l;
         opacity: 0;
         transition-delay: 1s;
-        transition: all 0.5s ease;
+        transition: opacity 0.5s ease;
     }
     &--scorePage {
         width: 680px;
