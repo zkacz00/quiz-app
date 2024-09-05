@@ -50,7 +50,7 @@ const Heading = ({
 
   return (
     <div
-      className={`heading heading--${category} ${
+      className={`heading heading--${category} heading--${location} ${
         location === "scorePage" ? "heading--scorePage" : ""
       } ${isExiting ? "slide-out" : "slide-in"}`}
     >

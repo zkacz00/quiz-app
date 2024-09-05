@@ -48,9 +48,12 @@
 @media (max-width: $break-s) {
     .scorePage {
         flex-direction: column;
+        padding: 24px 16px;
+        height: auto;
         &__mainContent {
             width: 100%;
-            height: 320px;
+            height: auto;
+            gap: 32px;
         }
         &__list {
             width: 100%;
@@ -67,7 +70,7 @@
             }
         }
         &__text {
-            margin: $s-medium 0 $s-standard;
+            margin: $s-medium 0 0;
             text-align: center;
         }
     }

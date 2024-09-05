@@ -36,7 +36,19 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
   const destinationItems = [...destinationColumn.items];
   const [removed] = sourceItems.splice(source.index, 1);
 
-  const settingColumns = () => {
+  if (sourceColumn.id === destinationColumn.id) {
+    // If dragging within the same column
+    sourceItems.splice(destination.index, 0, removed);
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...sourceColumn,
+        items: sourceItems,
+      },
+    });
+  } else {
+    // If dragging between columns
+    destinationItems.splice(destination.index, 0, removed);
     setColumns({
       ...columns,
       [source.droppableId]: {
@@ -48,14 +60,6 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
         items: destinationItems,
       },
     });
-  };
-
-  if (sourceColumn !== destinationColumn) {
-    destinationItems.splice(destination.index, 0, removed);
-    settingColumns();
-  } else {
-    sourceItems.splice(destination.index, 0, removed);
-    settingColumns();
   }
 };
 
@@ -67,7 +71,7 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
   const [isDragDisabled, setIsDragDisabled] = useState<boolean>(true);
   const [isNextButtonVisible, setNextButtonVisible] = useState(false);
   const [isQuestionVisible, setQuestionVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =useState<boolean>(false);
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false);
   const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(false);
 
   const [selectedAnswer1, setSelectedAnswer1] = useState<string>("");
@@ -195,6 +199,7 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
                   category={props.category}
                   isDragDisabled={isDragDisabled}
                   isVisible={isQuestionVisible}
+                  onDragEnd={onDragEnd}
                 />
               </div>
               <AnswerCheck
@@ -217,6 +222,7 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
                   category={props.category}
                   isDragDisabled={isDragDisabled}
                   isVisible={isQuestionVisible}
+                  onDragEnd={onDragEnd}
                 />
               </div>
               <AnswerCheck
@@ -235,6 +241,7 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
             category={props.category}
             isDragDisabled={isDragDisabled}
             isVisible={areAnswersVisible}
+            onDragEnd={onDragEnd}
           />
           <div onClick={handleAnswerCheck}>
             <NextButton

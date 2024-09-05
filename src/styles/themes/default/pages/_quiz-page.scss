@@ -76,14 +76,15 @@
 
 @media (max-width: $break-s) {
     .quizPage__heading {
-        width: 90%;
+        width: 100%;
     }
     %quizPageStyle__answersSection {
         width: 100%;
     }
-}
-
-@media (max-width: $break-s) {
+    .quizPage__content {
+        width: 100%;
+        gap: 24px;
+    }
     %quizPageStyle--draggableAnswer {
         width: calc(100% - 5px);
     }

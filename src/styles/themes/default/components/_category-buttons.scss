@@ -140,12 +140,18 @@
 }
 
 @media (max-width: $break-s) {
-    .categoryButton--column {
-        width: 68px;
+    .categoryButton {
+    &--column {
+        width: 80%;
         height: 70px;
         margin: $s-xsmall;
         padding: 4px;
+        gap: 24px;
         font-size: 0.6rem;
         border-radius: 7px;
     }
+    &__icon {
+        width: 24px;
+    }
+}
 }

@@ -16,6 +16,8 @@
 
 @media (max-width: $break-s) {
     .menuPage__categoriesLinksWrapper {
+        justify-content: flex-start;
+        max-width: 270px;
         gap: 8px;
         margin-top: 8px;
     }

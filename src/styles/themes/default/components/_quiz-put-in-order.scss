@@ -142,13 +142,37 @@
 }
 
 @media (max-width: $break-s) {
-    .quizPagePio {
-        width: 90%;
-        &__answers {
-            width: 100%;
-        }
-        &__dropPlace {
-            width: 100%;
-        }
+  .quizPagePio {
+      width: 95%;
+      gap: 24px;
+      &__answerCheckWrapper {
+          width: 100%;
+      }
+      &__questionSection {
+        min-height: auto;
+          width: 100%;
+          gap: 16px;
+          margin-bottom: 0;
+      }
+      &__questionSectionPart {
+          width: 100%;
+          gap: 8px;
+      }
+      &__answers, &__dropPlace {
+        width: 100%;
+      }
+      &__answersSection {
+        margin-top: 0;
+        gap: 16px;
+      }
+      &__answersDropPlace {
+          width: calc(100% - 4px);
+      }
+      &__questionDropPlaceWrapper {
+          margin: 5px 0;
+      }
+      &__answersNr p {
+        margin: 5px;
     }
+  }
 }

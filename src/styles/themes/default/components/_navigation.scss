@@ -1,17 +1,26 @@
 .navigation {
-    gap: 32px;
-    @include display-flex();
-    @include justify-content(space-between);
-    align-items: center;
-    &__icon {
-        width: auto;
-        height: 17px;
+  gap: 32px;
+  @include display-flex();
+  @include justify-content(space-between);
+  align-items: center;
+  &__icon {
+    width: auto;
+    height: 17px;
 
-        cursor: pointer;
-        transition: transform 0.2s ease;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 
-        &:hover {
-            transform: scale(1.1);
-        }
+    &:hover {
+      transform: scale(1.1);
     }
+  }
+}
+
+@media (max-width: $break-s) {
+  .navigation {
+    gap: 16px;
+    &__icon {
+        height: 16px;
+    }
+  }
 }

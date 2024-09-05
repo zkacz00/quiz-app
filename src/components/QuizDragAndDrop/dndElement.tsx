@@ -8,6 +8,7 @@ interface Props {
   isDragDisabled: boolean;
   column: { id: string; items: Array<{ answerText: string }> };
   isVisible: boolean | undefined;
+  onDragEnd: (result: any) => void; // New prop
 }
 
 const DndElement = ({
@@ -16,6 +17,7 @@ const DndElement = ({
   category,
   isDragDisabled,
   isVisible,
+  onDragEnd, // New prop
 }: Props): JSX.Element => {
   return (
     <Droppable droppableId={column.id} key={`k_columnId`}>

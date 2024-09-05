@@ -27,3 +27,9 @@
         color: $c-white;
     }
 }
+
+@media (max-width: $break-s) {
+    .switch {
+        font-size: 16px;
+    }
+}

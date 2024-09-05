@@ -2,7 +2,6 @@
     width: 70%;
     height: 56px;
     text-transform: uppercase;
-    @extend %fontSize--l;
     @include display-flex();
     @include justify-content(center);
     @include align-items(center);
@@ -70,6 +69,16 @@
 
 @media (max-width: $break-s) {
     .heading {
-         width: 300px;
+        width: 100%;
+        & h1, h2, h3, h4, h5, h6 {
+            font-size: 12px;
+            padding: 0 50px;
+        }
+    }
+    .heading--menuPage, .heading--startPage {
+        & h1, h2, h3, h4, h5, h6 {
+            font-size: 16px;
+            padding: 0;
+        }
     }
 }

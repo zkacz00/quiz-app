@@ -378,17 +378,3 @@
         }
     }
 }
-// @media (max-width: $break-xxs) {
-//     @each $category in $quiz-categories {
-//         .quizPageSelect__buttonAnswer, .categoryButton, .buttonNext, .quizPageDnd__buttonAnswer, .quizPagePio__buttonAnswer {
-//             &--#{$category}:before {
-//                 border-radius: 6px;
-//             }
-//         }
-//         .scorePage__list div .categoryButton {
-//             &--#{$category}:before {
-//                 border-radius: 4px;
-//             }
-//         }
-//     }
-// }
