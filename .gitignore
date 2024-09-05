@@ -1,7 +1,6 @@
 # Gatsby/Node
 node_modules/
 .cache/
-public/
 
 # Build
 build/
