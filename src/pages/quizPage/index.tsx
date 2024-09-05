@@ -24,7 +24,7 @@ const QuizPage = ({ category }: Props) => {
 
   const { language } = useLanguage();
 
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(7);
   const numberOfQuestions = quizQuestionsList.programowanie.length;
   const questionType: "select" | "tf" | "dnd" | "pio" =
     quizQuestionsList[category][currentQuestion]?.[language].questionType;
@@ -36,7 +36,7 @@ const QuizPage = ({ category }: Props) => {
   const [isCounterVisible, setCounterVisible] = useState(false);
   // const [isLastQuestion, setLastQuestion] = useState<boolean>(false);
 
-  const answerCheckVisibleTimeout: number = 1000;
+  const answerCheckVisibleTimeout: number = 1500;
 
   const headingVisibleTimeout: number = 500;
   const counterVisibleTimeout: number = headingVisibleTimeout + 200;
@@ -68,7 +68,7 @@ const QuizPage = ({ category }: Props) => {
       else {
         setShowScore(true);
       }
-    }, 300);
+    }, 200);
   };
 
   let headingText;

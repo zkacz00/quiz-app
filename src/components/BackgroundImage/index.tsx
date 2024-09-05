@@ -31,14 +31,19 @@ const BackgroundImage = ({ location, category }: Props): JSX.Element => {
   >(backgroundImage);
 
   useEffect(() => {
-    const newImage = require(`../../assets/${category}/page-background--${location}--${category}.png`);
-    const img = new Image();
-    img.src = newImage;
+    try {
+      const newImage = require(`../../assets/${category}/page-background--${location}--${category}.png`);
+      const img = new Image();
+      img.src = newImage;
 
-    img.onload = () => {
-      setBackgroundImage(newImage);
-      setIsLoading(false);
-    };
+      img.onload = () => {
+        setBackgroundImage(newImage);
+        setIsLoading(false);
+      };
+    } catch (error) {
+      console.error("Error loading background image:", error);
+      setIsLoading(false); // Optionally handle loading state
+    }
   }, [location, category]);
 
   useEffect(() => {

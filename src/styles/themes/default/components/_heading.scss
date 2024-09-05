@@ -34,6 +34,7 @@
     }
 
     &.slide-out {
+        animation: none;
         transition: opacity 0.5s ease;
         opacity: 0;
         transform: scaleX(0);

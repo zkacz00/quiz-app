@@ -44,7 +44,7 @@
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
   &.blocked {
-    cursor: default;
+    cursor: wait;
   }
 }
 

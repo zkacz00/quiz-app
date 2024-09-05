@@ -81,7 +81,7 @@
       transition-delay: 1.4s;
     }
     &.blocked {
-      cursor: default;
+      cursor: wait;
     }
   }
   &__heading {

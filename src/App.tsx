@@ -5,10 +5,13 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import MenuPage from './pages/menuPage';
 import CategoryStartPage from './pages/categoryStartPage';
 import QuizPage from './pages/quizPage';
+import ErrorPage from './pages/errorPage';
+
 import ErrorBoundary from './components/ErrorBoundary';
 
 import { categoriesPolishList } from './context/categories';
 import {type Category} from './context/categories'
+
 
 function App() {
 
@@ -30,6 +33,7 @@ function App() {
                   <Route path='/' element={<MenuPage />} />
                   {quizPagesRoutes}
                   {questionComponentsRoutes}
+                  <Route path='*' element={<ErrorPage error={null} />} /> {/* Catch-all route for 404 */}
                </Routes>
             </Router>
          </ErrorBoundary>

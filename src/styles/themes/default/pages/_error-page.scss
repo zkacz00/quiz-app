@@ -1,0 +1,48 @@
+.errorPage {
+    width: 100%;
+    gap: 40px;
+    margin-top: 80px;
+    text-align: center;
+
+    @include display-flex();
+    @include flex-direction(column);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+    @include align-items(center);
+    color: $c-white;
+    h1 {
+      font-size: 72px;
+      margin: 0;
+    }
+    p {
+      font-size: 32px;
+    }
+  }
+
+@media (max-width: $break-m) {
+    .errorPage {
+        gap: 32px;
+        margin-top: 32px;
+        h1 {
+            font-size: 56px;
+            margin: 0;
+          }
+          p {
+            font-size: 24px;
+          }
+    }
+}
+
+@media (max-width: $break-s) {
+    .errorPage {
+        gap: 24px;
+        margin-top: 32px;
+        h1 {
+            font-size: 32px;
+            margin: 0;
+          }
+          p {
+            font-size: 16px;
+          }
+    }
+}

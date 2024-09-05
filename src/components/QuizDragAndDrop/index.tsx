@@ -37,72 +37,26 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
   const answersColumnItems = [...columns.answers.items];
   const [removed] = sourceItems.splice(source.index, 1);
 
-  const settingColumns = (condition?: string) => {
-    if (
-      condition ===
-      "replaced, source: all-answers-column, destination: selected-answer-columns"
-    ) {
-      setColumns({
-        ...columns,
-        answers: {
-          ...columns.answers,
-          items: answersColumnItems,
-        },
-        [destination.droppableId]: {
-          ...destinationColumn,
-          items: destinationItems,
-        },
-      });
-    } else if (condition === "source & destination: the same column") {
-      setColumns({
-        ...columns,
-        [source.droppableId]: {
-          ...sourceColumn,
-          items: sourceItems,
-        },
-      });
-    } else {
-      setColumns({
-        ...columns,
-        [source.droppableId]: {
-          ...sourceColumn,
-          items: sourceItems,
-        },
-        [destination.droppableId]: {
-          ...destinationColumn,
-          items: destinationItems,
-        },
-      });
-    }
+  const settingColumns = () => {
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...sourceColumn,
+        items: sourceItems,
+      },
+      [destination.droppableId]: {
+        ...destinationColumn,
+        items: destinationItems,
+      },
+    });
   };
 
   if (sourceColumn !== destinationColumn) {
-    let itemsToRemove;
-    if (destinationColumn === columns.answers) {
-      destinationItems.splice(destination.index, 0, removed);
-      itemsToRemove = 0;
-    } else if (destinationColumn !== columns.answers) {
-      destinationItems.splice(0, 0, removed);
-      itemsToRemove = 1;
-    }
-
-    const [replaced] = destinationItems.splice(1, itemsToRemove);
-    if (replaced) {
-      if (sourceColumn !== columns.answers) {
-        sourceItems.splice(source.index, 1, replaced);
-        settingColumns();
-      } else if (sourceColumn === columns.answers) {
-        answersColumnItems.splice(source.index, 1, replaced);
-        settingColumns(
-          "replaced, source: all-answers-column, destination: selected-answer-columns"
-        );
-      }
-    } else {
-      settingColumns();
-    }
+    destinationItems.splice(destination.index, 0, removed);
+    settingColumns();
   } else {
     sourceItems.splice(destination.index, 0, removed);
-    settingColumns("source & destination: the same column");
+    settingColumns();
   }
 };
 
@@ -144,31 +98,27 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
     }, props.questionVisibleTimeout);
     const timer2 = setTimeout(() => {
       setIsDragDisabled(false);
-    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
-
+    }, props.answersVisibleTimeout + (props.answerOptions.length + 2) * 200);
     const timer3 = setTimeout(() => {
       setNextButtonVisible(true);
     }, props.buttonVisibleTimeout);
-
     const timer4 = setTimeout(() => {
       setAnswersVisible(true);
     }, props.answersVisibleTimeout);
-    const timer5 = setTimeout(() => {
-      setAnswersVisible(undefined);
-    }, props.answersVisibleTimeout + props.answerOptions.length * 200);
-    const timer6 = setTimeout(() => {
-      setQuestionVisible(true);
-    }, props.questionVisibleTimeout);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
       clearTimeout(timer4);
-      clearTimeout(timer5);
-      clearTimeout(timer6);
     };
   }, [props.currentQuestion]);
+
+  useEffect(() => {
+    if(!isDragDisabled) {
+      setAnswersVisible(undefined);
+    }
+  }, [isDragDisabled]);
 
   const handleAnswerCheck = () => {
     if (isDragDisabled) return;

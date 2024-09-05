@@ -50,7 +50,6 @@
         box-sizing: content-box;
         width: 660px;
         height: 70px;
-        // margin-left: 20px;
 
         border-radius: 18px;
 
@@ -122,7 +121,7 @@
               transition-delay: 1.4s;
             }
             &.blocked {
-              cursor: default;
+              cursor: wait;
             }
     }
 }

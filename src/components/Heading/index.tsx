@@ -27,14 +27,15 @@ const Heading = ({ type, location, text, category, isLastQuestion, timeout }: Pr
         ) {
             setIsExiting(true);
             const timeoutId = setTimeout(() => { 
-                setIsExiting(false)}, timeout ?? 500);
+                setIsExiting(false);
+            }, timeout ?? 500);
             return () => clearTimeout(timeoutId);
         }
     }, [location]);
 
-      return (
-        <div className={`heading heading--${category} ${location === 'scorePage' ? 'heading--scorePage' : ''} ${isExiting ? 'slide-out' : 'slide-in'} ${isLastQuestion === true && isExiting === true ? 'last' : ''}`}>
-            <Tag>{text}</Tag>
+    return (
+        <div className={`heading heading--${category} ${location === 'scorePage' ? 'heading--scorePage' : ''} ${isExiting ? 'slide-out' : 'slide-in'}`}>
+            <Tag style={{ opacity: isExiting ? 0 : 1, transform: isExiting ? 'none' : 'translateY(0)' }}>{text}</Tag>
         </div>
     );
 };

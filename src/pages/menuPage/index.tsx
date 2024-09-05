@@ -26,7 +26,7 @@ function MenuPage() {
     <>
       <BackgroundImage category="programowanie" location="menu" />
         <div className="pageContainer">
-          <Header category="programowanie" location="menuPage"/>
+          <Header category="programowanie" location="menuPage" withMenuButton={false}/>
           <main className="menuPage contentContainer">
             <Logo location="menuPage" />
             <Heading

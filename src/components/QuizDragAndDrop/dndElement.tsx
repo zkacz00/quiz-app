@@ -25,6 +25,7 @@ const DndElement = ({
             className={`quizPageDnd__${section}DropPlace`}
             {...provided.droppableProps}
             ref={provided.innerRef}
+            style={{ minHeight: '70px', position: 'relative' }} // Set a fixed height
           >
             {column.items.map((item: { answerText: string }, index: number) => {
               return (
@@ -57,7 +58,7 @@ const DndElement = ({
                 </Draggable>
               );
             })}
-            {provided.placeholder}
+            {provided.placeholder} {/* Ensure placeholder is rendered */}
           </div>
         );
       }}

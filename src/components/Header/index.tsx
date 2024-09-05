@@ -5,7 +5,7 @@ import { textContent } from '../../context/textContent';
 import { Category } from "../../context/categories";
 import { useLanguage } from '../../context/LanguageContext';
 
-const Header = ({ category, location } : { category : Category, location?: string }) : JSX.Element => {
+const Header = ({ category, location, withMenuButton } : { category : Category, location?: string, withMenuButton?: boolean }) : JSX.Element => {
    const [slideIn, setSlideIn] = useState(false);
 
    const { language } = useLanguage();
@@ -22,7 +22,7 @@ const Header = ({ category, location } : { category : Category, location?: strin
             <Link to="/"><img src={require('../../assets/general/quiz-icon.png')} alt={textContent.buttonText.goBackToMenu?.[language]}/></Link>
          </div>
          <div className="header__navigation">
-            <Navigation location={location}/>
+            <Navigation withMenuButton={withMenuButton}/>
          </div>
       </nav>
    );

@@ -80,6 +80,16 @@ export const textContent: TextContent = {
       en: "Put in the correct order",
     },
   },
+  error: {
+    heading: {
+      pl: "404 - Strona nie znaleziona",
+      en: "404 - Page not found",
+    },
+    message: {
+      pl: "Przepraszamy, strona, której szukasz, nie istnieje.",
+      en: "Sorry, the page you are looking for does not exist.",
+    },
+  },
 };
 
 export const useTextContent = (key: string) => {

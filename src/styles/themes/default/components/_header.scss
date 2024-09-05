@@ -10,6 +10,9 @@
     padding: 0 64px;
     height: 80px;
     &__icon {
+        & a {
+            display: block;
+        }
         & img {
             height: 48px;
         }
