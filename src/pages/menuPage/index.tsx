@@ -4,13 +4,8 @@ import { useLanguage } from "../../context/LanguageContext";
 import { textContent } from "../../context/textContent";
 
 function MenuPage() {
-  const {
-    BackgroundImage,
-    Header,
-    Heading,
-    CategoryButtonsList,
-    Logo,
-  } = components;
+  const { BackgroundImage, Header, Heading, CategoryButtonsList, Logo } =
+    components;
 
   const [buttonsVisible, setButtonsVisible] = useState(false);
   const { language } = useLanguage();
@@ -25,26 +20,30 @@ function MenuPage() {
   return (
     <>
       <BackgroundImage category="programowanie" location="menu" />
-        <div className="pageContainer">
-          <Header category="programowanie" location="menuPage" withMenuButton={false}/>
-          <main className="menuPage contentContainer">
-            <Logo location="menuPage" />
-            <Heading
-              type="h1"
+      <div className="pageContainer">
+        <Header
+          category="programowanie"
+          location="menuPage"
+          withMenuButton={false}
+        />
+        <main className="menuPage contentContainer">
+          <Logo location="menuPage" />
+          <Heading
+            type="h1"
+            category="programowanie"
+            location="menuPage"
+            text={textContent.headings.menu?.[language]}
+          />
+          <div className="menuPage__categoriesLinksWrapper">
+            <CategoryButtonsList
               category="programowanie"
-              location="menuPage"
-              text={textContent.headings.menu?.[language]}
+              direction="row"
+              location="startPage"
+              visible={buttonsVisible}
             />
-            <div className="menuPage__categoriesLinksWrapper">
-              <CategoryButtonsList
-                category="programowanie"
-                direction="row"
-                location="startPage"
-                visible={buttonsVisible}
-              />
-            </div>
-          </main>
-        </div>
+          </div>
+        </main>
+      </div>
     </>
   );
 }

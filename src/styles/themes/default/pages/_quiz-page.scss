@@ -4,22 +4,20 @@
     margin: $s-xx-small;
     padding: 0 $s-standard;
     text-align: left;
-
     @extend %fontSize--m;
     @include align-items(center);
 }
 %quizPageStyle__content {
     width: 100%;
-
     @include display-flex();
     @include flex-direction(column);
     @include align-items(center);
 }
 %quizPageStyle__answersSection {
-    @include display-flex();
-    @include flex-wrap(wrap);
     width: 100%;
     gap: 16px;
+    @include display-flex();
+    @include flex-wrap(wrap);
 }
 %quizPageStyle__questionSection {
     width: 100%;
@@ -29,7 +27,6 @@
     @include flex-direction(column);
     @include align-items(center);
     @include justify-content(center);
-
     @extend %fontSize--xl;
     & h2 {
         @extend %fontSize--xl;
@@ -45,11 +42,8 @@
     }
     &__heading {
         position: relative;
-
         width: 900px;
-
         text-align: center;
-
         @include display-flex();
         @include align-items(center);
         @include justify-content(center);
@@ -59,7 +53,6 @@
 @media (max-width: $break-l) {
     .quizPage__heading {
         position: relative;
-
         width: 500px;
     }
     %quizPageStyle--draggableAnswer {
@@ -67,7 +60,6 @@
         height: 45px;
         margin: 2.5px;
         padding: 0 10px;
-
         border-radius: 11px;
         transition: opacity 0.5s ease, transform 0.5s ease;
         @extend %fontSize--m;
@@ -75,7 +67,6 @@
            opacity: 0;
            transform: translateY(20px);
         }
-     
         &.visible {
            opacity: 1;
            transform: translateY(0);

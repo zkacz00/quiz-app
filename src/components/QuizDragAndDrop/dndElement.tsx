@@ -7,7 +7,7 @@ interface Props {
   category: Category;
   isDragDisabled: boolean;
   column: { id: string; items: Array<{ answerText: string }> };
-  isVisible: boolean | undefined; // Added isVisible prop
+  isVisible: boolean | undefined;
 }
 
 const DndElement = ({
@@ -25,7 +25,7 @@ const DndElement = ({
             className={`quizPageDnd__${section}DropPlace`}
             {...provided.droppableProps}
             ref={provided.innerRef}
-            style={{ minHeight: '70px', position: 'relative' }} // Set a fixed height
+            style={{ minHeight: "70px", position: "relative" }}
           >
             {column.items.map((item: { answerText: string }, index: number) => {
               return (
@@ -58,7 +58,7 @@ const DndElement = ({
                 </Draggable>
               );
             })}
-            {provided.placeholder} {/* Ensure placeholder is rendered */}
+            {provided.placeholder}
           </div>
         );
       }}

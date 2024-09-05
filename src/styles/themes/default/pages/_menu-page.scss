@@ -2,7 +2,6 @@
     width: 100%;
     gap: 20px;
     margin-top: 24px;
-
     @include display-flex();
     @include flex-wrap(wrap);
     @include justify-content(center);

@@ -4,7 +4,6 @@
     @include justify-content(space-between);
     width: 100%;
     position: relative;
-
     justify-content: space-between;
     align-items: center;
     padding: 0 64px;
@@ -52,13 +51,3 @@
         }
     }
 }
-
-// @media (max-width: $break-xxs) {
-//     .header {
-//         padding: 0 16px;
-//         height: 48px;
-//         &__icon img {
-//             width: 30px;
-//         }
-//     }
-// }

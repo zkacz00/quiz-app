@@ -49,11 +49,8 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
   const [isCorrect, setIsCorrect] = useState<boolean>(false);
   const [isDragDisabled, setIsDragDisabled] = useState<boolean>(true);
   const [isNextButtonVisible, setNextButtonVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =
-    useState<boolean>(false);
-  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(
-    false
-  );
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false);
+  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(false);
   const [isQuestionVisible, setQuestionVisible] = useState<boolean>(false);
 
   useEffect(() => {
@@ -81,10 +78,16 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
       clearTimeout(timer3);
       clearTimeout(timer4);
     };
-  }, [props.currentQuestion]);
+  }, [
+    props.currentQuestion,
+    props.answerOptions.length,
+    props.answersVisibleTimeout,
+    props.buttonVisibleTimeout,
+    props.questionVisibleTimeout,
+  ]);
 
   useEffect(() => {
-    if(!isDragDisabled) {
+    if (!isDragDisabled) {
       setAnswersVisible(undefined);
     }
   }, [isDragDisabled]);
@@ -94,7 +97,7 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
       setNextButtonVisible(true);
     }, props.buttonVisibleTimeout);
     return () => clearTimeout(timer);
-  }, []);
+  }, [props.buttonVisibleTimeout]);
 
   const handleAnswerCheck = () => {
     if (isDragDisabled) return;

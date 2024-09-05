@@ -34,7 +34,6 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
   const destinationColumn = columns[destination.droppableId];
   const sourceItems = [...sourceColumn.items];
   const destinationItems = [...destinationColumn.items];
-  const answersColumnItems = [...columns.answers.items];
   const [removed] = sourceItems.splice(source.index, 1);
 
   const settingColumns = () => {
@@ -68,11 +67,8 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
   const [isDragDisabled, setIsDragDisabled] = useState<boolean>(true);
   const [isNextButtonVisible, setNextButtonVisible] = useState(false);
   const [isQuestionVisible, setQuestionVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =
-    useState<boolean>(false);
-  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(
-    false
-  );
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =useState<boolean>(false);
+  const [areAnswersVisible, setAnswersVisible] = useState<boolean | undefined>(false);
 
   const [selectedAnswer1, setSelectedAnswer1] = useState<string>("");
   const [selectedAnswer2, setSelectedAnswer2] = useState<string>("");
@@ -112,10 +108,15 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
       clearTimeout(timer3);
       clearTimeout(timer4);
     };
-  }, [props.currentQuestion]);
-
+  }, [
+    props.currentQuestion,
+    props.answerOptions.length,
+    props.answersVisibleTimeout,
+    props.buttonVisibleTimeout,
+    props.questionVisibleTimeout,
+  ]);
   useEffect(() => {
-    if(!isDragDisabled) {
+    if (!isDragDisabled) {
       setAnswersVisible(undefined);
     }
   }, [isDragDisabled]);

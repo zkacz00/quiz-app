@@ -18,7 +18,7 @@ interface Props {
 
 const QuizSelect = (props: Props) => {
   const [isQuestionVisible, setIsQuestionVisible] = useState<boolean>(false);
-  const [isAnswerCheckVisible, setIsAnswerCheckVisible] = useState<boolean>(false);
+  const [isAnswerCheckVisible, setIsAnswerCheckVisible] =useState<boolean>(false);
   const [selectedAnswerId, setSelectedAnswerId] = useState<number | undefined>();
   const [wasClicked, setWasClicked] = useState<boolean>(true);
 
@@ -33,9 +33,16 @@ const QuizSelect = (props: Props) => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, [props.currentQuestion]);
+  }, [
+    props.currentQuestion,
+    props.questionVisibleTimeout,
+    props.answersVisibleTimeout,
+  ]);
 
-  const handleAnswerSelect = (isCorrect: boolean | undefined, index: number) => {
+  const handleAnswerSelect = (
+    isCorrect: boolean | undefined,
+    index: number
+  ) => {
     if (typeof isCorrect === "boolean" && !wasClicked) {
       setWasClicked(true);
       setSelectedAnswerId(index);
@@ -55,8 +62,7 @@ const QuizSelect = (props: Props) => {
         quizPageSelect__buttonAnswer--${props.category} 
         ${isQuestionVisible ? "visible" : "not-visible"} 
         ${wasClicked ? "blocked" : ""} 
-        ${wasClicked && selectedAnswerId === index ? "selected" : ""}`
-      }
+        ${wasClicked && selectedAnswerId === index ? "selected" : ""}`}
       onClick={() => handleAnswerSelect(answerOption.isCorrect, index)}
       key={`b-${index}`}
     >

@@ -1,6 +1,5 @@
 .navigation {
     gap: 32px;
-
     @include display-flex();
     @include justify-content(space-between);
     align-items: center;

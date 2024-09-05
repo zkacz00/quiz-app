@@ -1,7 +1,6 @@
 .quizPageDnd {
     @extend %quizPageStyle__content;
     gap: 24px;
-
     &__questionSection {
         min-height: 256px;
         gap: 24px;
@@ -11,14 +10,11 @@
         @extend %quizPageStyle__questionSection;
         > p {
            margin-bottom: $s-x-small;
-
            text-align: center;
         }
-
         &.visible {
           transition: opacity 0.8s ease, transform 0.8s ease;
           opacity: 1;
-        //   transform: translateY(0);
         }
         &.not-visible {
           transition: opacity 0s ease, transform 0s ease;
@@ -28,14 +24,12 @@
     }
     &__questionSectionPart {
         gap: 16px;
-
         @include display-flex();
         @include flex-wrap(no-wrap);
         @include align-items(center);
         @include justify-content(center);
         p {
             max-width: 450px;
-
             text-align: end;
         }
     }
@@ -46,13 +40,10 @@
     }
     &__questionDropPlaceWrapper {
         overflow: hidden;
-
         box-sizing: content-box;
         width: 660px;
         height: 70px;
-
         border-radius: 18px;
-
         @include display-flex();
         @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -132,7 +123,6 @@
             width: 420px;
             height: 50px;
             margin: $s-xx-small $s-x-small;
-    
             border-radius: 15px;
         }
         &__questionSectionPart {
@@ -154,7 +144,6 @@
         }
         &__answersSection {
             flex-direction: column;
-    
             @include align-items(center);
         }
     }
@@ -174,16 +163,3 @@
         }
     }
 }
-
-// @media (max-width: $break-xxs) {
-//     .quizPageDnd {
-//         &__questionDropPlaceWrapper {
-//             height: 40px;
-    
-//             border-radius: 12px;
-//         }
-//         &__questionSection {
-//             margin-bottom: 5px;
-//         }
-//     }
-// }

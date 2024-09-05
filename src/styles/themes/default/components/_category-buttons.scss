@@ -7,10 +7,8 @@
     text-transform: uppercase;
     opacity: 1;
     transition: opacity 1s ease, transform 1s ease;
-
     @include flex-direction(column);
     @include align-items(flex-start);
-
     &__icon {
         width: 40%;
         margin: 0 10%;
@@ -20,27 +18,22 @@
         height: 1.5px;
         margin: 17% 0 7%;
     }
-
     &--single {
         width: 180px;
         height: 140px;
-
         @extend %fontSize--sm;
         @include display-flex();
         @include align-items(center);
         @include justify-content(space-around);
         transition: opacity 1s ease, transform 1s ease;
-
         & .categoryButton__pinkLine {
             width: 80%;
             height: 2px;
         }
-
         &.not-visible {
             opacity: 0;
             transform: translateY(20px);
         }
-
         &.visible {
             opacity: 1;
             transition-delay: 0.1s;
@@ -49,13 +42,11 @@
     }
     &--list {
         padding: $s-small;
-
         @include justify-content(flex-end);
     }
     &--row {
         width: 170px;
         height: 165px;
-
         @extend %fontSize--s;
     }
     &--column {
@@ -67,7 +58,6 @@
         justify-content: flex-start;
         column-gap: 12px;
         row-gap: 8px;
-        
         @extend %fontSize--xxs;
         & .categoryButton {
             padding: 16px 0;
@@ -159,24 +149,3 @@
         border-radius: 7px;
     }
 }
-
-// @media (max-width: $break-xxs) {
-//     .categoryButton {
-//         &--single {
-//             width: 80px;
-//             height: 75px;
-//         }
-//         &--row {
-//             width: 100px;
-//             height: 95px;
-//             margin: $s-xx-small;
-//             border-radius: 9px;
-//         }
-//         &--column {
-//             width: 50px;
-//             height: 50px;
-//             font-size: 0.4rem;
-//             border-radius: 6px;
-//         }
-//     }
-// }

@@ -9,17 +9,14 @@ const Logo = ({ location }: { location?: string }): JSX.Element => {
       setTimeout(() => {
         setVisible(true);
       }, 500);
+    } else {
+      setVisible(true);
     }
-    else setVisible(true);
-  }, []);
+  }, [location]);
 
   return (
     <img
-      className={`logo ${
-        isVisible
-          ? "visible"
-          : "not-visible"
-      }`}
+      className={`logo ${isVisible ? "visible" : "not-visible"}`}
       src={require("../../assets/general/quiz-text.png")}
       alt=""
     />

@@ -4,11 +4,9 @@
     @include flex-wrap(wrap);
     @extend %quizPageStyle__content;
     gap: 24px;
-
     &__questionSection {
         min-height: 80px;
         @extend %quizPageStyle__questionSection;
-
         &.visible {
           transition: opacity 0.8s ease, transform 0.8s ease;
           opacity: 1;
@@ -21,7 +19,6 @@
         }
     }
     &__answersSection {
-      
         @include justify-content(center);
         @extend %quizPageStyle__answersSection;
     }
@@ -138,7 +135,6 @@
 }
 
 @media (max-width: $break-s) {
-
     .quizPagePio__answersSection {
         @include flex-direction(column);
         @include align-items(center);

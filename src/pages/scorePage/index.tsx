@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import components from "../../components";
 import { type Category } from "../../context/categories";
-import { useLanguage } from '../../context/LanguageContext';
+import { useLanguage } from "../../context/LanguageContext";
 import { textContent } from "../../context/textContent";
 
 interface Props {
@@ -11,13 +11,8 @@ interface Props {
   category: Category;
 }
 const ScorePage = (props: Props) => {
-  const {
-    CategoryButtonsList,
-    CategoryButton,
-    NextButton,
-    Heading,
-    Counter,
-  } = components;
+  const { CategoryButtonsList, CategoryButton, NextButton, Heading, Counter } =
+    components;
 
   const { language } = useLanguage();
   const [isCategoryButtonVisible, setCategoryButtonVisible] = useState(false);
@@ -50,7 +45,11 @@ const ScorePage = (props: Props) => {
       <main className="scorePage">
         <div className="scorePage__mainContent">
           <div className="scorePage__categoryButton">
-            <CategoryButton category={props.category} location="single" visible={isCategoryButtonVisible} />
+            <CategoryButton
+              category={props.category}
+              location="single"
+              visible={isCategoryButtonVisible}
+            />
           </div>
           <div className="scorePage__score">
             <Counter
@@ -78,7 +77,11 @@ const ScorePage = (props: Props) => {
           </Link>
         </div>
         <div className="scorePage__list">
-          <p className={`scorePage__text ${isCategoryButtonVisible ? 'scorePage__text--visible' : ''}`}>
+          <p
+            className={`scorePage__text ${
+              isCategoryButtonVisible ? "scorePage__text--visible" : ""
+            }`}
+          >
             wybierz
             <br />
             inną kategorię

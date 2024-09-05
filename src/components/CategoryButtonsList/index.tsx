@@ -16,11 +16,12 @@ const CategoryButtonsList = ({
   direction,
   visible,
 }: Props): JSX.Element => {
-  const list: Category[] = location === "score-page"
-    ? categoriesList
-        .map(cat => cat.pl)
-        .filter((cat: Category) => cat !== category as Category)
-    : categoriesList.map(cat => cat.pl as Category);
+  const list: Category[] =
+    location === "score-page"
+      ? categoriesList
+          .map((cat) => cat.pl)
+          .filter((cat: Category) => cat !== (category as Category))
+      : categoriesList.map((cat) => cat.pl as Category);
 
   const quizCategoriesLinks = list.map((cat: Category, key: number) => (
     <Link to={`/quiz/${cat}`} key={`l-${key}`} className="linkButtonWrapper">

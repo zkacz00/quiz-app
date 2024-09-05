@@ -1,28 +1,23 @@
 .heading {
     width: 70%;
     height: 56px;
-
     text-transform: uppercase;
-    
     @extend %fontSize--l;
     @include display-flex();
     @include justify-content(center);
     @include align-items(center);
-
     & h1, h2, h3, h4, h5, h6 {
         @extend %fontSize--l;
         opacity: 0;
         transition-delay: 1s;
         transition: all 0.5s ease;
     }
-
     &--scorePage {
         width: 680px;
         position: absolute;
         top: 33%;
         right: -70px;
     }
-
     &.slide-in {
         opacity: 1;
         animation: growRibbon 0.3s forwards;
@@ -32,7 +27,6 @@
             opacity: 1;
         }
     }
-
     &.slide-out {
         animation: none;
         transition: opacity 0.5s ease;
@@ -79,23 +73,3 @@
          width: 300px;
     }
 }
-
-// @media (max-width: $break-xxs) {
-//     .heading {
-//         height: 30px;
-//         width: 240px;
-//         &--menuPage,
-//         &--quizPage {
-//             margin: $s-small 0;
-//         }
-//         &--startPage {
-//             margin: $s-small 0 0;
-//         }
-//         &--scorePage {
-//             right: -40px;
-//             top: 31%;
-//             width: 295px;
-//             height: 30px;
-//         }
-//     }
-// }

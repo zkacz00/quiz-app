@@ -1,15 +1,12 @@
 .counter {
     @include circle-style();
-    transition: all 0.5s ease; // Add transition for fading
-     // Initially hidden
-
+    transition: all 0.5s ease;
     &--visible {
-        opacity: 1; // Fully visible when the class is added
+        opacity: 1;
     }
     &--not-visible {
         opacity: 0;
     }
-
     span:last-of-type {
         color: $c-brilliant-rose;
     }
@@ -17,23 +14,19 @@
         position: absolute;
         top: calc((85 - 56) / 2)px;
         right: 0;
-
         width: 85px;
         height: 85px;
-        
         @extend %fontSize--xl;
     }
     &--scorePage {
         z-index: 2;
-
         width: 140px;
         height: 140px;
-
         @extend %fontSize--xxl;
     }
 }
 
-@media (max-width: $break-l) { 
+@media (max-width: $break-l) {
     .counter {
         &--quizPage {
             width: 55px;

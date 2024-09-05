@@ -57,7 +57,7 @@ export const textContent: TextContent = {
   headings: {
     menu: {
       pl: "10 pytań / 5 kategorii",
-      en: "10 questions / 5 categories"
+      en: "10 questions / 5 categories",
     },
     yourScore: {
       pl: "Twój wynik",
@@ -93,14 +93,14 @@ export const textContent: TextContent = {
 };
 
 export const useTextContent = (key: string) => {
-    const { language } = useLanguage(); // Get the current language from context
-    const keys = key.split(".");
-    let text = textContent as any;
-  
-    for (const k of keys) {
-      text = text[k];
-      if (!text) return "";
-    }
-  
-    return text[language] || "";
-  };
+  const { language } = useLanguage(); // Get the current language from context
+  const keys = key.split(".");
+  let text = textContent as any;
+
+  for (const k of keys) {
+    text = text[k];
+    if (!text) return "";
+  }
+
+  return text[language] || "";
+};

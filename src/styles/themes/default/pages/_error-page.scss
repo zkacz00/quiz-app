@@ -3,7 +3,6 @@
     gap: 40px;
     margin-top: 80px;
     text-align: center;
-
     @include display-flex();
     @include flex-direction(column);
     @include flex-wrap(wrap);

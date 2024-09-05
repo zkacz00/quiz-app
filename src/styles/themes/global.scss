@@ -1,184 +1,150 @@
 %fontSize--xxl {
-    font-size: 3.2rem;
+  font-size: 3.2rem;
 }
 %fontSize--xl {
-    font-size: 2.2rem;
+  font-size: 2.2rem;
 }
 %fontSize--l {
-    font-size: 2.1rem;
+  font-size: 2.1rem;
 }
 %fontSize--m {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 %fontSize--sm {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 %fontSize--s {
-    font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 %fontSize--xxs {
-    font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-
-    text-decoration: none;
-
-    color: white;
-    user-select: none; /* For modern browsers */
-    -webkit-user-select: none; /* For Safari */
-    -moz-user-select: none; /* For Firefox */
-    -ms-user-select: none; 
+  box-sizing: border-box;
+  margin: 0;
+  text-decoration: none;
+  color: white;
+  user-select: none; /* For modern browsers */
+  -webkit-user-select: none; /* For Safari */
+  -moz-user-select: none; /* For Firefox */
+  -ms-user-select: none;
 }
 
 html {
-    font-family: $f-base-font-family;
-    font-size: 10px;
-    background-color: #26153D;
-    height: 100%;
+  font-family: $f-base-font-family;
+  font-size: 10px;
+  background-color: #26153d;
+  height: 100%;
 }
 
-html, body {
-    transition: height 0.3s ease;
+html,
+body {
+  transition: height 0.3s ease;
 }
 
 .pageContainer {
-    position: absolute;
-    width: 100%;
-    
-    min-width: 320px;
-
-    scrollbar-gutter: stable;
-
-    @include display-flex();
-    @include flex-direction(column);
-    @include align-items(center);
+  position: absolute;
+  width: 100%;
+  min-width: 320px;
+  scrollbar-gutter: stable;
+  @include display-flex();
+  @include flex-direction(column);
+  @include align-items(center);
 }
 
 .contentContainer {
-    width: 100%;
-    padding: 40px 0;
-    margin: 0 64px;
-    gap: 40px;
-    max-width: 970px;
-
-    scrollbar-gutter: stable;
-
-    @include display-flex();
-    @include flex-direction(column);
-    @include align-items(center);
+  width: 100%;
+  padding: 40px 0;
+  margin: 0 64px;
+  gap: 40px;
+  max-width: 970px;
+  scrollbar-gutter: stable;
+  @include display-flex();
+  @include flex-direction(column);
+  @include align-items(center);
 }
 
-/* SCROLLBAR */
 * {
-    scrollbar-width: auto;
-    scrollbar-color: $c-brilliant-rose $c-gray-transparent;
-  }
-  
-  *::-webkit-scrollbar {
-    width: 16px;
-    height: 16px;
-    border-radius: 16px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background-color: $c-gray-transparent;
-    border-radius: 16px;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    border-radius: 16px;
-    background-color: var(--color-primary);
-    background-clip: content-box;
-    transition: background-color 2s ease;
-  }
-  
-  *::-webkit-scrollbar-thumb:active {
-    background-color: var(--color-primary-dark);
-  }
-  
-  *::-webkit-scrollbar-corner {
-    background-color: $c-gray-transparent;
-    border-bottom: 2px solid $c-brilliant-rose;
-    border-right: 2px solid $c-brilliant-rose;
-  }
-  
+  scrollbar-width: auto;
+  scrollbar-color: $c-brilliant-rose $c-gray-transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: $c-gray-transparent;
+  border-radius: 16px;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 16px;
+  background-color: var(--color-primary);
+  background-clip: content-box;
+  transition: background-color 2s ease;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: var(--color-primary-dark);
+}
+
+*::-webkit-scrollbar-corner {
+  background-color: $c-gray-transparent;
+  border-bottom: 2px solid $c-brilliant-rose;
+  border-right: 2px solid $c-brilliant-rose;
+}
 
 @media (max-width: $break-l) {
-    %fontSize--xxl {
-        font-size: 2rem;
-    }
-    %fontSize--xl {
-        font-size: 1.4rem;
-    }
-    %fontSize--l {
-        font-size: 1.4rem;
-    }
-    %fontSize--m {
-        font-size: 1.2rem;
-    }
-    %fontSize--sm {
-        font-size: 1.2rem;
-    }
-    %fontSize--s {
-        font-size: .9rem;
-    }
-    %fontSize--xxs {
-        font-size: .8rem;
-    }
-    .contentContainer {
-        padding: 40px 48px;
-        margin: 0;
-        gap: 24px;
-        max-width: 970px;
-    }
+  %fontSize--xxl {
+    font-size: 2rem;
+  }
+  %fontSize--xl {
+    font-size: 1.4rem;
+  }
+  %fontSize--l {
+    font-size: 1.4rem;
+  }
+  %fontSize--m {
+    font-size: 1.2rem;
+  }
+  %fontSize--sm {
+    font-size: 1.2rem;
+  }
+  %fontSize--s {
+    font-size: 0.9rem;
+  }
+  %fontSize--xxs {
+    font-size: 0.8rem;
+  }
+  .contentContainer {
+    padding: 40px 48px;
+    margin: 0;
+    gap: 24px;
+    max-width: 970px;
+  }
 }
 
 @media (max-width: $break-m) {
-    .contentContainer {
-        padding: 48px 32px;
-        margin: 0;
-        gap: 24px;
-        // max-width: px;
-    }
+  .contentContainer {
+    padding: 48px 32px;
+    margin: 0;
+    gap: 24px;
+  }
 }
 
 @media (max-width: $break-s) {
-    %fontSize--l {
-        font-size: 1.3rem;
+  %fontSize--l {
+    font-size: 1.3rem;
+  }
+  @media (max-width: $break-m) {
+    .contentContainer {
+      padding: 32px 16px;
+      margin: 0;
+      gap: 16px;
     }
-    @media (max-width: $break-m) {
-        .contentContainer {
-            padding: 32px 16px;
-            margin: 0;
-            gap: 16px;
-            // max-width: px;
-        }
-    }
+  }
 }
-
-// @media (max-width: $break-xxs) {
-//     %fontSize--xxl {
-//         font-size: 2rem;
-//     }
-//     %fontSize--xl {
-//         font-size: 1rem;
-//     }
-//     %fontSize--l {
-//         font-size: 1rem;
-//     }
-//     %fontSize--m {
-//         font-size: .9rem;
-//     }
-//     %fontSize--sm {
-//         font-size: .8rem;
-//     }
-//     %fontSize--s {
-//         font-size: .8rem;
-//     }
-//     %fontSize--xxs {
-//         font-size: .8rem;
-//     }
-// }
