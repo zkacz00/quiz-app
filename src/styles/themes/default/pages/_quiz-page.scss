@@ -61,16 +61,6 @@
         margin: 2.5px;
         padding: 0 10px;
         border-radius: 11px;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        @extend %fontSize--m;
-        &.not-visible {
-           opacity: 0;
-           transform: translateY(20px);
-        }
-        &.visible {
-           opacity: 1;
-           transform: translateY(0);
-        }
     }
 }
 
@@ -80,6 +70,7 @@
     }
     %quizPageStyle__answersSection {
         width: 100%;
+        gap: 24px;
     }
     .quizPage__content {
         width: 100%;

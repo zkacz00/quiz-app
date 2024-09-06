@@ -141,17 +141,26 @@
 
 @media (max-width: $break-s) {
     .categoryButton {
-    &--column {
-        width: 80%;
-        height: 70px;
-        margin: $s-xsmall;
-        padding: 4px;
-        gap: 24px;
-        font-size: 0.6rem;
-        border-radius: 7px;
-    }
-    &__icon {
-        width: 24px;
+        &__icon {
+            width: 40px;
+        }
+        &--column {
+            width: 215px;
+            height: 60px;
+            margin: $s-xsmall;
+            padding: 8px;
+            row-gap: 8px;
+            column-gap: 16px;
+            font-size: 0.6rem;
+            border-radius: 12px;
+            .categoryButton__icon {
+                width: 32px;
+            }
+        }
+        &--single {
+            .categoryButton__pinkLine {
+                margin: 7% 0;
+        }
     }
 }
 }
