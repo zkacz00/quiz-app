@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ultimatequiz/static/css/main.a5809cdd.css",
-    "main.js": "/ultimatequiz/static/js/main.33ee735b.js",
+    "main.css": "/ultimatequiz/static/css/main.7192981f.css",
+    "main.js": "/ultimatequiz/static/js/main.8ae070a7.js",
     "static/media/page-background--score--historia.png": "/ultimatequiz/static/media/page-background--score--historia.8e4ef1acae51b56567e1.png",
     "static/media/page-background--start--historia.png": "/ultimatequiz/static/media/page-background--start--historia.6693bcdb802a37a43276.png",
     "static/media/page-background--select--historia.png": "/ultimatequiz/static/media/page-background--select--historia.3a01760a3b1923b4b703.png",
@@ -37,11 +37,11 @@
     "static/media/start-button--motoryzacja.png": "/ultimatequiz/static/media/start-button--motoryzacja.f12af737653a06226b99.png",
     "static/media/start-button--programowanie.png": "/ultimatequiz/static/media/start-button--programowanie.52505b13202e35692d14.png",
     "index.html": "/ultimatequiz/index.html",
-    "main.a5809cdd.css.map": "/ultimatequiz/static/css/main.a5809cdd.css.map",
-    "main.33ee735b.js.map": "/ultimatequiz/static/js/main.33ee735b.js.map"
+    "main.7192981f.css.map": "/ultimatequiz/static/css/main.7192981f.css.map",
+    "main.8ae070a7.js.map": "/ultimatequiz/static/js/main.8ae070a7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a5809cdd.css",
-    "static/js/main.33ee735b.js"
+    "static/css/main.7192981f.css",
+    "static/js/main.8ae070a7.js"
   ]
 }
