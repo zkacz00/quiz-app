@@ -34,7 +34,7 @@ const CategoryButtonsList = ({
     </Link>
   ));
 
-  return <>{quizCategoriesLinks}</>;
+  return <div className="categoryButtonsList">{quizCategoriesLinks}</div>;
 };
 
 export default CategoryButtonsList;

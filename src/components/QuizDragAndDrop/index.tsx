@@ -243,7 +243,7 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
             isVisible={areAnswersVisible}
             onDragEnd={onDragEnd}
           />
-          <div onClick={handleAnswerCheck}>
+          <div className="quizPageDnd__buttonNextWrapper" onClick={handleAnswerCheck}>
             <NextButton
               category={props.category}
               text="next"

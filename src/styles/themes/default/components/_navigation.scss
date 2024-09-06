@@ -16,6 +16,15 @@
   }
 }
 
+@media (max-width: $break-l) {
+  .navigation {
+    gap: 16px;
+    &__icon {
+        height: 16px;
+    }
+  }
+}
+
 @media (max-width: $break-s) {
   .navigation {
     gap: 16px;

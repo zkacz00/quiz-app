@@ -15,7 +15,6 @@ interface Props {
     | "quizPage--pio";
   text: any;
   category: Category;
-  isLastQuestion?: boolean;
 }
 
 const Heading = ({
@@ -23,7 +22,6 @@ const Heading = ({
   location,
   text,
   category,
-//   isLastQuestion,
   timeout,
 }: Props): JSX.Element => {
   const [isExiting, setIsExiting] = useState(false);

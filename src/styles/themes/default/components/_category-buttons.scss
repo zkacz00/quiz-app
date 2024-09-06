@@ -128,12 +128,14 @@
         &--column {
             width: 95px;
             height: 100px;
-            margin: $s-xx-small 0;
+            margin: 0;
             padding: 7px;
     
             border-radius: 11px;
-            & .categoryButton__icon {
-                width: 50%;
+            .categoryButton__text {
+                order: 2;
+                margin: 0;
+                font-size: 8px;
             }
         }
     }
@@ -144,19 +146,19 @@
         &__icon {
             width: 40px;
         }
-        &--column {
-            width: 215px;
-            height: 60px;
-            margin: $s-xsmall;
-            padding: 8px;
-            row-gap: 8px;
-            column-gap: 16px;
-            font-size: 0.6rem;
-            border-radius: 12px;
-            .categoryButton__icon {
-                width: 32px;
-            }
-        }
+        // &--column {
+        //     width: 215px;
+        //     height: 60px;
+        //     margin: $s-xsmall;
+        //     padding: 8px;
+        //     row-gap: 8px;
+        //     column-gap: 16px;
+        //     font-size: 0.6rem;
+        //     border-radius: 12px;
+        //     .categoryButton__icon {
+        //         width: 32px;
+        //     }
+        // }
         &--single {
             .categoryButton__pinkLine {
                 margin: 7% 0;

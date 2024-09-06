@@ -243,7 +243,7 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
             </Droppable>
           </div>
         </DragDropContext>
-        <div className="quizPagePio__buttonNext" onClick={handleAnswerCheck}>
+        <div className="quizPagePio__buttonNextWrapper" onClick={handleAnswerCheck}>
           <NextButton
             category={props.category}
             text="next"

@@ -41,6 +41,7 @@ html {
 html,
 body {
   transition: height 0.3s ease;
+  overflow-x: hidden;
 }
 
 .pageContainer {
@@ -100,16 +101,16 @@ body {
 
 @media (max-width: $break-l) {
   %fontSize--xxl {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   %fontSize--xl {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
   %fontSize--l {
     font-size: 1.4rem;
   }
   %fontSize--m {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   %fontSize--sm {
     font-size: 1.2rem;
@@ -121,17 +122,16 @@ body {
     font-size: 0.8rem;
   }
   .contentContainer {
-    padding: 40px 48px;
+    padding: 40px 32px;
     margin: 0;
-    gap: 24px;
+    gap: 32px;
     max-width: 970px;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: $break-m) {
   .contentContainer {
-    padding: 48px 32px;
-    margin: 0;
     gap: 24px;
   }
 }

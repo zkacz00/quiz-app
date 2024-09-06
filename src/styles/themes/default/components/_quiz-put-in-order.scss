@@ -113,7 +113,7 @@
             transition-delay: 1.4s;
           }
     }
-    &__buttonNext {
+    &__buttonNextWrapper {
         height: fit-content;
         width: fit-content;
     }
@@ -121,15 +121,16 @@
 
 @media (max-width: $break-l) {
     .quizPagePio {
-        &__answersSection {
-            margin-top: $s-large;
-        }
         &__answersNr {
-            width: 20px;
             p {
-                height: 45px;
-                margin: $s-xsmall;
+                margin: 8px 0;
             }
+        }
+        &__dropPlace {
+            width: 100%;
+        }
+        &__buttonNextWrapper {
+            width: 100%;
         }
     }
 }

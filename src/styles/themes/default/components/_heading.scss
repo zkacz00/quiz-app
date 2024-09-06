@@ -48,22 +48,43 @@
     }
 }
 
+// @media (max-width: $break-l) {
+//     .heading {
+//         width: 400px;
+//         height: 50px;
+//         &--quizPage {
+//             width: 90%;
+//             & span {
+//                 max-width: 70%;
+//             }
+//         }
+//         &--scorePage {
+//             right: 0;
+        
+//             width: 400px;
+//             height: 40px;
+//         }
+//     }
+// }
+
 @media (max-width: $break-l) {
     .heading {
-        width: 400px;
-        height: 50px;
-        &--quizPage {
-            width: 90%;
-            & span {
-                max-width: 70%;
-            }
+        width: 100%;
+        & h1, h2, h3, h4, h5, h6 {
+            font-size: 20px;
+            padding: 0 50px;
         }
-        &--scorePage {
-            right: 0;
-        
-            width: 400px;
-            height: 40px;
+    }
+    .heading--menuPage, .heading--startPage {
+        & h1, h2, h3, h4, h5, h6 {
+            font-size: 20px;
+            padding: 0;
         }
+    }
+    .heading--scorePage {
+        top: 22%;
+        width: 380px;
+        right: 0px;
     }
 }
 

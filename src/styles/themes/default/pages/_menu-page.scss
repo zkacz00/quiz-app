@@ -7,7 +7,7 @@
     @include justify-content(center);
 }
 
-@media (max-width: $break-m) {
+@media (max-width: $break-l) {
     .menuPage__categoriesLinksWrapper {
         gap: 16px;
         margin-top: 16px;

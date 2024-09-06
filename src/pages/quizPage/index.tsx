@@ -34,7 +34,6 @@ const QuizPage = ({ category }: Props) => {
   const [backgroundLocation, setBackgroundLocation] =
     useState<string>(questionType);
   const [isCounterVisible, setCounterVisible] = useState(false);
-  // const [isLastQuestion, setLastQuestion] = useState<boolean>(false);
 
   const answerCheckVisibleTimeout: number = 1500;
 
@@ -132,7 +131,6 @@ const QuizPage = ({ category }: Props) => {
                   type="h1"
                   category={category}
                   location={`quizPage--${questionType}`}
-                  // isLastQuestion={isLastQuestion}
                   text={headingText}
                   timeout={headingVisibleTimeout}
                 />
