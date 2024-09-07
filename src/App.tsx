@@ -1,6 +1,6 @@
 import './styles/themes/default/theme.scss';
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 
 import MenuPage from './pages/menuPage';
 import CategoryStartPage from './pages/categoryStartPage';
@@ -28,7 +28,7 @@ function App() {
    return (
       <>
          <ErrorBoundary>
-            <Router basename="/ultimatequiz">
+            <Router>
                <Routes>
                   <Route path='/' element={<MenuPage />} />
                   {quizPagesRoutes}

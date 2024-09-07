@@ -138,6 +138,19 @@
                 font-size: 8px;
             }
         }
+        &--single {
+            width: 170px;
+            height: 160px;
+            .categoryButton__icon {
+                width: 40%;
+            }
+            .categoryButton__text {
+                font-size: 16px;
+            }
+            .categoryButton__pinkLine {
+                margin: 7% 0;
+        }
+    }
     }
 }
 
@@ -146,23 +159,5 @@
         &__icon {
             width: 40px;
         }
-        // &--column {
-        //     width: 215px;
-        //     height: 60px;
-        //     margin: $s-xsmall;
-        //     padding: 8px;
-        //     row-gap: 8px;
-        //     column-gap: 16px;
-        //     font-size: 0.6rem;
-        //     border-radius: 12px;
-        //     .categoryButton__icon {
-        //         width: 32px;
-        //     }
-        // }
-        &--single {
-            .categoryButton__pinkLine {
-                margin: 7% 0;
-        }
     }
-}
-}
+    }
