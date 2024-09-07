@@ -36,19 +36,34 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
   const destinationItems = [...destinationColumn.items];
   const [removed] = sourceItems.splice(source.index, 1);
 
-  if (sourceColumn.id === destinationColumn.id) {
-    // If dragging within the same column
-    sourceItems.splice(destination.index, 0, removed);
+  if (destinationColumn.id === "answers") {
+    // If dragging to answers, insert the item at the destination index
+    const newDestinationItems = [...destinationItems];
+    newDestinationItems.splice(destination.index, 0, removed);
+
     setColumns({
       ...columns,
       [source.droppableId]: {
         ...sourceColumn,
-        items: sourceItems,
+        items: [], // Empty the source column
+      },
+      [destination.droppableId]: {
+        ...destinationColumn,
+        items: newDestinationItems, // Insert at the correct index
       },
     });
   } else {
-    // If dragging between columns
-    destinationItems.splice(destination.index, 0, removed);
+    // If dragging within the same column or between columns
+    if (sourceColumn.id === destinationColumn.id) {
+      destinationItems.splice(destination.index, 0, removed);
+    } else {
+      if (destinationItems.length > 0) {
+        const oldItem = destinationItems[destination.index];
+        sourceItems.push(oldItem); // Push the old item back to the source
+      }
+      destinationItems.splice(destination.index, 0, removed);
+    }
+
     setColumns({
       ...columns,
       [source.droppableId]: {
@@ -60,6 +75,7 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
         items: destinationItems,
       },
     });
+    console.log(columns);
   }
 };
 
