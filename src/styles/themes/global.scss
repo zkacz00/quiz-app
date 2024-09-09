@@ -70,7 +70,10 @@ body {
 .no-hover {
   .buttonNext:hover,
   .categoryButton:hover,
-  .switch__option:hover {
+  .switch__option:hover,
+  .quizPageSelect__buttonAnswer:hover,
+  .quizPagePio__buttonAnswer:hover,
+  .quizPageDnd__buttonAnswer:hover {
     transform: none;
   }
 }
@@ -153,5 +156,13 @@ body {
     padding: 32px 16px;
     margin: 0;
     gap: 24px;
+  }
+  .buttonNext:hover,
+  .categoryButton:hover,
+  .switch__option:hover,
+  .quizPageSelect__buttonAnswer:hover,
+  .quizPagePio__buttonAnswer:hover,
+  .quizPageDnd__buttonAnswer:hover {
+    transform: none;
   }
 }

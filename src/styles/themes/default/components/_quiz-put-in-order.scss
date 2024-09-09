@@ -121,6 +121,11 @@
 
 @media (max-width: $break-l) {
     .quizPagePio {
+        &__answersSection {
+          width: 100%;
+          flex-direction: column;
+          gap: 24px;
+        }
         &__answersNr {
             p {
                 margin: 8px 0;

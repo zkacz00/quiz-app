@@ -403,7 +403,7 @@ const quizQuestionsList: QuizQuestionsListType = {
         answerOptions: [
           { answerText: "A. Przypisanie wartości zmiennej", isCorrect: false },
           { answerText: "B. Porównanie wartości zmiennych", isCorrect: true },
-          { answerText: "C. Przypisanie wartości true", isCorrect: true },
+          { answerText: "C. Przypisanie wartości true", isCorrect: false },
           { answerText: "D. Ten znak jest niepoprawny", isCorrect: false },
           { answerText: "E. Żadne z wymienionych", isCorrect: false },
         ],
@@ -421,7 +421,7 @@ const quizQuestionsList: QuizQuestionsListType = {
             answerText: "B. Comparing the values of variables",
             isCorrect: true,
           },
-          { answerText: "C. Assigning the value true", isCorrect: true },
+          { answerText: "C. Assigning the value true", isCorrect: false },
           { answerText: "D. This sign is incorrect", isCorrect: false },
           { answerText: "E. None of the above", isCorrect: false },
         ],

@@ -86,6 +86,9 @@
 }
 
 @media (max-width: $break-l) {
+  .quizPageSelect--select {
+    width: 440px;
+  }
   .quizPageSelect {
     &__buttonAnswer {
       width: 210px;
@@ -99,16 +102,19 @@
     &__questionSection {
       min-height: 80px;
     }
+    &__answersSection {
+      max-width: 662px;
+    }
   }
 }
 
-@media (max-width: $break-l) {
-  .quizPageSelect--select {
-    width: 440px;
+@media (max-width: 776px) {
+  .quizPageSelect__answersSection {
+    max-width: 436px;
   }
 }
 
-@media (max-width: $break-s) {
+@media (max-width: 500px) {
   .quizPageSelect {
     width: 80%;
     &__buttonAnswer {
