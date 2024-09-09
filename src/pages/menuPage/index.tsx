@@ -20,12 +20,12 @@ function MenuPage() {
   return (
     <>
       <BackgroundImage category="programowanie" location="menu" />
-      <div className="pageContainer">
-        <Header
+      <Header
           category="programowanie"
           location="menuPage"
           withMenuButton={false}
         />
+      <div className="pageContainer">
         <main className="menuPage contentContainer">
           <Logo location="menuPage" />
           <Heading

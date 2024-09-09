@@ -114,8 +114,8 @@ const QuizPage = ({ category }: Props) => {
   return (
     <>
       <BackgroundImage category={category} location={backgroundLocation} />
+      <Header category={category} />
       <div className="pageContainer">
-        <Header category={category} />
         {showScore ? (
           <ScorePage
             score={score}

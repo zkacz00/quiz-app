@@ -35,8 +35,8 @@ const CategoryStartPage = ({ category }: Props) => {
   return (
     <>
       <BackgroundImage category={category} location="start" />
+      <Header category={category} />
       <div className="pageContainer">
-        <Header category={category} />
         <main className="categoryStartPage contentContainer">
           <Logo />
           <Heading

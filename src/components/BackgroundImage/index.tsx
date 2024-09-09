@@ -42,7 +42,7 @@ const BackgroundImage = ({ location, category }: Props): JSX.Element => {
       };
     } catch (error) {
       console.error("Error loading background image:", error);
-      setIsLoading(false); // Optionally handle loading state
+      setIsLoading(false);
     }
   }, [location, category]);
 
@@ -63,11 +63,6 @@ const BackgroundImage = ({ location, category }: Props): JSX.Element => {
         backgroundImage: isLoading ? "none" : `url(${backgroundImage})`,
         backgroundColor: isLoading ? backgroundColor : "transparent",
         opacity: isLoading ? 0 : 1,
-        transition: "opacity 1.5s ease, background-image 1.5s ease",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100%",
-        height: "100%",
       }}
     />
   );
