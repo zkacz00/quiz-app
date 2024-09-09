@@ -254,9 +254,6 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
     }
   }, [columns.place2.items]);
 
-  useEffect(() => {
-    console.log('columns', columns);
-  }, [columns]);
   return (
     <div className="quizPageDnd">
       <DragDropContext
