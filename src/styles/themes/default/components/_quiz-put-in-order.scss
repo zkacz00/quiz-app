@@ -29,6 +29,10 @@
     }
     &__answersNr {
         width: 30px;
+        @include display-flex();
+        @include flex-direction(column);
+        height: 100%;
+        @include justify-content(space-between);
     }
     &__answersNrItem {
             margin: $s-xx-small 0;
@@ -123,7 +127,7 @@
     .quizPagePio {
         &__answersSection {
           width: 100%;
-          flex-direction: column;
+          @include flex-direction(column);
           gap: 24px;
         }
         &__answersNr {
@@ -140,17 +144,22 @@
     }
 }
 
-@media (max-width: $break-s) {
-    .quizPagePio__answersSection {
-        @include flex-direction(column);
-        @include align-items(center);
-    }
+@media (max-width: $break-l) {
+  .quizPagePio__answersNrItem {
+    height: 56px;
+    margin: 7px 0;
+  }
 }
 
 @media (max-width: $break-s) {
+  .quizPagePio
   .quizPagePio {
       width: 95%;
       gap: 24px;
+      &__answersSection {
+        @include flex-direction(column);
+        @include align-items(center);
+    }
       &__answerCheckWrapper {
           width: 100%;
       }
@@ -176,6 +185,9 @@
       }
       &__questionDropPlaceWrapper {
           margin: 5px 0;
+      }
+      &__answersNr {
+        height: auto;
       }
       &__answersNr p {
         margin: 5px;

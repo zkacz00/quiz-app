@@ -30,39 +30,36 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
   if (!result.destination) return;
 
   const { source, destination } = result;
-  const sourceColumn = columns[source.droppableId];
-  const destinationColumn = columns[destination.droppableId];
-  const sourceItems = [...sourceColumn.items];
-  const destinationItems = [...destinationColumn.items];
-  const [removed] = sourceItems.splice(source.index, 1);
 
-  if (destinationColumn.id === "answers") {
-    // If dragging to answers, insert the item at the destination index
-    const newDestinationItems = [...destinationItems];
-    newDestinationItems.splice(destination.index, 0, removed);
+  // Check if the source and destination are the same
+  if (source.droppableId === destination.droppableId) {
+    const column = columns[source.droppableId];
+    const copiedItems = [...column.items];
+    const [dragged] = copiedItems.splice(source.index, 1);
+    copiedItems.splice(destination.index, 0, dragged);
 
     setColumns({
       ...columns,
       [source.droppableId]: {
-        ...sourceColumn,
-        items: [],
-      },
-      [destination.droppableId]: {
-        ...destinationColumn,
-        items: newDestinationItems,
+        ...column,
+        items: copiedItems,
       },
     });
-  } else {
-    // If dragging within the same column or between columns
-    if (sourceColumn.id === destinationColumn.id) {
-      destinationItems.splice(destination.index, 0, removed);
-    } else {
-      if (destinationItems.length > 0) {
-        const oldItem = destinationItems[destination.index];
-        sourceItems.push(oldItem);
-      }
-      destinationItems.splice(destination.index, 0, removed);
-    }
+    return;
+  }
+
+  const answersColumn = columns["answers"];
+  const sourceColumn = columns[source.droppableId];
+  const destinationColumn = columns[destination.droppableId];
+  const answersItems = [...answersColumn.items];
+  const sourceItems = [...sourceColumn.items];
+  const destinationItems = [...destinationColumn.items];
+  const [dragged] = sourceItems.splice(source.index, 1);
+
+  if (destinationColumn.id === "answers") {
+    // If dragging to answers, insert the item at the destination index
+    const newDestinationItems = [...destinationItems];
+    newDestinationItems.splice(destination.index, 0, dragged);
 
     setColumns({
       ...columns,
@@ -72,12 +69,78 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
       },
       [destination.droppableId]: {
         ...destinationColumn,
-        items: destinationItems,
+        items: newDestinationItems,
       },
     });
-    console.log(columns);
+  } else {
+    // If dragging between columns
+    if (destination.droppableId === "place1" || destination.droppableId === "place2") {
+
+      if (destinationItems.length > 0) {
+
+        const oldItem = destinationItems[destination.index];
+
+        if (source.droppableId === "answers") {
+          answersItems.splice(source.index, 1);
+          answersItems.push(oldItem);
+          destinationItems.splice(destination.index, 0, dragged);
+          destinationItems.splice(1, 1);
+
+          setColumns({
+            ...columns,
+            ['answers']: {
+              ...answersColumn,
+              items: answersItems,
+            },
+            [destination.droppableId]: {
+              ...destinationColumn,
+              items: destinationItems,
+            },
+          });
+        }
+
+        else if (source.droppableId === "place1" || source.droppableId === "place2") {
+          answersItems.push(oldItem);
+          destinationItems.splice(destination.index, 0, dragged);
+          destinationItems.splice(1, 1);
+
+          setColumns({
+            ...columns,
+            ['answers']: {
+              ...answersColumn,
+              items: answersItems,
+            },
+            [source.droppableId]: {
+              ...sourceColumn,
+              items: [],
+            },
+            [destination.droppableId]: {
+              ...destinationColumn,
+              items: destinationItems,
+            },
+          });
+        }
+      }
+
+      else {
+        destinationItems.splice(destination.index, 0, dragged);
+
+        setColumns({
+          ...columns,
+          [source.droppableId]: {
+            ...sourceColumn,
+            items: sourceItems,
+          },
+          [destination.droppableId]: {
+            ...destinationColumn,
+            items: destinationItems,
+          },
+        });
+      }
+    }
   }
 };
+
 
 const QuizDragAndDrop = (props: Props): JSX.Element => {
   const [answerOptions, setAnswerOptions] = useState<
@@ -191,6 +254,9 @@ const QuizDragAndDrop = (props: Props): JSX.Element => {
     }
   }, [columns.place2.items]);
 
+  useEffect(() => {
+    console.log('columns', columns);
+  }, [columns]);
   return (
     <div className="quizPageDnd">
       <DragDropContext

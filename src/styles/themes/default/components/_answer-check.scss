@@ -31,10 +31,10 @@
         display: none;
     }
     &--correct {
-        display: flex;
+        @include display-flex();
     }
     &--selected {
-        display: flex;
+        @include display-flex();
     }
 }
 

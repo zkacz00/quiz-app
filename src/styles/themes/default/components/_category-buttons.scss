@@ -52,20 +52,20 @@
     &--column {
         width: 224px;
         height: 80px;
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: end;
-        justify-content: flex-start;
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(flex-end);
+        @include justify-content(flex-start);
         column-gap: 12px;
         row-gap: 8px;
         @extend %fontSize--xxs;
         & .categoryButton {
             padding: 16px 0;
-            justify-content: flex-start;
-            align-items: center;
-            flex-wrap: wrap;
-            flex-direction: row;
-            display: flex;
+            @include justify-content(flex-start);
+            @include align-items(center);
+            @include flex-wrap(wrap);
+            @include flex-direction(row);
+            @include display-flex();
             row-gap: 8px;
             column-gap: 8px;
             &__icon {

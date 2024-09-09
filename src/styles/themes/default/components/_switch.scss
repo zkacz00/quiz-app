@@ -1,6 +1,6 @@
 .switch {
-    display: flex;
-    flex-direction: row;
+    @include display-flex();
+    @include flex-direction(row);
     gap: 8px;
     font-size: 20px;
     &__option {

@@ -1,15 +1,15 @@
 .scorePage {
-    display: flex;
+    @include display-flex();
     width: 100%;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    align-items: center;
+    @include flex-wrap(wrap);
+    @include justify-content(flex-end);
+    @include align-items(center);
     padding: 32px 64px;
     &__mainContent {
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        display: flex;
+        @include align-items(center);
+        @include justify-content(center);
+        @include flex-direction(column);
+        @include display-flex();
         gap: 64px;
         width: 60%;
         height: 580px;
@@ -21,9 +21,9 @@
         @include align-items(baseline);
     }
     &__list, .categoryButtonsList {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        @include display-flex();
+        @include flex-direction(column);
+        @include align-items(flex-end);
         gap: 16px;
         width: 20%;
     }
@@ -51,9 +51,9 @@
         }
         &__list, .categoryButtonsList {
             width: 100%;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
+            @include flex-direction(row);
+            @include flex-wrap(wrap);
+            @include justify-content(center);
             .scorePage__text {
                 width: 100%;
                 text-align: center;
@@ -65,7 +65,7 @@
 
 @media (max-width: $break-s) {
     .scorePage {
-        flex-direction: column;
+        @include flex-direction(column);
         padding: 24px 16px;
         height: auto;
         &__mainContent {
@@ -77,8 +77,8 @@
             width: 100%;
             max-width: 206px;
             padding: 0;
-            align-items: flex-start;
-            justify-content: flex-start;
+            @include align-items(flex-start);
+            @include justify-content(flex-start);
         }
         &__text {
             margin: $s-medium 0 0;

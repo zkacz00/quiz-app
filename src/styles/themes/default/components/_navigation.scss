@@ -2,7 +2,7 @@
   gap: 32px;
   @include display-flex();
   @include justify-content(space-between);
-  align-items: center;
+  @include align-items(center);
   &__icon {
     width: auto;
     height: 17px;
