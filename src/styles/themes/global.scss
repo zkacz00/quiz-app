@@ -63,7 +63,7 @@ body {
 
 .contentContainer {
   width: 100%;
-  padding: 40px 0;
+  padding: 40px 0 20px 0;
   margin: 0 64px;
   gap: 40px;
   max-width: 970px;
@@ -129,7 +129,7 @@ body {
     font-size: 0.8rem;
   }
   .contentContainer {
-    padding: 40px 32px;
+    padding: 40px 32px 20px 32px;
     margin: 0;
     gap: 32px;
     max-width: 970px;
@@ -156,7 +156,7 @@ body {
     font-size: 16px;
   }
   .contentContainer {
-    padding: 32px 16px;
+    padding: 32px 16px 16px 16px;
     margin: 0;
     gap: 24px;
   }

@@ -213,22 +213,6 @@ const QuizPutInOrder = (props: Props): JSX.Element => {
       <div className="quizPagePio__answersSection">
         <DragDropContext onDragEnd={onDragEnd}>
           <div className={`quizPagePio__answers`}>
-            <div className={`quizPagePio__answersNr`}>
-              {answerOptions.map((_, index) => (
-                <p
-                  className={`quizPagePio__answersNrItem quizPagePio__answersNrItem--${index} ${
-                    areAnswersVisible === true
-                      ? "visible"
-                      : areAnswersVisible === false
-                      ? "not-visible"
-                      : ""
-                  }`}
-                  key={index}
-                >
-                  {index + 1}.
-                </p>
-              ))}
-            </div>
             <Droppable droppableId="list">
               {(provided) => (
                 <div

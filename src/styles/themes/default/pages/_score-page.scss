@@ -68,6 +68,7 @@
         @include flex-direction(column);
         padding: 24px 16px;
         height: auto;
+        gap: 0px;
         &__mainContent {
             width: 100%;
             height: auto;

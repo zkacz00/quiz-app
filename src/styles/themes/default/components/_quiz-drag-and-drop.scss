@@ -173,9 +173,12 @@
             width: 100%;
             gap: 8px;
         }
+        &__answersSection {
+            gap: 16px;
+        }
         &__answersDropPlace {
             width: calc(100% - 4px);
-            height: 364px;
+            height: 350px;
         }
         &__questionDropPlaceWrapper {
             margin: 5px 0;

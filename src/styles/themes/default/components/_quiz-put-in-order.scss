@@ -1,196 +1,206 @@
 .quizPagePio {
-    @include display-flex();
+  @include display-flex();
+  @include justify-content(center);
+  @include flex-wrap(wrap);
+  @extend %quizPageStyle__content;
+  gap: 24px;
+  &__questionSection {
+    min-height: 80px;
+    @extend %quizPageStyle__questionSection;
+    &.visible {
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &.not-visible {
+      transition: opacity 0s ease, transform 0s ease;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+  &__answersSection {
     @include justify-content(center);
-    @include flex-wrap(wrap);
-    @extend %quizPageStyle__content;
-    gap: 24px;
-    &__questionSection {
-        min-height: 80px;
-        @extend %quizPageStyle__questionSection;
-        &.visible {
-          transition: opacity 0.8s ease, transform 0.8s ease;
-          opacity: 1;
-          transform: translateY(0);
-        }
-        &.not-visible {
-          transition: opacity 0s ease, transform 0s ease;
-          opacity: 0;
-          transform: translateY(20px);
-        }
+    @extend %quizPageStyle__answersSection;
+  }
+  &__answers {
+    @include display-flex();
+    @extend %answerCheckWrapperStyle;
+    opacity: 1;
+  }
+  &__answersNr {
+    width: 30px;
+    @include display-flex();
+    @include flex-direction(column);
+    height: 100%;
+    @include justify-content(space-between);
+  }
+  &__answersNrItem {
+    margin: $s-xx-small 0;
+    height: 60px;
+    @extend %fontSize--sm;
+    @include display-flex();
+    @include align-items(center);
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
+    &.not-visible {
+      opacity: 0;
+      transition-delay: 0s;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    &--0.visible {
+      transition-delay: 0.2s;
+    }
+    &--1.visible {
+      transition-delay: 0.4s;
+    }
+    &--2.visible {
+      transition-delay: 0.6s;
+    }
+    &--3.visible {
+      transition-delay: 0.8s;
+    }
+    &--4.visible {
+      transition-delay: 1s;
+    }
+    &--5.visible {
+      transition-delay: 1.2s;
+    }
+    &--6.visible {
+      transition-delay: 1.4s;
+    }
+  }
+  &__dropPlace {
+    @include display-flex();
+    @include flex-direction(column);
+    @include align-items(center);
+    @include justify-content(center);
+  }
+  &__buttonAnswer {
+    @extend %quizPageStyle--draggableAnswer;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
+    &.blocked {
+      cursor: wait;
+    }
+    &.visible {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    &.not-visible {
+      opacity: 0;
+      transition-delay: 0s;
+      transform: translateY(20px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    &--0.visible {
+      transition-delay: 0.2s;
+    }
+    &--1.visible {
+      transition-delay: 0.4s;
+    }
+    &--2.visible {
+      transition-delay: 0.6s;
+    }
+    &--3.visible {
+      transition-delay: 0.8s;
+    }
+    &--4.visible {
+      transition-delay: 1s;
+    }
+    &--5.visible {
+      transition-delay: 1.2s;
+    }
+    &--6.visible {
+      transition-delay: 1.4s;
+    }
+  }
+  &__buttonNextWrapper {
+    height: fit-content;
+    width: fit-content;
+  }
+}
+
+@media (max-width: $break-l) {
+  .quizPagePio {
     &__answersSection {
-        @include justify-content(center);
-        @extend %quizPageStyle__answersSection;
-    }
-    &__answers {
-        @include display-flex();
-        @extend %answerCheckWrapperStyle;
-        opacity: 1;
+      width: 100%;
+      @include flex-direction(column);
+      gap: 24px;
     }
     &__answersNr {
-        width: 30px;
-        @include display-flex();
-        @include flex-direction(column);
-        height: 100%;
-        @include justify-content(space-between);
+      p {
+        margin: 8px 0;
+      }
     }
-    &__answersNrItem {
-            margin: $s-xx-small 0;
-            height: 60px;
-            @extend %fontSize--sm;
-            @include display-flex();
-            @include align-items(center);
-            &.visible {
-              opacity: 1;
-              transform: translateY(0);
-              transition: opacity 0.5s ease, transform 0.5s ease;
-            }
-            &.not-visible {
-              opacity: 0;
-              transition-delay: 0s;
-              transform: translateY(20px);
-              transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-            &--0.visible {
-                transition-delay: 0.2s;
-              }
-              &--1.visible {
-                transition-delay: 0.4s;
-              }
-              &--2.visible {
-                transition-delay: 0.6s;
-              }
-              &--3.visible {
-                transition-delay: 0.8s;
-              }
-              &--4.visible {
-                transition-delay: 1s;
-              }
-              &--5.visible {
-                transition-delay: 1.2s;
-              }
-              &--6.visible {
-                transition-delay: 1.4s;
-              }
-        }
     &__dropPlace {
-        @include display-flex();
-        @include flex-direction(column);
-        @include align-items(center);
-        @include justify-content(center);
+      width: 100%;
     }
     &__buttonAnswer {
-        @extend %quizPageStyle--draggableAnswer;
-        &.blocked {
-          cursor: wait;
-        }
-        &.visible {
-          opacity: 1;
-          transform: translateY(0);
-          transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-        &.not-visible {
-          opacity: 0;
-          transition-delay: 0s;
-          transform: translateY(20px);
-          transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        &--0.visible {
-            transition-delay: 0.2s;
-          }
-          &--1.visible {
-            transition-delay: 0.4s;
-          }
-          &--2.visible {
-            transition-delay: 0.6s;
-          }
-          &--3.visible {
-            transition-delay: 0.8s;
-          }
-          &--4.visible {
-            transition-delay: 1s;
-          }
-          &--5.visible {
-            transition-delay: 1.2s;
-          }
-          &--6.visible {
-            transition-delay: 1.4s;
-          }
+      margin-right: 0;
+      margin-left: 0;
+      width: 100%;
     }
     &__buttonNextWrapper {
-        height: fit-content;
-        width: fit-content;
+      width: 100%;
     }
-}
-
-@media (max-width: $break-l) {
-    .quizPagePio {
-        &__answersSection {
-          width: 100%;
-          @include flex-direction(column);
-          gap: 24px;
-        }
-        &__answersNr {
-            p {
-                margin: 8px 0;
-            }
-        }
-        &__dropPlace {
-            width: 100%;
-        }
-        &__buttonNextWrapper {
-            width: 100%;
-        }
+    &__answersNrItem {
+      height: 56px;
+      margin: 7px 0;
     }
-}
-
-@media (max-width: $break-l) {
-  .quizPagePio__answersNrItem {
-    height: 56px;
-    margin: 7px 0;
   }
 }
 
 @media (max-width: $break-s) {
-  .quizPagePio
-  .quizPagePio {
-      width: 95%;
-      gap: 24px;
-      &__answersSection {
-        @include flex-direction(column);
-        @include align-items(center);
+  .quizPagePio .quizPagePio {
+    width: 95%;
+    gap: 24px;
+    &__answersSection {
+      @include flex-direction(column);
+      @include align-items(center);
     }
-      &__answerCheckWrapper {
-          width: 100%;
-      }
-      &__questionSection {
-        min-height: auto;
-          width: 100%;
-          gap: 16px;
-          margin-bottom: 0;
-      }
-      &__questionSectionPart {
-          width: 100%;
-          gap: 8px;
-      }
-      &__answers, &__dropPlace {
-        width: 100%;
-      }
-      &__answersSection {
-        margin-top: 0;
-        gap: 16px;
-      }
-      &__answersDropPlace {
-          width: calc(100% - 4px);
-      }
-      &__questionDropPlaceWrapper {
-          margin: 5px 0;
-      }
-      &__answersNr {
-        height: auto;
-      }
-      &__answersNr p {
-        margin: 5px;
+    &__answerCheckWrapper {
+      width: 100%;
+    }
+    &__questionSection {
+      min-height: auto;
+      width: 100%;
+      gap: 16px;
+      margin-bottom: 0;
+    }
+    &__questionSectionPart {
+      width: 100%;
+      gap: 8px;
+    }
+    &__answers,
+    &__dropPlace {
+      width: 100%;
+    }
+    &__answersSection {
+      margin-top: 0;
+      gap: 16px;
+    }
+    &__answersDropPlace {
+      width: calc(100% - 4px);
+    }
+    &__questionDropPlaceWrapper {
+      margin: 5px 0;
+    }
+    &__answersNr {
+      height: auto;
+    }
+    &__answersNr p {
+      margin: 5px;
+    }
+    &__buttonAnswer {
+      margin-right: 0;
+      margin-left: 0;
+      width: 100%;
     }
   }
 }
