@@ -1,5 +1,5 @@
 import './styles/themes/default/theme.scss';
-import React, { useEffect } from 'react';
+import React from 'react';
 import {HashRouter as Router, Routes, Route} from 'react-router-dom';
 
 import MenuPage from './pages/menuPage';
