@@ -1,5 +1,8 @@
-## ATTENTION - WORK IN PROGRESS
-I am in the middle of updating this project, please be patient ;)
+## Ultimate Quiz App
+
+Ultimate Quiz App is a web application that allows users to test their knowledge across various categories such as history, culture, technology, and more. The app provides a fun and interactive way to learn new facts and challenge yourself with different types of questions. It's avaliable in 2 languages: English and Polish.
+
+See live demo [here](https://ultimate-quiz-app.netlify.app/).
 
 ## How to Start the Quiz App
 
@@ -50,4 +53,12 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However, we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Deployment
+
+The app is configured to be deployed to GitHub Pages. To deploy, run: `yarn deploy`. This will build the app and push the `build` folder to the `gh-pages` branch of your repository.
+
+## License
+
+This project is licensed under the ISC License.
