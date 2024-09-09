@@ -67,17 +67,6 @@ body {
   @include align-items(center);
 }
 
-.no-hover {
-  .buttonNext:hover,
-  .categoryButton:hover,
-  .switch__option:hover,
-  .quizPageSelect__buttonAnswer:hover,
-  .quizPagePio__buttonAnswer:hover,
-  .quizPageDnd__buttonAnswer:hover {
-    transform: none;
-  }
-}
-
 * {
   scrollbar-width: auto;
   scrollbar-color: $c-brilliant-rose $c-gray-transparent;
@@ -146,6 +135,14 @@ body {
   .contentContainer {
     gap: 24px;
   }
+  .buttonNext:hover,
+  .categoryButton:hover,
+  .switch__option:hover,
+  .quizPageSelect__buttonAnswer:hover,
+  .quizPagePio__buttonAnswer:hover,
+  .quizPageDnd__buttonAnswer:hover {
+    transform: none !important;
+  }
 }
 
 @media (max-width: $break-s) {
@@ -163,6 +160,6 @@ body {
   .quizPageSelect__buttonAnswer:hover,
   .quizPagePio__buttonAnswer:hover,
   .quizPageDnd__buttonAnswer:hover {
-    transform: none;
+    transform: none !important;
   }
 }

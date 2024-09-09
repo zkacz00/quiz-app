@@ -278,7 +278,7 @@
         width: 100%;
         z-index: -100;
     }
-    @media (hover: hover) {
+    @media (hover: hover) and (min-width: $break-m) {
         &:before {
             transition: opacity 0.5s ease;
         }
@@ -293,9 +293,9 @@
             }
         }
     }
-    @media (hover: none) {
+    @media (hover: none), (max-width: $break-m) {
         &:before {
-            transition: opacity 0.3s ease;
+            transition: none;
         }
         &:focus, &:active {
             &:before {

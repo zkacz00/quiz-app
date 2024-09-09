@@ -15,12 +15,6 @@ import {type Category} from './context/categories'
 
 function App() {
 
-   useEffect(() => {
-      if ('ontouchstart' in window || navigator.maxTouchPoints) {
-         document.body.classList.add('no-hover');
-      }
-   }, []);
-
    const quizPagesRoutes = categoriesPolishList.map((category: Category, key: number) => 
       (
          <Route path={`/quiz/${category}`} key={`r-${key}`} element={<CategoryStartPage category={category} />} />
