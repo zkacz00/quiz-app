@@ -1,6 +1,6 @@
-## Ultimate Quiz App 🚀
+## Ultimate Quiz App ✨✨✨
 
-Welcome to the Ultimate Quiz App, where you can challenge your knowledge across various exciting categories like history, culture, technology, and more! It's available in two awesome languages: English and Polish.
+Welcome to the Ultimate Quiz App, where you can challenge your knowledge across various exciting categories like history, culture, technology, and more! It's available in two languages: English and Polish.
 
 👉 See the live demo [here](https://ultimate-quiz-app.netlify.app/).
 
