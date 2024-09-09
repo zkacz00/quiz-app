@@ -93,7 +93,7 @@ export const textContent: TextContent = {
 };
 
 export const useTextContent = (key: string) => {
-  const { language } = useLanguage(); // Get the current language from context
+  const { language } = useLanguage();
   const keys = key.split(".");
   let text = textContent as any;
 

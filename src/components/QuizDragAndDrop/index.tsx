@@ -45,11 +45,11 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
       ...columns,
       [source.droppableId]: {
         ...sourceColumn,
-        items: [], // Empty the source column
+        items: [],
       },
       [destination.droppableId]: {
         ...destinationColumn,
-        items: newDestinationItems, // Insert at the correct index
+        items: newDestinationItems,
       },
     });
   } else {
@@ -59,7 +59,7 @@ const onDragEnd = ({ result, columns, setColumns }: OnDragEndProps) => {
     } else {
       if (destinationItems.length > 0) {
         const oldItem = destinationItems[destination.index];
-        sourceItems.push(oldItem); // Push the old item back to the source
+        sourceItems.push(oldItem);
       }
       destinationItems.splice(destination.index, 0, removed);
     }

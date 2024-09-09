@@ -250,7 +250,6 @@
 }
 
 @mixin button-style() {
-    // transition: transform 0.5s ease;
     @include display-flex();
     cursor: pointer;
     border-radius: 15px;

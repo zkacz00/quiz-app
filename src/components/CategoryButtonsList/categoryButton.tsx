@@ -22,7 +22,7 @@ const CategoryButton = ({
   visible,
 }: Props): JSX.Element => {
   const { language } = useLanguage();
-  if (visible === undefined) visible = true; // Default to true if not provided
+  if (visible === undefined) visible = true; 
 
   const categoryDetails = categoriesList.find(
     (cat) => cat.en === category || cat.pl === category

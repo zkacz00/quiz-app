@@ -48,25 +48,6 @@
     }
 }
 
-// @media (max-width: $break-l) {
-//     .heading {
-//         width: 400px;
-//         height: 50px;
-//         &--quizPage {
-//             width: 90%;
-//             & span {
-//                 max-width: 70%;
-//             }
-//         }
-//         &--scorePage {
-//             right: 0;
-        
-//             width: 400px;
-//             height: 40px;
-//         }
-//     }
-// }
-
 @media (max-width: $break-l) {
     .heading {
         width: 100%;

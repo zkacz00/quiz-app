@@ -46,45 +46,11 @@
   }
 }
 
-// @media (max-width: $break-l) {
-//   .buttonNext {
-//     text-align: center;
-//     border-radius: 11px;
-//     &--big {
-//       width: 215px;
-//       height: 60px;
-//       span {
-//         margin-left: 0;
-//       }
-//       img {
-//         margin-top: $s-xx-small;
-//       }
-//     }
-//     &--small {
-//       padding: 8px;
-//       width: 125px;
-//       height: 45px;
-//       margin: 0;
-//       & img {
-//         height: 32px;
-//         width: 32px;
-//         margin-top: 3px;
-//       }
-//     }
-//   }
-// }
-
 @media (max-width: $break-l) {
   .buttonNext {
     &--small {
-      // padding: 8px;
       width: 100%;
       margin: 0;
-      // & img {
-      //   height: 32px;
-      //   width: 32px;
-      //   margin-top: 3px;
-      // }
     }
     &--big {
       width: 250px;
