@@ -76,23 +76,12 @@ const ScorePage = (props: Props) => {
             />
           </Link>
         </div>
-        <div className="scorePage__list">
-          <p
-            className={`scorePage__text ${
-              isCategoryButtonVisible ? "scorePage__text--visible" : ""
-            }`}
-          >
-            wybierz
-            <br />
-            inną kategorię
-          </p>
-          <CategoryButtonsList
-            direction="column"
-            location="scorePage"
-            category={props.category}
-            visible={isCategoryButtonVisible}
-          />
-        </div>
+        <CategoryButtonsList
+          direction="column"
+          location="scorePage"
+          category={props.category}
+          visible={isCategoryButtonVisible}
+        />
       </main>
     </>
   );

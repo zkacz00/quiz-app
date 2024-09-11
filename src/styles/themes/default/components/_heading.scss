@@ -1,86 +1,123 @@
 .heading {
-    width: 70%;
-    height: 56px;
-    text-transform: uppercase;
-    @include display-flex();
-    @include justify-content(center);
-    @include align-items(center);
-    & h1, h2, h3, h4, h5, h6 {
-        @extend %fontSize--l;
-        opacity: 0;
-        transition-delay: 1s;
-        transition: opacity 0.5s ease;
+  width: 70%;
+  height: 56px;
+  text-transform: uppercase;
+  @include display-flex();
+  @include justify-content(center);
+  @include align-items(center);
+  & h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @extend %fontSize--l;
+    opacity: 0;
+    transition-delay: 1s;
+    transition: opacity 0.5s ease;
+  }
+  &--scorePage {
+    width: 680px;
+    position: absolute;
+    top: 33%;
+    right: -70px;
+  }
+  &.slide-in {
+    opacity: 1;
+    animation: growRibbon 0.3s forwards;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      transition-delay: 0.5s;
+      opacity: 1;
     }
-    &--scorePage {
-        width: 680px;
-        position: absolute;
-        top: 33%;
-        right: -70px;
-    }
-    &.slide-in {
-        opacity: 1;
-        animation: growRibbon 0.3s forwards;
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        & h1, h2, h3, h4, h5, h6 {
-            transition-delay: 0.5s;
-            opacity: 1;
-        }
-    }
-    &.slide-out {
-        animation: none;
-        transition: opacity 0.5s ease;
-        opacity: 0;
-        transform: scaleX(0);
-    }
-    &.slide-out.last {
-        transition: opacity 0.5s ease, translateY 0.5s ease;
-        opacity: 0;
-        transform: scaleX(0), translateY(20px);
-    }
+  }
+  &.slide-out {
+    animation: none;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  &.slide-out.last {
+    transition: opacity 0.5s ease, translateY 0.5s ease;
+    opacity: 0;
+    transform: scaleX(0), translateY(20px);
+  }
 }
 
 @keyframes growRibbon {
-    0% {
-        transform: scaleX(0);
-    }
-    100% {
-        transform: scaleX(1);
-    }
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 @media (max-width: $break-l) {
-    .heading {
-        width: 100%;
-        & h1, h2, h3, h4, h5, h6 {
-            font-size: 20px;
-            padding: 0 50px;
-        }
+  .heading {
+    width: 100%;
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 20px;
+      padding: 0 50px;
     }
-    .heading--menuPage, .heading--startPage {
-        & h1, h2, h3, h4, h5, h6 {
-            font-size: 20px;
-            padding: 0;
-        }
+  }
+  .heading--menuPage,
+  .heading--startPage {
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 20px;
+      padding: 0;
     }
-    .heading--scorePage {
-        top: 22%;
-        width: 380px;
-        right: 0px;
-    }
+  }
+  .heading--scorePage {
+    top: 29%;
+    width: 404px;
+    right: 24px;
+  }
 }
 
 @media (max-width: $break-s) {
-    .heading {
-        width: 100%;
-        & h1, h2, h3, h4, h5, h6 {
-            font-size: 14px;
-            padding: 0 58px;
-        }
+  .heading {
+    width: 100%;
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 14px;
+      padding: 0 58px;
     }
-    .heading--menuPage, .heading--startPage {
-        & h1, h2, h3, h4, h5, h6 {
-            font-size: 16px;
-            padding: 0;
-        }
+  }
+  .heading--menuPage,
+  .heading--startPage {
+    & h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-size: 16px;
+      padding: 0;
     }
+  }
+  .heading--scorePage {
+    width: 260px;
+    right: -53%;
+    top: -84px;
+  }
 }

@@ -34,7 +34,22 @@ const CategoryButtonsList = ({
     </Link>
   ));
 
-  return <div className="categoryButtonsList">{quizCategoriesLinks}</div>;
+  return (
+    <div className={`categoryButtonsList categoryButtonsList--${location}`}>
+      {location === "scorePage" && (
+        <p
+          className={`scorePage__text ${
+            visible ? "scorePage__text--visible" : ""
+          }`}
+        >
+          wybierz
+          <br />
+          inną kategorię
+        </p>
+      )}
+      {quizCategoriesLinks}
+    </div>
+  );
 };
 
 export default CategoryButtonsList;

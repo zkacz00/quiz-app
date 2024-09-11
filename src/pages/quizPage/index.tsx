@@ -24,7 +24,7 @@ const QuizPage = ({ category }: Props) => {
 
   const { language } = useLanguage();
 
-  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [currentQuestion, setCurrentQuestion] = useState<number>(9);
   const numberOfQuestions = quizQuestionsList.programowanie.length;
   const questionType: "select" | "tf" | "dnd" | "pio" =
     quizQuestionsList[category][currentQuestion]?.[language].questionType;

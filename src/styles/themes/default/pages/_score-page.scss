@@ -1,90 +1,89 @@
 .scorePage {
-    @include display-flex();
-    width: 100%;
-    @include flex-wrap(wrap);
-    @include justify-content(flex-end);
+  @include display-flex();
+  width: 100%;
+  @include flex-wrap(wrap);
+  @include justify-content(flex-end);
+  @include align-items(center);
+  padding: 32px 64px;
+  &__mainContent {
     @include align-items(center);
-    padding: 32px 64px;
-    &__mainContent {
-        @include align-items(center);
-        @include justify-content(center);
-        @include flex-direction(column);
-        @include display-flex();
-        gap: 64px;
-        width: 60%;
-        height: 580px;
+    @include justify-content(center);
+    @include flex-direction(column);
+    @include display-flex();
+    gap: 64px;
+    width: 60%;
+    height: 580px;
+  }
+  &__score {
+    position: relative;
+    @include display-flex();
+    @include justify-content(center);
+    @include align-items(baseline);
+  }
+  &__text {
+    text-align: right;
+    text-transform: uppercase;
+    padding-bottom: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    @extend %fontSize--m;
+    &--visible {
+      opacity: 1;
     }
-    &__score {
-        position: relative;
-        @include display-flex();
-        @include justify-content(center);
-        @include align-items(baseline);
-    }
-    &__list, .categoryButtonsList {
-        @include display-flex();
-        @include flex-direction(column);
-        @include align-items(flex-end);
-        gap: 16px;
-        width: 20%;
-    }
-    &__text {
-            text-align: right;
-            text-transform: uppercase;
-            padding-bottom: 16px;
-            opacity: 0;
-            transition: opacity 0.5s ease; 
-            @extend %fontSize--m;
-        &--visible {
-            opacity: 1;
-        }
-    }
+  }
 }
 
 @media (max-width: $break-l) {
-    .scorePage {
-        padding: 32px;
-        gap: 48px;
-        &__mainContent {      
-            height: auto;
-            width: 100%;
-            gap: 48px;
-        }
-        &__list, .categoryButtonsList {
-            width: 100%;
-            @include flex-direction(row);
-            @include flex-wrap(wrap);
-            @include justify-content(center);
-            .scorePage__text {
-                width: 100%;
-                text-align: center;
-                font-size: 20px;
-            }
-        }
+  .scorePage {
+    padding: 32px;
+    gap: 48px;
+    justify-content: center;
+    &__mainContent {
+      height: auto;
+      width: 100%;
+      gap: 48px;
     }
+    &__text {
+      width: 224px;
+      font-size: 20px;
+      padding-right: 19px;
+    }
+  }
+}
+
+@media (max-width: $break-m) {
+  .scorePage {
+    padding: 32px;
+    gap: 48px;
+    justify-content: center;
+    &__mainContent {
+      height: auto;
+      width: 100%;
+      gap: 48px;
+    }
+    &__text {
+      width: 200px;
+      font-size: 20px;
+    }
+  }
 }
 
 @media (max-width: $break-s) {
-    .scorePage {
-        @include flex-direction(column);
-        padding: 24px 16px;
-        height: auto;
-        gap: 0px;
-        &__mainContent {
-            width: 100%;
-            height: auto;
-            gap: 32px;
-        }
-        &__list, .categoryButtonsList {
-            width: 100%;
-            max-width: 206px;
-            padding: 0;
-            @include align-items(flex-start);
-            @include justify-content(flex-start);
-        }
-        &__text {
-            margin: $s-medium 0 0;
-            text-align: center;
-            font-size: 14px;
-        }
+  .scorePage {
+    @include flex-direction(column);
+    padding: 24px 16px;
+    height: auto;
+    gap: 0px;
+    &__mainContent {
+      width: 100%;
+      height: auto;
+      gap: 32px;
     }
+    &__text {
+      margin: 8px 0 !important;
+      text-align: center !important;
+      padding: 0 !important;
+      width: 100% !important;
+    }
+  }
 }

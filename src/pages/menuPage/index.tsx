@@ -38,7 +38,7 @@ function MenuPage() {
             <CategoryButtonsList
               category="programowanie"
               direction="row"
-              location="startPage"
+              location="menuPage"
               visible={buttonsVisible}
             />
           </div>

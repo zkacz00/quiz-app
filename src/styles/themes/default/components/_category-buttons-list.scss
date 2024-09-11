@@ -1,0 +1,63 @@
+.categoryButtonsList {
+  @include display-flex();
+  @include align-items(flex-end);
+  gap: 16px;
+  width: 20%;
+  &--scorePage {
+    @include flex-direction(column);
+  }
+  &--menuPage {
+    width: 100%;
+    @include flex-direction(row);
+  }
+}
+
+@media (max-width: $break-l) {
+  .categoryButtonsList {
+    &--scorePage {
+      width: 100%;
+      max-width: 704px;
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+      @include justify-content(flex-start);
+    }
+    &--menuPage {
+      width: 100%;
+      @include flex-direction(row);
+      @include flex-wrap(wrap);
+      @include justify-content(center);
+    }
+  }
+}
+
+@media (max-width: $break-m) {
+  .categoryButtonsList {
+    &--scorePage {
+      max-width: 416px;
+      .scorePage__text {
+        width: 200px;
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-s) {
+  .categoryButtonsList {
+    &--scorePage {
+      width: 100%;
+      max-width: 100%;
+      padding: 0 32px;
+      margin-top: 24px;
+      @include align-items(flex-start);
+      @include justify-content(flex-start);
+    }
+    &--menuPage {
+      width: 100%;
+      max-width: 206px;
+      padding: 0;
+      @include align-items(flex-start);
+      @include justify-content(flex-start);
+    }
+  }
+}

@@ -1,163 +1,167 @@
 .linkButtonWrapper {
-    width: fit-content;
-    height: fit-content;
+  width: fit-content;
+  height: fit-content;
 }
 
 .categoryButton {
-    text-transform: uppercase;
-    opacity: 1;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity 1s ease, transform 1s ease;
+  @include flex-direction(column);
+  @include align-items(flex-start);
+  &__icon {
+    width: 40%;
+    margin: 0 10%;
+  }
+  &__pinkLine {
+    width: 100%;
+    height: 1.5px;
+    margin: 17% 0 7%;
+  }
+  &--single {
+    width: 180px;
+    height: 140px;
+    @extend %fontSize--sm;
+    @include display-flex();
+    @include align-items(center);
+    @include justify-content(space-between);
     transition: opacity 1s ease, transform 1s ease;
-    @include flex-direction(column);
-    @include align-items(flex-start);
-    &__icon {
-        width: 40%;
-        margin: 0 10%;
-    }
-    &__pinkLine {
-        width: 100%;
-        height: 1.5px;
-        margin: 17% 0 7%;
-    }
-    &--single {
-        width: 180px;
-        height: 140px;
-        @extend %fontSize--sm;
-        @include display-flex();
-        @include align-items(center);
-        @include justify-content(space-around);
-        transition: opacity 1s ease, transform 1s ease;
-        & .categoryButton__pinkLine {
-            width: 80%;
-            height: 2px;
-        }
-        &.not-visible {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        &.visible {
-            opacity: 1;
-            transition-delay: 0.1s;
-            transform: translateY(0);
-        }
-    }
-    &--list {
-        padding: $s-small;
-        @include justify-content(flex-end);
-    }
-    &--row {
-        width: 170px;
-        height: 165px;
-        @extend %fontSize--s;
-    }
-    &--column {
-        width: 224px;
-        height: 80px;
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        @include align-items(flex-end);
-        @include justify-content(flex-start);
-        column-gap: 12px;
-        row-gap: 8px;
-        @extend %fontSize--xxs;
-        & .categoryButton {
-            padding: 16px 0;
-            @include justify-content(flex-start);
-            @include align-items(center);
-            @include flex-wrap(wrap);
-            @include flex-direction(row);
-            @include display-flex();
-            row-gap: 8px;
-            column-gap: 8px;
-            &__icon {
-                width: 40px;
-                margin: 0 0 0 8px;
-                order: 1;
-            }
-            &__text {
-                order: 2;
-                margin: 0;
-                font-size: 12px;
-            }
-            &__pinkLine {
-                margin: 0;
-                width: 100%;
-                order: 3;
-            }
-        }
+    & .categoryButton__pinkLine {
+      width: 80%;
+      height: 2px;
     }
     &.not-visible {
-        opacity: 0;
-        transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
     }
     &.visible {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transition-delay: 0.1s;
+      transform: translateY(0);
+    }
+  }
+  &--list {
+    padding: $s-small;
+    @include justify-content(flex-end);
+  }
+  &--row {
+    width: 170px;
+    height: 165px;
+    @extend %fontSize--s;
+  }
+  &--column {
+    width: 224px;
+    height: 80px;
+    @include flex-direction(row);
+    @include flex-wrap(wrap);
+    @include align-items(flex-end);
+    @include justify-content(flex-start);
+    column-gap: 12px;
+    row-gap: 8px;
+    @extend %fontSize--xxs;
+    & .categoryButton {
+      padding: 16px 0;
+      @include justify-content(flex-start);
+      @include align-items(center);
+      @include flex-wrap(wrap);
+      @include flex-direction(row);
+      @include display-flex();
+      row-gap: 8px;
+      column-gap: 8px;
+      &__icon {
+        width: 40px;
+        margin: 0 0 0 8px;
+        order: 1;
       }
-    &--0 {
-        transition-delay: 0.2s;
+      &__text {
+        order: 2;
+        margin: 0;
+        font-size: 12px;
+      }
+      &__pinkLine {
+        margin: 0;
+        width: 100%;
+        order: 3;
+      }
     }
-    &--1 {
-        transition-delay: 0.4s;
-    }
-    &--2 {
-        transition-delay: 0.6s;
-    }
-    &--3 {
-        transition-delay: 0.8s;
-    }
-    &--4 {
-        transition-delay: 1s;
-    }
+  }
+  &.not-visible {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  &--0 {
+    transition-delay: 0.2s;
+  }
+  &--1 {
+    transition-delay: 0.4s;
+  }
+  &--2 {
+    transition-delay: 0.6s;
+  }
+  &--3 {
+    transition-delay: 0.8s;
+  }
+  &--4 {
+    transition-delay: 1s;
+  }
 }
 
 @media (max-width: $break-l) {
-    .categoryButton {
-        &--single {
-            width: 120px;
-            height: 115px;
-        }
-        &--list {
-            padding: 13px;
-        }
-        &--row {
-            width: 120px;
-            height: 125px;
-            border-radius: 11px;
-            margin: $s-xx-small;
-        }
-        &--column {
-            width: 95px;
-            height: 100px;
-            margin: 0;
-            padding: 7px;
-    
-            border-radius: 11px;
-            .categoryButton__text {
-                order: 2;
-                margin: 0;
-                font-size: 8px;
-            }
-        }
-        &--single {
-            width: 170px;
-            height: 160px;
-            .categoryButton__icon {
-                width: 40%;
-            }
-            .categoryButton__text {
-                font-size: 16px;
-            }
-            .categoryButton__pinkLine {
-                margin: 7% 0;
-        }
+  .categoryButton {
+    &--list {
+      padding: 13px;
     }
+    &--row {
+      width: 120px;
+      height: 125px;
+      border-radius: 11px;
+      margin: $s-xx-small;
     }
+    &--single {
+      width: 170px;
+      height: 130px;
+      .categoryButton__icon {
+        width: 40%;
+      }
+      .categoryButton__text {
+        font-size: 16px;
+      }
+      .categoryButton__pinkLine {
+        margin: 7% 0;
+      }
+    }
+  }
+}
+
+@media (max-width: $break-m) {
+  .categoryButton {
+    &--column {
+      width: 200px;
+      .categoryButton__icon {
+        width: 32px;
+      }
+    }
+  }
 }
 
 @media (max-width: $break-s) {
-    .categoryButton {
-        &__icon {
-            width: 40px;
-        }
+  .categoryButton {
+    &__icon {
+      width: 40px;
     }
+    &--column {
+      width: 100%;
+      .categoryButton__icon {
+        width: 40px;
+      }
     }
+    &--single {
+      width: 150px;
+      height: 120px;
+    }
+  }
+}
