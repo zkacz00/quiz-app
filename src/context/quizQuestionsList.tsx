@@ -443,7 +443,7 @@ const quizQuestionsList: QuizQuestionsListType = {
           },
           {
             answerText: "C. opisu ilości wątków używanych przez system.",
-            isCorrect: true,
+            isCorrect: false,
           },
           {
             answerText:
@@ -453,7 +453,7 @@ const quizQuestionsList: QuizQuestionsListType = {
           {
             answerText:
               "E. opisu minimalnych wymagań systemowych do uruchomienia systemu.",
-            isCorrect: true,
+            isCorrect: false,
           },
         ],
       },
@@ -473,7 +473,7 @@ const quizQuestionsList: QuizQuestionsListType = {
           },
           {
             answerText: "C. Describing the number of threads used by a system.",
-            isCorrect: true,
+            isCorrect: false,
           },
           {
             answerText:
@@ -483,7 +483,7 @@ const quizQuestionsList: QuizQuestionsListType = {
           {
             answerText:
               "E. Describing the minimum system requirements to run a system.",
-            isCorrect: true,
+            isCorrect: false,
           },
         ],
       },
